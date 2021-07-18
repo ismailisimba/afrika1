@@ -153,7 +153,7 @@ nav ul li:hover {
     
     width: 66%;
     height: 45%;
-    padding-top: 142px;
+    padding-top: 124px;
     padding-left: 48px;
     padding-right: 48px;
     box-sizing: border-box;
@@ -185,9 +185,15 @@ nav ul li:hover {
 }
 
 .internalboxone button {
-    width: 64px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     margin-left: 48px;
     box-sizing: border-box;
-    background-image: url();
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_forward.svg");
+    background-position: center;
+    background-size: 69%;
+    box-shadow: 1px 1px 3px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 0px;
 }
