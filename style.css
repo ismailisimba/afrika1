@@ -137,4 +137,53 @@ nav ul li:hover {
     width: 269px;
     height: 100%;
 
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/elephant-tall-standard.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+.internalboxone h1 {
+    display: block;
+    font-size: large !important;
+    margin-block-start: 0px !important;
+    margin-block-end: 0px !important;
+    font-weight: 500;
+    position: relative;
+    
+    width: 66%;
+    height: 45%;
+    padding-top: 142px;
+    padding-left: 48px;
+    padding-right: 48px;
+    box-sizing: border-box;
+    letter-spacing: 1.69px;
+    color: white;
+}
+
+.internalboxone hr {
+    display: block;
+    position: absolute;
+    bottom: 50%;
+    right: 0px;
+    width: 33%;
+    height: 3px;
+    margin-block-start: 0px !important;
+    margin-block-end: 0px !important;
+    overflow: hidden;
+    border-style: none;
+    border-width: 0.69px;
+    background-color:  white;
+}
+
+.internalboxone p {
+    color: white;
+    padding-left: 48px;
+    padding-top: 36px;
+    padding-right: 48px;
+    box-sizing: border-box;
+}
+
+.internalboxone button {
+    
 }
