@@ -185,5 +185,9 @@ nav ul li:hover {
 }
 
 .internalboxone button {
-    
+    width: 64px;
+    height: 42px;
+    margin-left: 48px;
+    box-sizing: border-box;
+    background-image: url();
 }
