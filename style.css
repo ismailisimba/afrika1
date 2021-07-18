@@ -33,19 +33,11 @@ nav{
     display: block;
     position: sticky;
     margin: 24px auto;
-<<<<<<< HEAD
     
     padding-top: 0px;
     box-sizing: border-box;
 
     box-shadow: 1.69px 1.69px 6px 1.69px;
-=======
-    margin-top: 36px !important;
-    padding-top: 12px;
-    box-sizing: border-box;
-
-    box-shadow: 2.69px 2.69px 9px 3px;
->>>>>>> 4e3d3eaa312854f799f162d3f69ea099312031f2
 
     text-align: center;
 
