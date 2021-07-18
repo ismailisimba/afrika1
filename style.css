@@ -116,11 +116,14 @@ nav ul li:hover {
     z-index: 10;
     box-sizing: border-box;
     overflow-y: hidden;
+
+    display: flex;
 }
 
 .internalboxone {
     display: block;
     margin-top: 12px;
+    margin-right: 12px;
     width: 669px;
     height: 95%;
     background-color: #696d6b;
@@ -130,6 +133,10 @@ nav ul li:hover {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
+}
+
+.containerbox{
+    position: relative;
 }
 
 .internalboxone img {
@@ -163,13 +170,11 @@ nav ul li:hover {
 
 .internalboxone hr {
     display: block;
-    position: absolute;
-    bottom: 50%;
-    right: 0px;
     width: 33%;
     height: 3px;
     margin-block-start: 0px !important;
     margin-block-end: 0px !important;
+    margin-left: 48px;
     overflow: hidden;
     border-style: none;
     border-width: 0.69px;
@@ -179,14 +184,14 @@ nav ul li:hover {
 .internalboxone p {
     color: white;
     padding-left: 48px;
-    padding-top: 36px;
+    padding-top: 0px;
     padding-right: 48px;
     box-sizing: border-box;
 }
 
 .internalboxone button {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     margin-left: 48px;
     box-sizing: border-box;
     background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_forward.svg");
@@ -196,4 +201,29 @@ nav ul li:hover {
     background-repeat: no-repeat;
     border-radius: 50%;
     border: 0px;
+}
+
+
+
+
+.internalboxtwo {
+    display: block;
+    margin-top: 12px;
+    margin-right: 12px;
+    width: 669px;
+    height: 95%;
+    background-color: #696d6b;
+    z-index: 100;
+
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/zebra-wide-standard.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
 }
