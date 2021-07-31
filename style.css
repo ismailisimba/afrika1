@@ -10,6 +10,12 @@ body{
     background-size: auto;
 }
 
+p{
+    font-size: 14px;
+    letter-spacing: 1.69px;
+    font-weight: 300;
+}
+
 
 title{
     font-size: xx-large;
@@ -103,7 +109,46 @@ nav ul li:hover {
     -ms-overflow-style: none;
 }
 
-.bigcontainer::-webkit-scrollbar { display: none; }
+ .genericbox {
+    min-width: 96%;
+    height: 0px;
+    border: 6px;
+    background-color: #696d6b;
+    
+    display: block;
+    position: relative;
+    top: -469px;
+    margin-top: 12px;
+    margin-bottom: 36px;
+    margin-left: 24px;
+    margin-right: 24px;
+  
+    box-sizing: border-box;
+
+    box-shadow: 2.69px 2.69px 9px 3px;
+
+    border-top-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+
+    overflow-y: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+
+    transition: all;
+
+    -webkit-transition-duration: 1.5s;
+    -moz-transition-duration: 1.5s;
+    -o-transition-duration: 1.5s;
+    transition-duration: 1.5s;
+
+
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.bigcontainer::-webkit-scrollbar, .genericbox::-webkit-scrollbar { display: none; }
 
 
 .scrollcontainer{
@@ -169,7 +214,7 @@ nav ul li:hover {
     color: white;
 }
 
-.internalboxone hr {
+.internalboxone hr, .internalboxtwo hr {
     display: block;
     position: relative;
     top: -48px;
@@ -332,4 +377,21 @@ nav ul li:hover {
 }
 .blockone:nth-child(3) img:nth-child(2),.blockone:nth-child(3) img:nth-child(3){
     width: 40%;
+}
+
+.internalboxtwo button {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    bottom:36px;
+    right: 48px;
+    margin-left: 48px;
+    box-sizing: border-box;
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow-circle-down.png");
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 0px;
+    background-color: transparent;
 }
