@@ -10,10 +10,7 @@ window.onload = () => {
 
 
 function  myScrollFunctions() {
-
     document.onwheel = customScroll;
-
-    console.log("Hello there!");
 };
 
 
