@@ -10,6 +10,7 @@ body{
     background-size: auto;
 }
 
+
 title{
     font-size: xx-large;
     font-weight: 700;
@@ -160,7 +161,7 @@ nav ul li:hover {
     
     width: 66%;
     height: 45%;
-    padding-top: 124px;
+    padding-top: 48px;
     padding-left: 48px;
     padding-right: 48px;
     box-sizing: border-box;
@@ -170,6 +171,8 @@ nav ul li:hover {
 
 .internalboxone hr {
     display: block;
+    position: relative;
+    top: -48px;
     width: 33%;
     height: 3px;
     margin-block-start: 0px !important;
@@ -177,21 +180,31 @@ nav ul li:hover {
     margin-left: 48px;
     overflow: hidden;
     border-style: none;
+    
     border-width: 0.69px;
     background-color:  white;
+    box-sizing: border-box;
 }
 
 .internalboxone p {
+    width: 100%;
+    max-height: 180px;
+    position: relative;
+    top: -48px;
     color: white;
     padding-left: 48px;
     padding-top: 0px;
     padding-right: 48px;
     box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .internalboxone button {
     width: 36px;
     height: 36px;
+    position: relative;
+    top: -48px;
     margin-left: 48px;
     box-sizing: border-box;
     background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_forward.svg");
