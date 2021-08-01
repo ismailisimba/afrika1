@@ -127,3 +127,29 @@ function rollInGeneric() {
     counters.dropState="hidden";
 
 }
+
+
+
+function checkTheURL () {
+
+    let location = window.location.href.toString();
+    let backendMatch = location.match(/\b(\w*backend\w*)\b/g)
+    
+    if(backendMatch!==null){
+      cPan.remove();
+      cPanGenericCont.remove();
+      popUp.remove();
+      
+      initiateLogInSetup(backendMatch);
+    }else{
+      fetcher({},"first",firstDisp);
+      popUp.remove();
+      mobNav.remove();
+      addMobMenu(window.screen.width);
+      fillDeFrontEnd();
+      
+    }
+    
+   
+    
+  }
