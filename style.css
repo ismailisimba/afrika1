@@ -111,6 +111,7 @@ nav ul li:hover {
 
  .genericbox {
     min-width: 96%;
+    visibility: collapse;
     height: 0px;
     border: 6px;
     background-color: #696d6b;
@@ -394,4 +395,55 @@ nav ul li:hover {
     border-radius: 50%;
     border: 0px;
     background-color: transparent;
+}
+
+
+.genericboxheader{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+.genericbox hr {
+    width: 55%;
+    align-self: flex-start;
+    height: 3px;
+    margin-block-start: 0px !important;
+    margin-block-end: 0px !important;
+    margin-left: 48px;
+    overflow: hidden;
+    border-style: none;
+
+    position: relative;
+    top: 32px;
+    
+    border-width: 0.69px;
+    background-color:  white;
+    box-sizing: border-box;
+}
+
+.genericbox button{
+
+    width: 36px;
+    height: 36px;
+    position: relative;
+    top: 9px;
+    margin-right: 48px;
+    box-sizing: border-box;
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_forward.svg");
+    background-position: center;
+    background-size: 69%;
+    box-shadow: 1px 1px 3px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 0px;
+
 }

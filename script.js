@@ -92,7 +92,15 @@ function dropDownClicks () {
 
 
 function rollOutGeneric(elementId){
-    document.querySelectorAll(".genericbox")[0].style.height = "1000px";
+    document.querySelectorAll(".genericbox")[0].style.minHeight = "469px";
+    document.querySelectorAll(".genericbox")[0].style.height = "auto";
     document.querySelectorAll(".genericbox")[0].style.top = "0px";
+    document.querySelectorAll(".genericbox")[0].style.visibility = "visible";
+   
+    let tempTimer = window.setTimeout(()=>{
+        document.querySelectorAll(".genericbox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        window.clearTimeout(tempTimer);
+    },1696)
+    
     document.onwheel = emptyDisengagedFunc;
 };
