@@ -10,6 +10,41 @@ body{
     background-size: auto;
 }
 
+footer{
+    position: absolute;
+    bottom:-32px;
+    left: 7.5%;
+    width: 85%;
+    font-size: 11px;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1.69px;
+}
+
+footer ul{
+    position: relative;
+    list-style-type: none;
+    margin-block-start: 0px !important;
+    margin-block-end: 0px !important;
+    padding-inline-start: 0px !important;
+
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer ul li{
+    margin-left: 24px;
+}
+
+footer ul li:nth-child(1){
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
 p{
     font-size: 14px;
     letter-spacing: 1.69px;
@@ -22,7 +57,7 @@ title{
     font-weight: 700;
     display: block;
     width: 100%;
-    margin-top: 36px !important;
+    margin-top: 24px !important;
     box-sizing: border-box;
     letter-spacing: 3px;
     text-align: center;
@@ -437,8 +472,9 @@ nav ul li:hover {
     position: relative;
     top: 9px;
     margin-right: 48px;
+    background-color: transparent;
     box-sizing: border-box;
-    background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_forward.svg");
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/cancel_white.svg");
     background-position: center;
     background-size: 69%;
     box-shadow: 1px 1px 3px;

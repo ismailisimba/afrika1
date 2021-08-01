@@ -2,6 +2,7 @@ const counters = {};
 counters["deltaY"] = 0;
 counters["deltaYSign"] = "null";
 counters["elements"] ={};
+counters["dropState"] = "hidden";
 
 
 window.onload = () => {
@@ -56,6 +57,7 @@ function emptyDisengagedFunc(){
 
 function navToItem(eleText){
     let tempVar = eleText;
+    rollInGeneric();
 
     if(tempVar==="Home"){
         document.querySelectorAll(".internalboxone")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
@@ -85,9 +87,16 @@ function dropDownClicks () {
     counters.elements["dropdownbutts"] = document.querySelectorAll(".dropdownbuttons");
     counters.elements.dropdownbutts.forEach(element => {
         element.addEventListener("click",()=>{
-            rollOutGeneric(element.id);
+            if(counters.dropState==="hidden"){
+                rollOutGeneric(element.id);
+            }else{
+                rollInGeneric();
+            }
+            
         })
     })
+
+    document.querySelectorAll(".genericboxheader")[0].querySelectorAll("button")[0].addEventListener("click",rollInGeneric);
 }
 
 
@@ -103,4 +112,18 @@ function rollOutGeneric(elementId){
     },1696)
     
     document.onwheel = emptyDisengagedFunc;
+    counters.dropState="shown";
 };
+
+
+function rollInGeneric() {
+    document.querySelectorAll(".genericbox")[0].style.minHeight = "0px";
+    document.querySelectorAll(".genericbox")[0].style.height = "0px";
+    document.querySelectorAll(".genericbox")[0].style.top = "-169px";
+    document.querySelectorAll(".genericbox")[0].style.visibility = "collapse";
+   
+    
+    document.onwheel = customScroll;
+    counters.dropState="hidden";
+
+}
