@@ -3,12 +3,15 @@ counters["deltaY"] = 0;
 counters["deltaYSign"] = "null";
 counters["elements"] ={};
 counters["dropState"] = "hidden";
+counters["elements"]["cPan"] = document.querySelectorAll(".settcont")[0];
+counters["elements"]["cPanGenericCont"] = document.querySelectorAll(".genericCpanCont")[0];
+counters["elements"]["popUp"] = document.querySelectorAll(".custompopup")[0];
 
 
 window.onload = () => {
   myScrollFunctions();
   navClicks();
-  dropDownClicks();
+  checkTheURL();
 }
 
 
@@ -136,20 +139,29 @@ function checkTheURL () {
     let backendMatch = location.match(/\b(\w*backend\w*)\b/g)
     
     if(backendMatch!==null){
-      cPan.remove();
-      cPanGenericCont.remove();
-      popUp.remove();
+      counters.elements.cPan.remove();
+      counters.elements.cPanGenericCont.remove();
+      counters.elements.popUp.remove();
       
-      initiateLogInSetup(backendMatch);
+     initiateLogInSetup(backendMatch);
     }else{
-      fetcher({},"first",firstDisp);
-      popUp.remove();
-      mobNav.remove();
-      addMobMenu(window.screen.width);
-      fillDeFrontEnd();
-      
+    window.location.href = "./";  
+    dropDownClicks();
     }
     
    
     
+  }
+
+
+  function initiateLogInSetup (backendMatch){
+
+    let contentBox = document.getElementById("scrl1");
+    let googleStuff = document.querySelectorAll(".googlestuff")[0];
+  
+  
+    contentBox.innerHTML = "";
+    contentBox.appendChild(googleStuff);
+    contentBox.style.minHeight ="1000px";
+  
   }

@@ -119,6 +119,305 @@ nav ul li:hover {
     color: #696d6b;
 }
 
+
+.settcont{
+    display: block;
+    position: absolute;
+    top: 0px;
+    border-radius: 6px;
+    left: 7%;
+
+    border: 3px dotted transparent;
+    padding: 9px 16px;
+
+    width: 20%;
+    min-width: 69px;
+    max-width: 300px;
+    height: 48px;
+
+    background-color: transparent;
+}
+
+.settcont img{
+    display: block;
+    position: absolute;
+    top: 48px;
+    left: 0px;
+    width: 16px;
+    height: auto;
+    overflow-y: scroll;
+}
+
+.setinset{
+
+    visibility: hidden;
+    
+    width: 100%;
+    height: 100%;
+    position: relative;
+    bottom: -12px;
+
+    transition: all 1.3s ease-out;
+
+    background-color: transparent;
+    border: 0.69px solid white;
+    border-radius: 3px;
+
+    
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    overflow-y: scroll;
+}
+
+.cpancontentcont{
+    width: 100%;
+    height: auto;
+    padding: 12px 12px;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cpancontentcont .butts {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+    padding: 12px 12px;
+    cursor: pointer;
+
+    border-radius: 6px;
+    width: 85%;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    text-align: center;
+    
+    z-index: 1000;
+
+}
+
+
+.setinset::-webkit-scrollbar { display: none; }
+
+
+.custompopup{
+    display: block;
+    visibility: hidden;
+    position: fixed;
+
+    width: 50%;
+    left: 50%;
+    top: 25%;
+    height: 50%;
+
+    background-color: white;
+    z-index: 1000;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 36px;
+    padding-right: 36px;
+}
+
+
+.spanCont{
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    width: 85%;
+    box-sizing: border-box;
+    padding: 12px 24px;
+    justify-content: space-evenly;
+
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
+
+  .spanCont span {
+      color: black;
+  }
+
+  .dots{
+    position: relative;
+    margin-top: 6px;
+    top: -6px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: black;
+
+    animation: wobbleMeDots 1.9s linear 0s infinite forwards ;
+    transition: all linear 1s;
+  }
+
+  #spOne {
+    animation-delay: 0.9s;
+  }
+
+  #spTwo {
+    animation-delay: 1.8s;
+  }
+
+  #spThree {
+    animation-delay: 2.7s;
+  }
+
+  #spFour {
+    animation-delay: 3.6s;
+  }
+
+  #spFive {
+    animation-delay: 4.5s;
+  }
+
+  @keyframes wobbleMeDots {
+
+    0%{
+        top: -6px;
+    }
+
+    50%{
+
+      top: 12px;
+      
+    }
+
+    100%{
+
+      top: -6px;
+
+    }
+    
+  }
+
+
+
+  .sitemappiccontainer{
+      background-image: url("https://www.talissclub.com/img_ly/taliss-sitemap-wide.png");
+      background-position: center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-color: transparent !important;
+  }
+
+  .genericCpanCont{
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 36px;
+
+    width: 85%;
+    background-color: white;
+    color: white;
+    border-radius: 6px;
+    padding-bottom: 12px;
+    min-height: 18px;
+    height: auto;
+    visibility: hidden;
+  }
+
+  .cPanContTit{
+    position: absolute;
+    top: 6px;
+    width: 85%;
+    min-height: 48px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    background-color: transparent;
+    text-align: center;
+
+  }
+
+
+  .imageListItemCont{
+
+    width:85%;
+    min-height: 36px;
+    padding: 6px 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border: 0.69px dotted black;
+    color: black !important;
+  }
+
+
+
+  .imageListItemCont .filename,  .imageListItemCont .filetype, .imageListItemCont .filesize{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+    letter-spacing: 1.69px;
+
+    background-color: transparent;
+  }
+
+
+  #temporarydiv{
+    position: relative;
+    width: 65%;
+    min-width: 69px;
+    align-self: flex-end;
+    top: 120px;
+    margin-top: 6px;
+    margin-right: 24px;
+}
+
+.mylogbutt{
+
+    border: 3px dotted white;
+    padding: 9px 16px;
+    border-radius: 6px;
+}
+
+.loginbutt{
+
+    color: white;
+    background-color: transparent;
+}
+
+.loginbutt:hover{
+
+    color: black;
+    background-color: white;
+}
+
+.googlestuff{
+
+    color: black;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+.googlestuff a{
+
+    color: white !important;
+    text-decoration: none !important;
+
+
+}
+
+
+
 .bigcontainer {
     min-width: 96%;
     height: 469px;
