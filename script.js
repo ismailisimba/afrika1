@@ -136,6 +136,7 @@ function rollInGeneric() {
 function checkTheURL () {
 
     let location = window.location.href.toString();
+    
     let backendMatch = location.match(/\b(\w*backend\w*)\b/g)
     
     if(backendMatch!==null){
@@ -145,8 +146,7 @@ function checkTheURL () {
       
      initiateLogInSetup(backendMatch);
     }else{
-    window.location.href = "./";  
-    dropDownClicks();
+    
     }
     
    
