@@ -13,6 +13,7 @@ counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
 
 
 window.onload = () => {
+  frontEndOnlyFuncs();
   myScrollFunctions();
   navClicks();
   checkTheURL();
@@ -2123,7 +2124,7 @@ async function startHailing(data,para,functionToRunAfter){
     
     };
     
-    function getStoryTit(id){
+function getStoryTit(id){
       let stories = localVar.cloudObj.contentObj.contentObj.published.stories;
       let title = "Not Found";
     
@@ -2136,4 +2137,10 @@ async function startHailing(data,para,functionToRunAfter){
     
       return title;
     
-    }
+}
+
+function frontEndOnlyFuncs () {
+  let frontEnd = document.querySelectorAll(".frontphotobox")[0];
+  console.log(frontEnd);
+
+}
