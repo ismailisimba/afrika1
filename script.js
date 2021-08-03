@@ -6,6 +6,7 @@ counters["dropState"] = "hidden";
 counters["elements"]["cPan"] = document.querySelectorAll(".settcont")[0];
 counters["elements"]["cPanGenericCont"] = document.querySelectorAll(".genericCpanCont")[0];
 counters["elements"]["popUp"] = document.querySelectorAll(".custompopup")[0];
+counters["reqString"] = "https://script.google.com/macros/s/AKfycbwsionDZcaKZPxP9A6c6A-fjpKavYrdpxEhial1Jw_kE35XRYfc9Hxwfe7zd4Zfb0A/exec";
 
 
 window.onload = () => {
@@ -164,4 +165,362 @@ function checkTheURL () {
     contentBox.appendChild(googleStuff);
     contentBox.style.minHeight ="1000px";
   
+  }
+
+
+  
+function onSignIn(googleUser) {
+
+    let signInBut = document.querySelectorAll(".g-signin2")[0];
+    signInBut.style.visibility = "collapse";
+    signInBut.style.width = "0px";
+  
+    let token = googleUser.getAuthResponse().id_token;
+  
+    hailTheServerOnAllChannels("login",token);
+  }
+
+
+
+
+  async function fetchInfoWithFilter (data,para) {
+
+    data = JSON.stringify(data);
+      
+  
+    var myRequest = new Request(reqString+"?paraOne="+para);
+    
+  
+         
+    const returnVal = await fetch(myRequest, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'omit', // include, *same-origin, omit
+      headers: {
+        //'Content-Type': 'text/txt'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: data // body data type must match "Content-Type" header
+    })
+          .then(function(response) {
+            if (!response.ok) {
+              
+              throw new Error("HTTP error, status = " + response.status);
+              
+            }
+            
+            return response.text();
+          })
+          .then(function(myBlob) {
+            
+            var cloudObject = JSON.parse(myBlob);
+            
+          
+            return cloudObject;
+            
+          })
+          .catch(function(error) {
+            var p = document.createElement('p');
+            p.appendChild(
+              document.createTextNode('Error: ' + error.message)
+            );
+            tempDiv = document.querySelectorAll(".bigcontainer")[0];
+            tempDiv2 = document.querySelectorAll(".googlestuff")[0];
+            tempDiv.insertBefore(p, tempDiv2);
+          });
+  
+        
+         // document.querySelectorAll(".mycolumns")[1].innerHTML = returnVal;
+          return returnVal; 
+  
+      // tempDiv.innerHTML = Object.entries(localVar.values)[0][1][3] ;   
+  };
+
+
+
+
+
+async function hailTheServerOnAllChannels(action,value) {
+
+    if(action==="login"){
+  
+      let data = await bundleMyData(action,value).then((data)=>{
+        startHailing(data,"login",genericPrintResponse);
+        return data;
+      });
+  
+      customPopUpFunc(popUp,"Signing In","fullsteamahead");
+  
+    }else if(action==="uploadFiles"){
+      let data = await bundleMyData(action,value).then(()=>{
+        let myObj = bundleTokenAfter(value);
+        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.draft;
+        startHailing(myObj,"uploadImages",function(){
+          window.location.href = "./backend"
+        });
+      });
+  
+      customPopUpFunc(popUp,"Uploading","fullsteamahead");
+    }else if(action==="delete"){
+      
+      let data = await bundleMyData(action,value).then(()=>{
+        let myObj = bundleTokenAfter(value);
+        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+       
+       customPopUpFunc(popUp,"Deleting","fullsteamahead");
+        startHailing(myObj,action,function(){
+          window.location.href = "./backend"
+        });
+      });
+  
+    }else if(action==="uploadStory"){
+      let data = await bundleMyData(action,value).then(()=>{
+  
+        
+        let myObj = bundleTokenAfter(value);
+        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.draft.stories[0];
+       
+       customPopUpFunc(popUp,"Saving Story","fullsteamahead");
+        startHailing(myObj,action,function(){
+          window.location.href = "./backend"
+        });
+      });
+  
+    }else if(action==="deleteStories"){
+      let data = await bundleMyData(action,value).then(()=>{
+        let myObj = bundleTokenAfter(value);
+        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+      
+       customPopUpFunc(popUp,"Deleting","fullsteamahead");
+        startHailing(myObj,action,function(){
+          window.location.href = "./backend"
+        });
+      });
+    }else if(action==="updatePublish"){
+      let data = await bundleMyData(action,value).then(()=>{
+  
+        
+        let myObj = bundleTokenAfter(value);
+        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+       
+       customPopUpFunc(popUp,"Updating","fullsteamahead");
+        startHailing(myObj,action,function(){
+          window.location.href = "./backend"
+        });
+      });
+    
+  
+      
+  
+    }else if(action==="updateSettings"){
+      let data = await bundleMyData(action,value).then(()=>{
+  
+        
+        let myObj = bundleTokenAfter(value);
+        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+       
+       customPopUpFunc(popUp,"Updating","fullsteamahead");
+        startHailing(myObj,action,function(){
+          window.location.href = "./backend"
+        });
+      });
+  
+  
+    }
+  
+  
+  
+  
+  };
+
+
+  
+async function startHailing(data,para,functionToRunAfter){
+    fetchInfoWithFilter(data,para).then((responseObj)=>{
+      functionToRunAfter(responseObj);
+    });
+  }
+  
+  
+  
+  async function bundleMyData(action,value) {
+  
+    let data = "mydata";
+  
+    if(action==="login"){
+      data = bundleLoginData(value);
+     
+    }else if(action==="uploadFiles"){
+  
+      data =  await bundleFilesForUpload().then((data)=>{
+        data = updateCloudObj("images",data);
+        return data;
+      });
+    
+      
+    }else if(action==="delete"){
+      
+     data = updateCloudObj("deleteFiles",{});
+        
+    
+      
+  
+    }else if(action==="uploadStory"){
+     // data = updateCloudObj("story",value);
+  
+    }else if (action==="deleteStories"){
+      data = updateCloudObj("deleteStories",{});
+    }else if(action==="updatePublish"){
+      data = updateCloudObj("updatePublish",{});
+    }else if(action==="updateSettings"){
+      data = updateCloudObj("updateSettings",{});
+    }
+  return data;
+  }
+  
+  
+  
+  function bundleLoginData(token) {
+    let contextObject = JSON.parse(JSON.stringify(paraTemplate));
+  
+      contextObject.params[0]["action"] = "login";
+      contextObject.params[0]["token"] = token.toString();
+  
+      return contextObject;
+  }
+  
+  
+  function bundleTokenAfter(token) {
+    let contextObject = JSON.parse(JSON.stringify(paraTemplate));
+  
+      contextObject.params[0]["action"] = "later...";
+      contextObject.params[0]["token"] = token.toString();
+      contextObject.params[0]["dataObj"] = {};
+  
+      return contextObject;
+  }
+  
+  
+  function genericPrintResponse (responseObj){
+   localVar["cloudObj"] = responseObj;
+    let loginStatus = responseObj.tokenObject.status;
+  let myCanvas = document.querySelectorAll(".mycolumns")[1];
+  myCanvas.innerHTML = "";
+  myCanvas.style.color = "black";
+  myCanvas.style.fontSize = "14px";
+  myCanvas.style.fontWeight = "600";
+  myCanvas.style.letterSpacing = "2px";
+  myCanvas.style.display = "flex";
+  //popUp.remove();
+  
+  if(loginStatus==="captainHasTheCon"){
+    initSetupBackend("captainHasTheCon");
+  }else{
+   alert("There seems to be an error. Please use the correct email. <br> If the error persists please email: ismaili.a.simba@gmail.com");
+   signOut();
+   document.querySelectorAll("title")[0].innerHTML= "Swim - Log In";
+  }
+  //myCanvas.innerHTML = Object.entries(responseObj.tokenObject);
+  
+   
+  }
+  
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      location.reload();
+      
+    });
+  }
+  
+  function getToken() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    let status = auth2.isSignedIn.get();
+    let tokentemp = "";
+  
+    if(status){
+  
+      let user = auth2.currentUser.get()
+      tokentemp = user.getAuthResponse().id_token;
+  
+    }else{
+  
+      alert("Please reload the page and log in");
+  
+    }
+  
+    return tokentemp;
+  
+  }
+  
+  
+  
+  function  initSetupBackend(status){
+  
+    if(status==="captainHasTheCon"){
+  
+      setupBackendCanvasLoggedIn();
+  
+    }else{
+  
+  
+    }
+  
+  
+  };
+  
+  async function setupBackendCanvasLoggedIn(){
+  
+    myGoogleBox.innerHTML = "";
+    myGoogleBox.innerHTML =  `<div class="g-signin2" data-onsuccess="onSignIn"></div>`;
+  
+    let myButt = document.createElement("div");
+    myButt.className = "mylogbutt";
+    myButt.innerHTML = `<a href="#" onclick="signOut();">Sign out</a>`;
+    myGoogleBox.appendChild(myButt);
+  
+    let tempdiv = document.createElement("div");
+    tempdiv.id = "temporarydiv";
+    document.querySelectorAll(".mycolumns")[1].appendChild(tempdiv);
+    document.querySelectorAll(".mycolumns")[1].appendChild(myGoogleBox);
+    document.querySelectorAll(".mycolumns")[1].style.overflowY="scroll";
+  
+    cPan.style.backgroundColor = "white";
+    cPan.style.borderColor = "white";
+    cPan.querySelectorAll(".setinset")[0].style.height = "48px";
+    cPan.querySelectorAll(".cpancontentcont")[0].innerHTML = "";
+    document.querySelectorAll(".mycolumns")[1].appendChild(cPan);
+    //tempdiv.innerHTML = localVar.cloudObj.backendHTML;
+  
+    document.querySelectorAll("title")[0].innerHTML= "Swim - You're In!";
+    customPopUpFunc(popUp,"phrase","stop");
+    insertAndExecute("temporarydiv",localVar.cloudObj.backendHTML).then(function(){
+      addBackendEventListeners();
+      fillUpFiles(localVar.cloudObj);
+      fillUpSiteMapInfo(localVar.cloudObj);
+      fillUpStories(localVar.cloudObj,"back");
+    });
+  
+  
+  }
+  
+  
+  
+  
+   async function insertAndExecute(id, text) {
+    document.getElementById(id).innerHTML = text;
+    var scripts = Array.prototype.slice.call(document.getElementById(id).getElementsByTagName("script"));
+    for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].src != "") {
+            var tag = document.createElement("script");
+            tag.src = scripts[i].src;
+            document.getElementsByTagName("head")[0].appendChild(tag);
+        }
+        else {
+           eval(scripts[i].innerHTML);
+        }
+    }
   }
