@@ -549,3 +549,1591 @@ async function startHailing(data,para,functionToRunAfter){
   
     
   }
+
+
+  function addBackendEventListeners(){
+
+    let cPanCont = document.querySelectorAll(".setinset")[0];
+    cPanCont.style.visibility = "visible";
+  
+    addCPanActionClicks();
+    addInputFileReading();
+  
+    
+  }
+  
+  function addCPanActionClicks(){
+  
+    addCPanActionClicksforImages();
+  };
+  
+  
+  function addCPanActionClicksforImages(){
+    let myClickables = document.querySelectorAll(".backendoxtitle");
+    let thisTempCounter = 0;
+    myClickables.forEach(element=>{
+      element.id = element.className+thisTempCounter;
+        element.addEventListener("click",displayYourCPanOptions)
+        thisTempCounter++;
+    })
+  };
+  
+  function displayYourCPanOptions(){
+    let parent = this.parentNode;
+      
+    if(parent.classList.contains("bigcontcollapse")){
+  
+      collapseCpan();
+      
+    }else{
+  
+    
+      let theNum = this.id.slice(14);
+      theNum = parseInt(theNum,10);
+    
+      let tempDiv = document.querySelectorAll(".logocontainer")[0];
+     // tempDiv.innerHTML = theNum;
+      
+  
+    displayCpanOptions(theNum);
+     
+  
+    }
+  }
+  
+  function displayCpanOptions(eleIndex){
+  
+    localVar.counters.currentAtCpan = eleIndex;
+  
+    if(eleIndex==0){
+  
+      displayImageCpanOptions();
+     
+  
+    }else if(eleIndex==1){
+      displaySiteMapCpanOptions();
+  
+    }else if(eleIndex==2){
+  
+      displayPostsCpanOptions();
+  
+    }else if(eleIndex==3){
+  
+      //displayPostAddEdCpanOptions();
+  
+    }
+  
+   
+  }
+  
+  function  displayImageCpanOptions(){
+  
+    //let container = document.querySelectorAll(".setinset")[0];
+    let contentMom = document.querySelectorAll(".cpancontentcont")[0];
+    let context = "menuIm";
+    let numberOfBoxes = 2 //delete and upload
+  
+    let sumOfHeight = fillContentMom(contentMom,context,numberOfBoxes);
+    expandTheCpan(sumOfHeight);
+      
+  
+  
+  }
+  
+  
+  
+  function  displaySiteMapCpanOptions(){
+  
+    //let container = document.querySelectorAll(".setinset")[0];
+    let contentMom = document.querySelectorAll(".cpancontentcont")[0];
+    let context = "menuSite";
+    let numberOfBoxes = 1 // edit
+  
+    let sumOfHeight = fillContentMom(contentMom,context,numberOfBoxes);
+    expandTheCpan(sumOfHeight);
+  
+  }
+  
+  function  displayPostsCpanOptions(){
+  
+    //let container = document.querySelectorAll(".setinset")[0];
+    let contentMom = document.querySelectorAll(".cpancontentcont")[0];
+    let context = "menuPosts";
+    let numberOfBoxes = 4 //edit and delete and publish and unpublish
+  
+    let sumOfHeight = fillContentMom(contentMom,context,numberOfBoxes);
+    expandTheCpan(sumOfHeight);
+  
+  }
+  
+  function  displayPostAddEdCpanOptions(){
+  
+    //let container = document.querySelectorAll(".setinset")[0];
+    let contentMom = document.querySelectorAll(".cpancontentcont")[0];
+    let context = "menuPostsss";
+    let numberOfBoxes = 5 //view, edit and delete and publish and unpublish
+  
+    let sumOfHeight = fillContentMom(contentMom,context,numberOfBoxes);
+    expandTheCpan(sumOfHeight);
+  
+  }
+  
+  
+  function fillContentMom(contentMom,context,numberOfBoxes){
+  
+    let sumOfHeight
+  
+    if(context==="menuIm"){
+      let boxHeight = 42;
+      let myTextArr = ["Delete Files", "Upload Files"]
+  
+    sumOfHeight =  fillBoxes(contentMom,boxHeight,numberOfBoxes,myTextArr);
+    }else if(context==="menuSite"){
+      let boxHeight = 42;
+      let myTextArr = ["Edit"];
+  
+    sumOfHeight =  fillBoxes(contentMom,boxHeight,numberOfBoxes,myTextArr);
+  
+  
+    }else if(context==="menuPosts"){
+      let boxHeight = 42;
+      let myTextArr = ["View","Edit","Delete","Publish","Unpublish"];
+  
+    sumOfHeight =  fillBoxes(contentMom,boxHeight,5,myTextArr);
+  
+  
+    }
+  
+    return sumOfHeight;
+  };
+  
+  
+  function fillBoxes(contentMom,boxHeight,numberOfBoxes,myTextArr){
+  
+    let sumOfHeight = 0;
+    contentMom.innerHTML = "";
+  
+    for(let i = 0; i<numberOfBoxes;i++){
+      let tempDiv = document.createElement("div");
+      tempDiv.innerHTML = myTextArr[i];
+      tempDiv.style.height = boxHeight+"px";
+      tempDiv.className = "butts";
+      tempDiv.addEventListener("click",addCpanOptsClickFuncs);
+      sumOfHeight = sumOfHeight + boxHeight;
+      contentMom.appendChild(tempDiv);
+  
+    }
+  
+    return sumOfHeight;
+  };
+  
+  
+  function expandTheCpan(sumOfHeight){
+  sumOfHeight = 369;
+  let cPanInside = document.querySelectorAll(".setinset")[0]
+    /*
+  
+    if(sumOfHeight>569){
+      sumOfHeight = 569;
+    }
+  
+    
+    let compStyles = window.getComputedStyle(cPanInside);
+    let height = compStyles.getPropertyValue('height');
+    height = height.slice(0, height.length-2);
+   // alert(height);
+    height = parseInt(height,10);
+  
+    if(height>569){
+      height= 569;
+    }
+  
+    if(height>50&&sumOfHeight<569&&height<569){
+      sumOfHeight = sumOfHeight + height;
+    }else{
+      sumOfHeight = 569;
+    }
+  
+    
+  
+    sumOfHeight = sumOfHeight + 36;
+  */
+    cPanInside.style.height = sumOfHeight+"px";
+  }
+  
+  function collapseCpan (){
+  
+    let cPanInside = document.querySelectorAll(".setinset")[0]
+  
+    cPanInside.style.height = "100%";
+    document.querySelectorAll(".cpancontentcont")[0].innerHTML = "";
+  
+  
+  }
+  
+  function addCpanOptsClickFuncs(){
+  
+    let cPanItem = this;
+    localVar.tempDivs["butt1"] = this;
+    let menuBoxIndex = localVar.counters.currentAtCpan;
+    let menuBox = document.querySelectorAll(".backendchildcontainer")[menuBoxIndex]; 
+    let tempDiv = document.querySelectorAll(".logocontainer")[0];
+  
+    if(menuBoxIndex==0){
+  
+      addFileUploadFuncs(cPanItem);
+     
+  
+    }else if(menuBoxIndex==1){
+  
+      addSiteMapFuncs(cPanItem);
+     
+  
+    }else if(menuBoxIndex==2){
+  
+      addPostListFuncs(cPanItem);
+    
+  
+    }else if(menuBoxIndex==3){
+    
+  
+    }
+    
+  
+  }
+  
+  
+  function addFileUploadFuncs(cPanItem){
+  
+    let thisButtText = cPanItem.innerText;
+  
+  
+      if(thisButtText==="Upload Files"){
+        genericInputClick();
+      }else if(thisButtText==="Delete Files"){
+        setupForFileDeletion();  
+      }
+  
+  }
+  
+  function addSiteMapFuncs(cPanItem){
+  
+    let thisButtText = cPanItem.innerText;
+  
+  
+      if(thisButtText==="Edit"){
+        siteMapShowEditors(cPanItem);
+      }else{  
+      }
+  
+  }
+  
+  
+  function addPostListFuncs(cPanItem){
+  
+    let thisButtText = cPanItem.innerText;
+  
+  
+      if(thisButtText==="Delete"){
+        setupForStoryDeletion();
+      }else if(thisButtText==="View"){ 
+        setupForStoryView(); 
+      }else if(thisButtText==="Edit"){
+        appendStoryToEditor();
+      }else if(thisButtText==="Publish"){
+        setupForStoryPublishment("Publish");
+  
+      }else if(thisButtText==="Unpublish"){
+        setupForStoryPublishment("unPublish")
+      }
+  
+  
+  }
+  
+  
+  function siteMapShowEditors(cPanItem){
+    cPanItem.style.height = "auto";
+    cPanItem.innerText = "Please review all the entries then click Save - at bottom of Sitemap Box - when done.";
+    let siteMapCont = document.querySelectorAll(".bigcontrolpanelcont")[0];
+    let myTextAreas = siteMapCont.querySelectorAll("textarea");
+    let mySelects = siteMapCont.querySelectorAll("select");
+  
+    myTextAreas.forEach(element => {
+      element.style.visibility = "visible";
+    })
+  
+    mySelects.forEach(element => {
+      element.style.visibility = "visible";
+    })
+  
+    fillPublishedStoriesSelections();
+  
+    document.querySelectorAll(".sitemapbut")[0].addEventListener("click",addSiteMapSaveButClick)
+  
+  
+  }
+  
+  
+  
+  function genericInputClick(){
+    let menuBoxIndex = localVar.counters.currentAtCpan;
+    let menuBox = document.querySelectorAll(".backendchildcontainer")[menuBoxIndex]; 
+    let thisInput = menuBox.querySelectorAll("input")[0];
+    thisInput.click();
+  }
+  
+  function addInputFileReading(){
+  
+    let inputs = document.querySelectorAll("input");
+  
+    inputs.forEach(element=>{
+      element.addEventListener("input",readDeFilesToCpan);
+     
+    })
+  
+  
+  }
+  
+  
+  
+  function readDeFilesToCpan(){
+  
+    let logoCont = document.querySelectorAll(".logocontainer")[0];
+    let contentBox = document.querySelectorAll(".cpancontentcont")[0];
+    let filesArr = this.files;
+    
+  
+  
+  
+   let sumOfHeight = writeFilesToCpan(filesArr,contentBox);
+   
+  
+    expandTheCpan(sumOfHeight)
+  
+   // logoCont.innerHTML= filesArr[0].name;
+  
+  
+  }
+  
+  function writeFilesToCpan(filesArr,contentBox) {
+    let numOfFilesCont = cPanGenericCont.querySelectorAll("span")[0];
+    let fileDeetsCont = cPanGenericCont.querySelectorAll(".imageListItemCont");
+    let cloneFD = fileDeetsCont[0].cloneNode(true);
+    let sumOfHeight = 0;
+    fileDeetsCont.forEach(element=>{
+      element.remove();
+    })
+  
+    numOfFilesCont.innerHTML = filesArr.length;
+  
+    localVar.counters["filesForUploadArr"] = filesArr;
+    for(let i=0;i<filesArr.length;i++){
+  
+      sumOfHeight = sumOfHeight + 18;
+  
+      let tempdiv = cloneFD.cloneNode(true);
+      let fileNameCont = tempdiv.querySelectorAll(".filename")[0];
+      let fileTypeCont = tempdiv.querySelectorAll(".filetype")[0];
+      let fileSizeCont = tempdiv.querySelectorAll(".filesize")[0];
+  
+      fileNameCont.innerHTML = filesArr[i].name;
+      fileSizeCont.innerHTML = filesArr[i].size;
+      fileTypeCont.innerHTML = filesArr[i].type;
+  
+      tempdiv.innerHTML = "";
+      tempdiv.appendChild(fileNameCont);
+      tempdiv.appendChild(fileTypeCont);
+      tempdiv.appendChild(fileSizeCont);
+  
+      
+      cPanGenericCont.appendChild(tempdiv);
+  
+    }
+    //contentBox.innerHTML = "";
+    collapseCpan();
+  
+    let sumOfH = fillBoxes2(contentBox,42,2,["Cancel","Upload"]);
+  
+    sumOfH = sumOfH + sumOfHeight;
+    cPanGenericCont.style.visibility = "visible";
+    contentBox.appendChild(cPanGenericCont);
+    return sumOfH;
+  
+  }
+  
+  
+  function fillBoxes2(contentMom,boxHeight,numberOfBoxes,myTextArr){
+  
+    let sumOfHeight = 0;
+    contentMom.innerHTML = "";
+  
+    for(let i = 0; i<numberOfBoxes;i++){
+      let tempDiv = document.createElement("div");
+      tempDiv.innerHTML = myTextArr[i];
+      tempDiv.style.height = boxHeight+"px";
+      tempDiv.className = "butts";
+      tempDiv.addEventListener("click",addImageUpoadFuncs);
+      sumOfHeight = sumOfHeight + boxHeight;
+      contentMom.appendChild(tempDiv);
+  
+    }
+  
+    return sumOfHeight;
+  };
+  
+  function addImageUpoadFuncs(){
+    let myText = this.innerText;
+  
+    if(myText==="Cancel"){
+      collapseCpan();
+      document.getElementById("backendoxtitle0").click();
+    }else{
+      let token = getToken();
+      hailTheServerOnAllChannels("uploadFiles",token);
+    }
+    
+   
+  }
+  
+  async function bundleFilesForUpload(){
+  
+    let filesDataObj = [];
+    let copy = {fileInfo:{"ogname":"","meme":""},fileData:""};
+    
+  
+    for(let i = 0 ; i < localVar.counters.filesForUploadArr.length ; i++){
+  
+      let tempObj = JSON.parse(JSON.stringify(copy));
+  
+  
+  
+        let file = localVar.counters.filesForUploadArr[i];
+  
+        tempObj.fileInfo.ogname = file.name;
+        tempObj.fileInfo.meme = file.type;
+        tempObj.fileData = await readFile(file).then((file)=>{
+          file =  btoa(file);
+          return file;
+        }).then((file)=>{
+          return file;
+        })
+  
+        filesDataObj.push(tempObj);
+  
+    
+      }
+     
+    
+  
+    return filesDataObj;
+  
+  }
+  
+  async function readFile (file){
+  
+    const toBinaryString = file => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsBinaryString(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+  });
+  
+  let parsedFile = null;
+  parsedFile =  await toBinaryString(file);
+  
+    return parsedFile;
+  }
+  
+  
+  function updateCloudObj(context,data){
+  
+    
+  
+  if(context==="images"){
+  
+    let copy =  localVar.cloudObj.contentObj.contentObj.draft.images[0];
+    localVar.cloudObj.contentObj.contentObj.draft.images = [];
+    let [myDate]    = new Date().toLocaleDateString("en-US").split("-");
+    let [hour, minute, second] = new Date().toLocaleTimeString("en-US").split(/:| /);
+  
+    for(let i = 0 ; i < data.length ; i++){
+  
+      let tempObj = JSON.parse(JSON.stringify(copy));
+  
+      tempObj.data = data[i].fileData;
+      tempObj.name =  data[i].fileInfo.ogname;
+      tempObj.id =  myDate+"---"+hour+minute+second+i+"---"+tempObj.name;
+      tempObj.info.push({"mime":data[i].fileInfo.meme});
+      tempObj.info.push({"timeObj":[{"myDate":myDate},{"hour":hour},{"minute":minute},{"second":second}]});
+  
+   
+  
+   localVar.cloudObj.contentObj.contentObj.draft.images.push(tempObj);
+  
+    }
+  
+  
+  }else if(context==="deleteFiles"){
+    let copy = localVar.cloudObj.contentObj.contentObj.delete[0];
+    let itemsToDel = document.querySelectorAll(".cpancontentcont")[0];
+    itemsToDel = itemsToDel.querySelectorAll(".fileListItemCont");
+    localVar.cloudObj.contentObj.contentObj.delete = [];
+  
+    for(let i = 0 ; i < itemsToDel.length ; i++){
+  
+      let tempObj = JSON.parse(JSON.stringify(copy));
+  
+      tempObj.type =  "file";
+      tempObj.id =  itemsToDel[i].querySelectorAll(".idhref")[0].innerText;
+  
+   
+  
+   localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
+  
+    }
+  
+    data = localVar.cloudObj.contentObj.contentObj.delete;
+    
+    
+  }else if(context==="deleteStories"){
+    let copy = localVar.cloudObj.contentObj.contentObj.delete[0];
+    let itemsToDel = document.querySelectorAll(".cpancontentcont")[0];
+    itemsToDel = itemsToDel.querySelectorAll(".fileListItemCont");
+    localVar.cloudObj.contentObj.contentObj.delete = [];
+  
+    for(let i = 0 ; i < itemsToDel.length ; i++){
+  
+      let tempObj = JSON.parse(JSON.stringify(copy));
+  
+      tempObj.type =  "story";
+      tempObj.id =  itemsToDel[i].querySelectorAll(".idhref")[0].innerText;
+  
+  
+  
+   localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
+  
+    }
+  
+    data = localVar.cloudObj.contentObj.contentObj.delete;
+    
+  
+    
+  
+  
+  }else if(context==="updatePublish"){
+  
+    let copy = localVar.cloudObj.contentObj.contentObj.delete[0];
+    let itemsToDel = document.querySelectorAll(".cpancontentcont")[0];
+    itemsToDel = itemsToDel.querySelectorAll(".fileListItemCont");
+    localVar.cloudObj.contentObj.contentObj.delete = [];
+  
+    for(let i = 0 ; i < itemsToDel.length ; i++){
+  
+      let tempObj = JSON.parse(JSON.stringify(copy));
+  
+      tempObj.type =  "story";
+      tempObj["newUpdate"] = localVar.publishStat;
+      tempObj.id =  itemsToDel[i].querySelectorAll(".idhref")[0].innerText;
+  
+  
+  
+   localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
+  }
+  
+  }else if(context==="updateSettings"){
+  
+    let newSettings = {};
+    let copy = localVar.cloudObj.contentObj.contentObj.delete[0];
+    localVar.cloudObj.contentObj.contentObj.delete = {};
+  
+    newSettings["title"] = document.getElementById("posttit");
+    newSettings["catchphrase"] = document.getElementById("postcat");
+    newSettings["featureOne"] = document.getElementById("feature1");
+    newSettings["featureTwo"] = document.getElementById("feature2");
+    newSettings["featureThree"] = document.getElementById("feature3");
+    newSettings["email"] = document.getElementById("emailcollector");
+    newSettings["address"] = document.getElementById("wordaddresscollector");
+    newSettings["fb"] = document.getElementById("fbcollector");
+    newSettings["num"] = document.getElementById("phonecollector");
+    newSettings["twtt"] = document.getElementById("twtcollector");
+    newSettings["lnkd"] = document.getElementById("lnkdcollector");
+    newSettings["inst"] = document.getElementById("instcollector");
+    
+  
+    localVar.cloudObj.contentObj.contentObj.delete ["title"] = newSettings.title.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["catchphrase"] = newSettings.catchphrase.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["featureOne"] = newSettings.featureOne.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["featureTwo"] = newSettings.featureTwo.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["featureThree"] = newSettings.featureThree.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["email"] = newSettings.email.value ;
+    localVar.cloudObj.contentObj.contentObj.delete ["address"] = newSettings.address.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["fb"] = newSettings.fb.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["num"] = newSettings.num.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["twtt"] = newSettings.twtt.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["lnkd"] = newSettings.lnkd.value;
+    localVar.cloudObj.contentObj.contentObj.delete ["inst"] = newSettings.inst.value;
+    
+  }
+  return data;
+  }
+  
+  
+  
+  function fillUpFiles(responseObj) {
+    localVar["cloudObj"] = responseObj;
+    let filesArr = localVar.cloudObj.contentObj.contentObj.published.images;
+    filesArr.splice(0,1);
+  
+    let pageLim = 5;
+    let numOfFiles =  filesArr.length;
+    let numOfPages = Math.floor(numOfFiles/pageLim);
+    let remainder = Math.floor(numOfFiles%pageLim);
+  
+    if(numOfPages<1||numOfPages==1&&remainder<1){
+      numOfPages = 1;
+    }else if(numOfPages>=1){
+      numOfPages = numOfPages + 1;
+  
+    }
+  
+    
+    //let myPage = createFilePageContObj(numOfPages,pageLim,remainder);
+  
+        
+        let fileConts = document.querySelectorAll(".fileListItemCont");
+        let fileCont = fileConts[0];
+        let parent = fileCont.parentNode;
+  
+        fileConts.forEach(element=>{
+          element.remove();
+        })
+  
+        for(let i=0 ; i <numOfFiles ; i++){
+          let tempDiv = fileCont.cloneNode(true);
+          tempDiv = fillTempFileDiv(tempDiv,filesArr[i]);
+          parent.appendChild(tempDiv);
+        }
+      
+  
+  
+  
+  
+  
+  
+  }
+  
+  function fillTempFileDiv(tempDiv,fileObj) {
+  
+    let myHref1 = document.createElement("a");
+    myHref1.innerHTML = "X";
+    let myHref2 = document.createElement("a");
+    myHref2.className = "idhref";
+    myHref1.className = "testhref1";
+    myHref1.target = "_blank";
+    let myStyle = document.createElement("style");
+    myStyle.innerHTML = `
+      
+        .testhref1{
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-color: #e8dab2;
+          color: #061826;
+          cursor:pointer;
+          font-size: 24px;
+          text-align: center;
+          font-weight: bold;
+          opacity: 0;
+          z-index: 100;
+        }
+  
+        .idhref{
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          display: block;
+          font-size:0px;
+          width: 0px;
+          height: 0px;
+          background-color: transparent;
+          z-index: 50;
+  
+        }
+    `;
+  
+    tempDiv.querySelectorAll(".filename")[0].innerHTML = fileObj.realName;
+    tempDiv.querySelectorAll(".filetype")[0].innerHTML = "";
+    let size = formatFileSize(fileObj.size);
+    tempDiv.querySelectorAll(".filesize")[0].innerHTML = size;
+    myHref1.href = fileObj.url;
+    myHref2.innerText = fileObj.name;
+    tempDiv.appendChild(myHref1);
+    tempDiv.appendChild(myHref2);
+    tempDiv.appendChild(myStyle);
+  
+    return tempDiv;
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  /*
+  function createFilePageContObj(numOfPages,pageLim,remainder){
+  
+    let myNav = document.querySelectorAll(".inputcontainer")[0];
+    let fileConts = document.querySelectorAll(".fileListItemCont");
+    let fileCont = fileConts[0];
+  
+    fileConts.forEach(element=>{
+      element.remove();
+    })
+  
+    myNav.remove();
+  
+    let obj = {};
+    let bigArr = [];
+  
+    for(let i=0 ; i < numOfPages ; i++){
+      let tempObj = JSON.parse(JSON.stringify(obj));
+      tempObj["I am"] = "Page "+i;
+      bigArr.push(tempObj);
+      tempObj = null;
+    }
+  
+   return bigArr;
+  }
+  */
+  
+  function setupForFileDeletion(){
+  
+    let butClone = localVar.tempDivs.butt1.cloneNode(true);
+    let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
+    let parent = document.querySelectorAll(".cpancontentcont")[0];
+  
+    parent.innerHTML = "";
+  
+    butClone.innerHTML = `Please click the files you want to delete. <br> To unselect, click again. <br> When done, click here to confirm deletion`;
+    butClone.style.height = "auto";
+  
+    butClone.addEventListener("click",sendDeletionsToServer);
+  
+    addFileClicks();
+  
+    parent.appendChild(butClone);
+  
+  }
+  
+  function setupForStoryDeletion(){
+  
+    let butClone = localVar.tempDivs.butt1.cloneNode(true);
+    let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
+    let parent = document.querySelectorAll(".cpancontentcont")[0];
+  
+    parent.innerHTML = "";
+  
+    butClone.innerHTML = `Please click the stories/posts you want to delete. <br> To unselect, click again. <br> When done, click here to confirm deletion`;
+    butClone.style.height = "auto";
+  
+    butClone.addEventListener("click", sendDeletionsToServerToo);
+  
+    addStoryClicks();
+  
+    parent.appendChild(butClone);
+  
+  }
+  
+  function setupForStoryPublishment(string){
+  localVar.publishStat = string;
+    let butClone = localVar.tempDivs.butt1.cloneNode(true);
+    let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
+    let parent = document.querySelectorAll(".cpancontentcont")[0];
+  
+    parent.innerHTML = "";
+  
+    butClone.innerHTML = `Please click the stories/posts you want to publish/unpublish. <br> To unselect, click again. <br> When done, click here to confirm publishing/unpublishing`;
+    butClone.style.height = "auto";
+  
+    butClone.addEventListener("click", sendPublishStatusToServer);
+  
+    addStoryClicks();
+  
+    parent.appendChild(butClone);
+  
+  }
+  
+  
+  function addFileClicks(){
+  
+    let myClickableFileHrefs = document.querySelectorAll(".testhref1");
+  
+    myClickableFileHrefs.forEach(element => {
+      element.addEventListener("click",toggleFileSelectStyle)
+      element.name = element.href;
+      element.removeAttribute("href");
+    })
+  
+  }
+  
+  function addStoryClicks(){
+  
+    let myClickableStoryHrefs = postsMomCont.querySelectorAll(".postpreview");
+  
+    myClickableStoryHrefs.forEach(element => {
+      element.addEventListener("click",toggleStorySelectStyle)
+    })
+  
+  
+  }
+  
+  
+  function toggleFileSelectStyle() {
+    let fileContClone = this.parentNode.cloneNode(true);
+    fileContClone.id = this.parentNode.querySelectorAll(".idhref")[0].innerText;
+    let parent = document.querySelectorAll(".cpancontentcont")[0];
+    
+  
+    if(this.classList.contains("testhref1selected")){
+  
+      removeSelectedFileFromCpan(parent,this.parentNode);
+      this.classList.remove("testhref1selected");
+  
+  
+    }else{
+      parent.appendChild(fileContClone);
+      this.classList.add("testhref1selected");
+  
+    }
+  }
+  
+  function toggleStorySelectStyle() {
+    let storyContClone = document.querySelectorAll(".fileListItemCont")[0].cloneNode(true);
+    storyContClone.id = this.querySelectorAll(".storyhref")[0].id+",child";
+    let parent = document.querySelectorAll(".cpancontentcont")[0];
+  
+    
+  
+    if(this.classList.contains("storyhref2selected")){
+  
+      removeSelectedStoryFromCpan(parent,this);
+      this.classList.remove("storyhref2selected");
+  
+  
+    }else{
+  
+      let filename = storyContClone.querySelectorAll(".filename")[0];
+      let filetype = storyContClone.querySelectorAll(".filetype")[0];
+      let filesize = storyContClone.querySelectorAll(".filesize")[0];
+      let idhref = storyContClone.querySelectorAll(".idhref")[0];
+      filetype.remove();
+      filesize.remove();
+      filename.innerHTML = this.querySelectorAll("h2")[0].innerHTML;
+      idhref.innerHTML = this.querySelectorAll("a")[0].id;
+  
+      filename.style.height = "100%";
+      filename.style.textOverflow = "unset";
+      filename.style.overflow = "auto";
+      filename.style.whiteSpace = "normal";
+  
+      parent.appendChild(storyContClone);
+      this.classList.add("storyhref2selected");
+  
+    }
+  }
+  
+  function removeFileSelectClicks () {
+    let myClickableFileHrefs = document.querySelectorAll(".testhref1");
+  
+    myClickableFileHrefs.forEach(element => {
+      element.removeEventListener("click",toggleFileSelectStyle,false);
+      element.href = element.name;
+      element.name = "";
+    })
+  }
+  
+  function removeStorySelectClicks () {
+    let myClickableStoryHrefs = postsMomCont.querySelectorAll(".postpreview");
+  
+    myClickableStoryHrefs.forEach(element => {
+      element.removeEventListener("click",toggleStorySelectStyle,false)
+      element.removeEventListener("click",showStoryReadPage,false)
+    })
+  }
+  
+  function removeSelectedFileFromCpan(parent,fileParentNode){
+  
+    let idtoCheck = fileParentNode.querySelectorAll(".idhref")[0].innerText;
+    let deNode = document.getElementById(idtoCheck);
+    deNode.remove();
+  
+  };
+  
+  function removeSelectedStoryFromCpan(parent,fileParentNode){
+  
+    let idtoCheck = fileParentNode.querySelectorAll("a")[0].id+",child";
+    let deNode = document.getElementById(idtoCheck);
+    deNode.remove();
+  
+  };
+  
+  
+  
+  
+  function sendDeletionsToServer () {
+    let token = getToken();
+    hailTheServerOnAllChannels("delete",token);
+  
+  }
+  
+  function sendDeletionsToServerToo () {
+    let token = getToken();
+    hailTheServerOnAllChannels("deleteStories",token);
+  
+  }
+  
+  function sendPublishStatusToServer () {
+    let token = getToken();
+    hailTheServerOnAllChannels("updatePublish",token);
+  
+  }
+
+
+  function myResetFuncs(){
+    removeFileSelectClicks();
+    removeStorySelectClicks();
+    removeAddToEditor();
+    removeSiteMapSave();
+    
+    toggleFileSelectStyleOff();
+    toggleStorySelectStyleOff()
+    
+    }
+    
+    function removeSiteMapSave(){
+      let myClickableStoryHrefs = document.querySelectorAll(".sitemapbut")[0];
+      myClickableStoryHrefs.removeEventListener("click",addSiteMapSaveButClick,false);
+    
+    
+    }
+    
+    function removeAddToEditor (){
+      let myClickableStoryHrefs = postsMomCont.querySelectorAll(".postpreview");
+    
+      myClickableStoryHrefs.forEach(element => {
+        element.removeEventListener("click",addStoryToEditor,false);
+      })
+    }
+    
+    
+    function toggleFileSelectStyleOff() {
+      let fileCont = document.querySelectorAll(".imagescontainer")[0];
+      let hrefs69 = fileCont.querySelectorAll(".testhref1");
+      
+      hrefs69.forEach(element=>{
+        element.classList.remove("testhref1selected");
+      })
+      
+    }
+    
+    function toggleStorySelectStyleOff() {
+      let hrefs69 = postsMomCont.querySelectorAll(".postpreview");
+      
+      hrefs69.forEach(element=>{
+        element.classList.remove("storyhref2selected");
+      })
+      
+    }
+    
+    
+    function fillUpSiteMapInfo(responseObj){
+    
+      let newSettings = {};
+      let cloudSettings = responseObj.settingsObj;
+    
+      newSettings["title"] = document.getElementById("posttit");
+      newSettings["titleDisp"] = document.querySelectorAll(".contrpantitshow")[0];
+    
+      newSettings["catchphrase"] = document.getElementById("postcat");
+      newSettings["catchphraseDisp"] = document.querySelectorAll(".contrpancatshow")[0];
+    
+      newSettings["featureOne"] = document.getElementById("feature1");
+      newSettings["featureOneDisp"] = document.querySelectorAll(".featureshow1")[0];
+    
+      newSettings["featureTwo"] = document.getElementById("feature2");
+      newSettings["featureTwoDisp"] = document.querySelectorAll(".featureshow2")[0];
+    
+      newSettings["featureThree"] = document.getElementById("feature3");
+      newSettings["featureThreeDisp"] = document.querySelectorAll(".featureshow3")[0];
+    
+      newSettings["email"] = document.getElementById("emailcollector");
+      newSettings["emailDisp"] = document.querySelectorAll(".addrshow1")[0];
+    
+      newSettings["address"] = document.getElementById("wordaddresscollector");
+      newSettings["addressDisp"] = document.querySelectorAll(".addrshow3")[0];
+    
+      newSettings["fb"] = document.getElementById("fbcollector");
+      newSettings["fbDisp"] = document.querySelectorAll(".addrshow4")[0];
+    
+      newSettings["num"] = document.getElementById("phonecollector");
+      newSettings["numDisp"] = document.querySelectorAll(".addrshow2")[0];
+    
+      newSettings["twtt"] = document.getElementById("twtcollector");
+      newSettings["twttDisp"] = document.querySelectorAll(".addrshow5")[0];
+    
+      newSettings["lnkd"] = document.getElementById("lnkdcollector");
+      newSettings["lnkdDisp"] = document.querySelectorAll(".addrshow7")[0];
+    
+      newSettings["inst"] = document.getElementById("instcollector");
+      newSettings["instDisp"] = document.querySelectorAll(".addrshow6")[0];
+      
+      //newSettings.title.innerText = "Kennoobi!";
+      //newSettings.catchphrase.innerText = "Kennoobi!";
+      //newSettings.featureOne.innerText = "Kennoobi!";
+      //newSettings.featureTwo.innerText = "Kennoobi!";
+      //newSettings.featureThree.innerText = "Kennoobi!";
+      //newSettings.email.innerText = "Kennoobi!";
+      //newSettings.address.innerText = "Kennoobi!";
+      //newSettings.fb.innerText = "Kennoobi!";
+      //newSettings.num.innerText = "Kennoobi!";
+      //newSettings.twtt.innerText = "Kennoobi!";
+      //newSettings.lnkd.innerText = "Kennoobi!";
+      //newSettings.inst.innerText = "Kennoobi!";
+    
+      newSettings.title.style.visibility = "collapse";
+      newSettings.title.value = cloudSettings.title;
+      newSettings.titleDisp.innerHTML = cloudSettings.title;
+    
+      newSettings.catchphrase.style.visibility = "collapse";
+      newSettings.catchphrase.value = cloudSettings.catchphrase;
+      newSettings.catchphraseDisp.innerHTML = cloudSettings.catchphrase;
+    
+      newSettings.featureOne.style.visibility = "collapse";
+      newSettings.featureOne.value = cloudSettings.featureOne;
+      newSettings.featureOneDisp.innerHTML = getStoryTit(cloudSettings.featureOne);
+    
+      newSettings.featureTwo.style.visibility = "collapse";
+      newSettings.featureTwo.value = cloudSettings.featureTwo;
+      newSettings.featureTwoDisp.innerHTML = getStoryTit(cloudSettings.featureTwo);
+    
+      newSettings.featureThree.style.visibility = "collapse";
+      newSettings.featureThree.value = cloudSettings.featureThree;
+      newSettings.featureThreeDisp.innerHTML = getStoryTit(cloudSettings.featureThree);
+    
+      newSettings.email.style.visibility = "collapse";
+      newSettings.email.value = cloudSettings.buzEmail;
+      newSettings.emailDisp.innerHTML = cloudSettings.buzEmail;
+    
+      newSettings.address.style.visibility = "collapse";
+      newSettings.address.value = cloudSettings.address;
+      newSettings.addressDisp.innerHTML = cloudSettings.address;
+    
+      newSettings.fb.style.visibility = "collapse";
+      newSettings.fb.value = cloudSettings.fb;
+      newSettings.fbDisp.innerHTML = cloudSettings.fb;
+    
+      newSettings.num.style.visibility = "collapse";
+      newSettings.num.value = cloudSettings.num;
+      newSettings.numDisp.innerHTML = cloudSettings.num;
+    
+      newSettings.twtt.style.visibility = "collapse";
+      newSettings.twtt.value = cloudSettings.twt;
+      newSettings.twttDisp.innerHTML = cloudSettings.twt;
+    
+      newSettings.lnkd.style.visibility = "collapse";
+      newSettings.lnkd.value = cloudSettings.linkd;
+      newSettings.lnkdDisp.innerHTML = cloudSettings.linkd;
+    
+      newSettings.inst.style.visibility = "collapse";
+      newSettings.inst.value = cloudSettings.instg;
+      newSettings.instDisp.innerHTML = cloudSettings.instg;
+    
+      
+    }
+    
+    function deStoryFunc(storyHtml){
+    
+      let tempDivObj = document.createElement("div");
+      let newStoryObj = {};
+      newStoryObj["myHtml"] = "";
+      newStoryObj["myImages"] = [];
+    
+      let imgObj = {id:"",data:"",mime:""};
+    
+      tempDivObj.innerHTML = storyHtml;
+    
+      let children = tempDivObj.childNodes;
+      let imgindex = 0;
+    
+      children.forEach(element => {
+        let names = element.childNodes;
+    
+        names.forEach(child=>{
+          
+          if(child.nodeName==="IMG"){
+          
+    
+            let typeOfImage = child.src.split(":")[0];
+            typeOfImage = typeOfImage.match(/\b(\w*http\w*)\b/g);
+    
+            if(typeOfImage!==null){
+    
+            }else {
+    
+              let copy = JSON.parse(JSON.stringify(imgObj));
+    
+            let [myDate]    = new Date().toLocaleDateString("en-US").split("-");
+            let [hour, minute, second] = new Date().toLocaleTimeString("en-US").split(/:| /);
+            
+    
+            let newArr = child.src.split(",");
+            copy.data = newArr[1];
+            copy.mime = newArr[0].split(";")[0];
+            copy.mime = copy.mime.split(":")[1];
+    
+            copy.id = myDate+hour+minute+second+document.getElementById("editposttit").value+imgindex
+    
+            
+              child.src = "https://ismizo.com/resources/icons/loading.png";
+              child.id = copy.id;
+    
+              newStoryObj.myImages.push(copy);
+              
+            
+            imgindex++;
+    
+    
+            }
+            
+          
+          }
+        })
+    
+      
+       
+      })
+    
+      newStoryObj.myHtml = tempDivObj.innerHTML;
+      
+    
+      if(localVar.thisEditToDel!=="none"){
+        localVar.cloudObj.contentObj.contentObj.delete[0].id = localVar.thisEditToDel;
+        localVar.cloudObj.contentObj.contentObj.delete[0].type = "story";
+        let token = getToken();
+        let myObj = bundleTokenAfter(token);
+        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+        startHailing(myObj,"delete",function(responseObj){
+          
+        });
+    
+      }
+    
+      
+      
+    
+       localVar.cloudObj.contentObj.contentObj.draft.stories[0].storyObj = newStoryObj;
+       localVar.cloudObj.contentObj.contentObj.draft.stories[0].title = document.getElementById("editposttit").value;
+       localVar.cloudObj.contentObj.contentObj.draft.stories[0].description = document.getElementById("descrtit").value;
+       localVar.cloudObj.contentObj.contentObj.draft.stories[0].type = "draft";
+    
+        let token = getToken();
+      hailTheServerOnAllChannels("uploadStory",token);
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function  fillUpStories(responseObj,context) {
+    
+      let stories = responseObj.contentObj.contentObj.published.stories;
+    
+      let numOfStories = stories.length;
+    
+      let storyCont = postsMomCont.querySelectorAll(".postpreview")[0];
+      let parent = postsMomCont;
+    
+      parent.innerHTML = "";
+    
+    
+    
+      for(let i=0 ; i <numOfStories ; i++){
+        let tempDiv = storyCont.cloneNode(true);
+        tempDiv = fillTempStoryDiv(tempDiv,stories[i]);
+      
+        parent.appendChild(tempDiv);
+        let hreftempy = null;
+        let length = null; 
+        hreftempy = parent.querySelectorAll(".storyhref")[0];
+        length = parent.querySelectorAll(".storyhref");
+    
+        if(hreftempy!==null&&hreftempy!==undefined&&length>1){
+          hreftempy.remove();
+        }
+      }
+    
+      if(context==="back"){
+    
+        document.querySelectorAll(".backendchildcontainer")[2].appendChild(parent);
+    
+      }else{
+         dePage.querySelectorAll("h1")[0].innerHTML = "Stories And News From TALISS";
+         let deCont = dePage.querySelectorAll(".mystorycontainer")[0];
+         deCont.innerHTML = "";
+          deCont.appendChild(parent);
+    
+          let stories = parent.querySelectorAll(".postpreview");
+          
+          stories.forEach(element => {
+            element.removeEventListener("click",anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation,false);
+          element.addEventListener("click",anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation);
+         })
+    
+      }
+    
+      
+    
+    };
+    
+    function anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation (){
+    
+      let storyid = this.querySelectorAll(".storyhref")
+      storyid = storyid[storyid.length-1].id;
+      addNewHtmlFuncs(storyid);
+    }
+    
+    
+    
+    function fillTempStoryDiv(tempDiv,storyObj) {
+    
+    
+    
+      let myHref2 = document.createElement("a");
+      myHref2.className = "storyhref";
+      let myStyle = document.createElement("style");
+      myStyle.innerHTML = `
+        
+          .storyhref{
+            position: absolute;
+            color: white;
+            top: 0px;
+            right: 0px;
+            display: block;
+            font-size:11.69px;
+            width: 69px;
+            height: 18px;
+            padding: 1px 3px;
+            box-sizing: border-box;
+            background-color: transparent;
+            z-index: 50;
+            font-weight: normal;
+            letter-spacing: 1.69px;
+    
+          }
+      `;
+    
+      tempDiv.querySelectorAll("h2")[0].innerHTML = storyObj.title;
+      tempDiv.querySelectorAll("p")[0].innerHTML = storyObj.description;
+      
+      myHref2.innerHTML = storyObj.type;
+      colorPublishedStyle(myHref2);
+      myHref2.id = storyObj.stats[0].timeid;
+      
+      
+      
+      tempDiv.appendChild(myHref2);
+      tempDiv.appendChild(myStyle);
+    
+      return tempDiv;
+    
+    }
+    
+    function colorPublishedStyle(deHref){
+    
+      let myText = deHref.innerText;
+    
+      if(myText==="published"){
+        deHref.style.backgroundColor = "#53f4ff";
+        deHref.style.color = "black";
+      }
+    
+    }
+    
+    
+    function setupForStoryView() {
+    
+      
+      localVar.columnHtml = document.querySelectorAll(".mycolumns")[1];
+    
+      let parent = document.querySelectorAll(".cpancontentcont")[0];
+    
+      parent.innerHTML = "";
+    
+      let butClone = localVar.tempDivs.butt1.cloneNode(true);
+    
+      butClone.innerHTML = `Please click the stories/posts you want to read.`;
+      butClone.style.height = "auto";
+    
+      parent.appendChild(butClone);
+      
+    
+      let stories = postsMomCont.querySelectorAll(".postpreview");
+    
+      stories.forEach(element => {
+        element.addEventListener("click",showStoryReadPage);
+      })
+      
+    }
+    
+    function showStoryReadPage() {
+    
+      let storyid = this.querySelectorAll(".storyhref")[0].id;
+      
+      dePage.style.visibility = "visible";
+    
+    
+      
+    
+      let deBut = dePage.querySelectorAll("button")[0];
+    
+      deBut.addEventListener("click", backToBackend)
+      
+      localVar.columnHtml.replaceWith(dePage);
+      addNewHtmlFuncs(storyid);
+    
+    }
+    
+    function backToBackend (){
+      dePage.replaceWith(localVar.columnHtml);
+      dePage.removeEventListener("click",backToBackend,false);
+    }
+    
+    
+    function addNewHtmlFuncs(storyid) {
+    
+    
+      let stories = localVar.cloudObj.contentObj.contentObj.published.stories
+      let searchResponse = searchStory(stories,storyid);
+    
+      if(searchResponse.status==="found"){
+        populateStory(searchResponse.obj);
+      }else{
+        alert("Ooops there's been an error reading your post. Please report to ismaili.a.simba@gmail.com");
+      }
+    
+      
+    
+    };
+    
+    function searchStory(stories,storyid){
+    
+      let response = {}
+      response["status"] = "notFound";
+    
+      for(let i=0 ; i<stories.length ; i++){
+        if(storyid===stories[i].stats[0].timeid){
+    
+          response["obj"] = stories[i];
+          response.status = "found";
+    
+        }
+      }
+    
+      return response
+    
+    };
+    
+    
+    function populateStory(storyObj){
+      let titleDiv = dePage.querySelectorAll("h1")[0];
+      let storyContainer = dePage.querySelectorAll("div")[0];
+    
+      readStoryObj(storyContainer,storyObj);
+    
+      titleDiv.innerHTML = storyObj.title;
+    
+    };
+    
+    
+    function readStoryObj(storyContainer,storyObj){
+    
+      storyContainer.innerHTML = storyObj.storyObj.myHtml;
+    
+      let images = storyContainer.querySelectorAll("img");
+      let paras = storyContainer.querySelectorAll("p");
+    
+      images.forEach(element => {
+        if(element.src==="https://ismizo.com/resources/icons/loading.png"){
+          
+          fetchDisImage(element);
+        }
+      })
+    
+      paras.forEach( paragraph => {
+        let imagesInside = []
+        imagesInside = paragraph.querySelectorAll("img");
+        if(imagesInside.length>=1){
+          paragraph.style.textAlign = "center";
+        }
+      })
+    
+     
+    
+    };
+    
+    
+    function fetchDisImage (element) {
+    
+      let deId = {id:element.id};
+      let contextObject = JSON.parse(JSON.stringify(paraTemplate));
+    
+      contextObject.params[0]["action"] = "later...";
+      contextObject.params[0]["token"] = "wHaT tOkEn!";
+      contextObject.params[0]["dataObj"] = deId;
+    
+    
+      startHailing(contextObject,"quickfetch",setDisBlocToSrc);
+    
+    
+    }
+    
+    async function setDisBlocToSrc(responseObj){
+    
+      let eleid = responseObj.deFileObj.id;
+      let meme = responseObj.deFileObj.mime;
+      let cloudBlob = responseObj.deFileObj.data;
+    
+      let element = document.getElementById(`${eleid}`);
+      
+     
+      element.src = `data:${meme};base64,${cloudBlob}`;
+    
+    
+    }
+    
+    
+    function appendStoryToEditor() {
+      localVar.columnHtml = document.querySelectorAll(".mycolumns")[1];
+    
+      let parent = document.querySelectorAll(".cpancontentcont")[0];
+    
+      parent.innerHTML = "";
+    
+      let butClone = localVar.tempDivs.butt1.cloneNode(true);
+    
+      butClone.innerHTML = `Please click the story you want to edit then check the editor (under Add/Edit Posts).`;
+      butClone.style.height = "auto";
+    
+      parent.appendChild(butClone);
+      
+    
+      let stories = postsMomCont.querySelectorAll(".postpreview");
+    
+      stories.forEach(element => {
+        element.addEventListener("click",addStoryToEditor);
+      })
+    
+    };
+    
+    function addStoryToEditor () {
+    
+      let storyid = this.querySelectorAll(".storyhref")[0].id;
+      localVar.thisEditToDel = storyid;
+      let stories = localVar.cloudObj.contentObj.contentObj.published.stories
+      let searchResponse = searchStory(stories,storyid);
+    
+      if(searchResponse.status==="found"){
+        addThisStoryToEditor(searchResponse.obj);
+      }else{
+        alert("Ooops there's been an error reading your post. Please report to ismaili.a.simba@gmail.com");
+      }
+    
+    
+    }
+    
+    
+    function addThisStoryToEditor(storyObj){
+      let titleDiv = document.getElementById("editposttit") ;
+      let descrDiv = document.getElementById("descrtit");
+      let storyContainer = document.querySelectorAll(".ql-editor")[0];
+    
+      document.getElementById("backendoxtitle2").click();
+      document.getElementById("backendoxtitle3").click();
+    
+      readStoryObj(storyContainer,storyObj);
+    
+      titleDiv.value = storyObj.title;
+      descrDiv.value = storyObj.description;
+    }
+    
+    function  fillPublishedStoriesSelections(){
+    
+      let stories = localVar.cloudObj.contentObj.contentObj.published.stories;
+      let publishedTitsArr = [];
+      let obj = {id:"",title:""}
+      let myParConts = document.querySelectorAll(".featuresgeneric");
+    
+    
+      for(let i=0; i<stories.length ; i++){
+        if(stories[i].type==="published"){
+          let copy = JSON.parse(JSON.stringify(obj));
+          copy.id = stories[i].stats[0].timeid;
+          copy.title = stories[i].title;
+          publishedTitsArr.push(copy)
+        }
+      }
+    
+      myParConts.forEach(element=>{
+        let miHref = element.querySelectorAll("option")[1];
+        let par = element.querySelectorAll(".featureshowdrop")[0];
+        miHref.remove();
+    
+          for(let i=0 ; i<publishedTitsArr.length ; i++){
+            let cloneMiHref = miHref.cloneNode(true);
+            cloneMiHref.innerHTML = publishedTitsArr[i].title;
+            cloneMiHref.value = publishedTitsArr[i].id;
+            par.appendChild(cloneMiHref);
+    
+          }
+      })
+    
+    
+    
+    
+    
+    }
+    
+    function addSiteMapSaveButClick(){
+      
+      let token = getToken();
+      hailTheServerOnAllChannels("updateSettings",token);
+    
+    };
+    
+    function getStoryTit(id){
+      let stories = localVar.cloudObj.contentObj.contentObj.published.stories;
+      let title = "Not Found";
+    
+      for(let i=0 ; i<stories.length ; i++){
+    
+        if(id===stories[i].stats[0].timeid){
+          title = stories[i].title;
+        }
+      }
+    
+      return title;
+    
+    }

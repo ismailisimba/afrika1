@@ -214,6 +214,8 @@ nav ul li:hover {
     visibility: hidden;
     position: fixed;
 
+    font-family: "Lexend" !important;
+
     width: 50%;
     left: 50%;
     top: 25%;
