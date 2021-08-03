@@ -9,6 +9,7 @@ counters["elements"]["popUp"] = document.querySelectorAll(".custompopup")[0];
 counters["reqString"] = "https://script.google.com/macros/s/AKfycbwsionDZcaKZPxP9A6c6A-fjpKavYrdpxEhial1Jw_kE35XRYfc9Hxwfe7zd4Zfb0A/exec";
 counters["paraTemplate"] = {"params":[{"initVal":"initKey"}]};
 counters["localVar"] = {};
+counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
 
 
 window.onload = () => {
@@ -476,18 +477,18 @@ async function startHailing(data,para,functionToRunAfter){
   
   async function setupBackendCanvasLoggedIn(){
   
-    myGoogleBox.innerHTML = "";
-    myGoogleBox.innerHTML =  `<div class="g-signin2" data-onsuccess="onSignIn"></div>`;
+    counters.myGoogleBox.innerHTML = "";
+    counters.myGoogleBox.innerHTML =  `<div class="g-signin2" data-onsuccess="onSignIn"></div>`;
   
     let myButt = document.createElement("div");
     myButt.className = "mylogbutt";
     myButt.innerHTML = `<a href="#" onclick="signOut();">Sign out</a>`;
-    myGoogleBox.appendChild(myButt);
+    counters.myGoogleBox.appendChild(myButt);
   
     let tempdiv = document.createElement("div");
     tempdiv.id = "temporarydiv";
     document.querySelectorAll(".mycolumns")[1].appendChild(tempdiv);
-    document.querySelectorAll(".mycolumns")[1].appendChild(myGoogleBox);
+    document.querySelectorAll(".mycolumns")[1].appendChild(counters.myGoogleBox);
     document.querySelectorAll(".mycolumns")[1].style.overflowY="scroll";
   
     cPan.style.backgroundColor = "white";
