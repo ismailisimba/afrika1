@@ -189,7 +189,7 @@ function onSignIn(googleUser) {
     data = JSON.stringify(data);
       
   
-    var myRequest = new Request(reqString+"?paraOne="+para);
+    var myRequest = new Request(counters.reqString+"?paraOne="+para);
     
   
          
