@@ -7,6 +7,7 @@ counters["elements"]["cPan"] = document.querySelectorAll(".settcont")[0];
 counters["elements"]["cPanGenericCont"] = document.querySelectorAll(".genericCpanCont")[0];
 counters["elements"]["popUp"] = document.querySelectorAll(".custompopup")[0];
 counters["reqString"] = "https://script.google.com/macros/s/AKfycbwsionDZcaKZPxP9A6c6A-fjpKavYrdpxEhial1Jw_kE35XRYfc9Hxwfe7zd4Zfb0A/exec";
+counters["paraTemplate"] = {"params":[{"initVal":"initKey"}]};
 
 
 window.onload = () => {
@@ -384,7 +385,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   
   function bundleLoginData(token) {
-    let contextObject = JSON.parse(JSON.stringify(paraTemplate));
+    let contextObject = JSON.parse(JSON.stringify(counters.paraTemplate));
   
       contextObject.params[0]["action"] = "login";
       contextObject.params[0]["token"] = token.toString();
@@ -394,7 +395,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   
   function bundleTokenAfter(token) {
-    let contextObject = JSON.parse(JSON.stringify(paraTemplate));
+    let contextObject = JSON.parse(JSON.stringify(counters.paraTemplate));
   
       contextObject.params[0]["action"] = "later...";
       contextObject.params[0]["token"] = token.toString();
