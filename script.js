@@ -8,6 +8,7 @@ counters["elements"]["cPanGenericCont"] = document.querySelectorAll(".genericCpa
 counters["elements"]["popUp"] = document.querySelectorAll(".custompopup")[0];
 counters["reqString"] = "https://script.google.com/macros/s/AKfycbwsionDZcaKZPxP9A6c6A-fjpKavYrdpxEhial1Jw_kE35XRYfc9Hxwfe7zd4Zfb0A/exec";
 counters["paraTemplate"] = {"params":[{"initVal":"initKey"}]};
+counters["localVar"] = {};
 
 
 window.onload = () => {
@@ -258,7 +259,7 @@ async function hailTheServerOnAllChannels(action,value) {
     }else if(action==="uploadFiles"){
       let data = await bundleMyData(action,value).then(()=>{
         let myObj = bundleTokenAfter(value);
-        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.draft;
+        myObj.params[0].dataObj = counters.localVar.cloudObj.contentObj.contentObj.draft;
         startHailing(myObj,"uploadImages",function(){
           window.location.href = "./backend"
         });
@@ -269,7 +270,7 @@ async function hailTheServerOnAllChannels(action,value) {
       
       let data = await bundleMyData(action,value).then(()=>{
         let myObj = bundleTokenAfter(value);
-        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+        myObj.params[0].dataObj = counters.localVar.cloudObj.contentObj.contentObj.delete;
        
        customPopUpFunc(counters.elements.popUp,"Deleting","fullsteamahead");
         startHailing(myObj,action,function(){
@@ -282,7 +283,7 @@ async function hailTheServerOnAllChannels(action,value) {
   
         
         let myObj = bundleTokenAfter(value);
-        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.draft.stories[0];
+        myObj.params[0].dataObj = counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0];
        
        customPopUpFunc(counters.elements.popUp,"Saving Story","fullsteamahead");
         startHailing(myObj,action,function(){
@@ -293,7 +294,7 @@ async function hailTheServerOnAllChannels(action,value) {
     }else if(action==="deleteStories"){
       let data = await bundleMyData(action,value).then(()=>{
         let myObj = bundleTokenAfter(value);
-        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+        myObj.params[0].dataObj = counters.localVar.cloudObj.contentObj.contentObj.delete;
       
        customPopUpFunc(counters.elements.popUp,"Deleting","fullsteamahead");
         startHailing(myObj,action,function(){
@@ -305,7 +306,7 @@ async function hailTheServerOnAllChannels(action,value) {
   
         
         let myObj = bundleTokenAfter(value);
-        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+        myObj.params[0].dataObj = counters.localVar.cloudObj.contentObj.contentObj.delete;
        
        customPopUpFunc(counters.elements.popUp,"Updating","fullsteamahead");
         startHailing(myObj,action,function(){
@@ -321,7 +322,7 @@ async function hailTheServerOnAllChannels(action,value) {
   
         
         let myObj = bundleTokenAfter(value);
-        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+        myObj.params[0].dataObj = counters.localVar.cloudObj.contentObj.contentObj.delete;
        
        customPopUpFunc(counters.elements.popUp,"Updating","fullsteamahead");
         startHailing(myObj,action,function(){
@@ -406,7 +407,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   
   function genericPrintResponse (responseObj){
-   localVar["cloudObj"] = responseObj;
+   counters.localVar["cloudObj"] = responseObj;
     let loginStatus = responseObj.tokenObject.status;
   let myCanvas = document.querySelectorAll(".mycolumns")[1];
   myCanvas.innerHTML = "";
@@ -494,15 +495,15 @@ async function startHailing(data,para,functionToRunAfter){
     cPan.querySelectorAll(".setinset")[0].style.height = "48px";
     cPan.querySelectorAll(".cpancontentcont")[0].innerHTML = "";
     document.querySelectorAll(".mycolumns")[1].appendChild(cPan);
-    //tempdiv.innerHTML = localVar.cloudObj.backendHTML;
+    //tempdiv.innerHTML = counters.localVar.cloudObj.backendHTML;
   
     document.querySelectorAll("title")[0].innerHTML= "Swim - You're In!";
     customPopUpFunc(counters.elements.popUp,"phrase","stop");
-    insertAndExecute("temporarydiv",localVar.cloudObj.backendHTML).then(function(){
+    insertAndExecute("temporarydiv",counters.localVar.cloudObj.backendHTML).then(function(){
       addBackendEventListeners();
-      fillUpFiles(localVar.cloudObj);
-      fillUpSiteMapInfo(localVar.cloudObj);
-      fillUpStories(localVar.cloudObj,"back");
+      fillUpFiles(counters.localVar.cloudObj);
+      fillUpSiteMapInfo(counters.localVar.cloudObj);
+      fillUpStories(counters.localVar.cloudObj,"back");
     });
   
   
