@@ -409,7 +409,7 @@ async function startHailing(data,para,functionToRunAfter){
   function genericPrintResponse (responseObj){
    counters.localVar["cloudObj"] = responseObj;
     let loginStatus = responseObj.tokenObject.status;
-  let myCanvas = document.querySelectorAll(".mycolumns")[1];
+  let myCanvas = document.querySelectorAll(".bigcontainer")[0];
   myCanvas.innerHTML = "";
   myCanvas.style.color = "black";
   myCanvas.style.fontSize = "14px";
