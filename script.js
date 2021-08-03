@@ -424,7 +424,7 @@ async function startHailing(data,para,functionToRunAfter){
   }else{
    alert("There seems to be an error. Please use the correct email. <br> If the error persists please email: ismaili.a.simba@gmail.com");
    signOut();
-   document.querySelectorAll("title")[0].innerHTML= "Swim - Log In";
+   document.querySelectorAll("title")[0].innerHTML= "Ladha Africa - Log In";
   }
   //myCanvas.innerHTML = Object.entries(responseObj.tokenObject);
   
@@ -498,7 +498,7 @@ async function startHailing(data,para,functionToRunAfter){
     document.querySelectorAll(".bigcontainer")[0].appendChild(counters.elements.cPan);
     //tempdiv.innerHTML = counters.localVar.cloudObj.backendHTML;
   
-    document.querySelectorAll("title")[0].innerHTML= "Swim - You're In!";
+    document.querySelectorAll("title")[0].innerHTML= "Ladha Africa - You're In!";
     customPopUpFunc(counters.elements.popUp,"phrase","stop");
     insertAndExecute("temporarydiv",counters.localVar.cloudObj.backendHTML).then(function(){
       addBackendEventListeners();
