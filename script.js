@@ -491,11 +491,11 @@ async function startHailing(data,para,functionToRunAfter){
     document.querySelectorAll(".bigcontainer")[0].appendChild(counters.myGoogleBox);
     document.querySelectorAll(".bigcontainer")[0].style.overflowY="scroll";
   
-    cPan.style.backgroundColor = "white";
-    cPan.style.borderColor = "white";
-    cPan.querySelectorAll(".setinset")[0].style.height = "48px";
-    cPan.querySelectorAll(".cpancontentcont")[0].innerHTML = "";
-    document.querySelectorAll(".bigcontainer")[0].appendChild(cPan);
+    counters.elements.cPan.style.backgroundColor = "black";
+    counters.elements.cPan.style.borderColor = "black";
+    counters.elements.cPan.querySelectorAll(".setinset")[0].style.height = "48px";
+    counters.elements.cPan.querySelectorAll(".cpancontentcont")[0].innerHTML = "";
+    document.querySelectorAll(".bigcontainer")[0].appendChild(counters.elements.cPan);
     //tempdiv.innerHTML = counters.localVar.cloudObj.backendHTML;
   
     document.querySelectorAll("title")[0].innerHTML= "Swim - You're In!";

@@ -384,21 +384,21 @@ nav ul li:hover {
 
 .mylogbutt{
 
-    border: 3px dotted white;
+    border: 3px dotted black;
     padding: 9px 16px;
     border-radius: 6px;
 }
 
 .loginbutt{
 
-    color: white;
+    color: black;
     background-color: transparent;
 }
 
 .loginbutt:hover{
 
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: black;
 }
 
 .googlestuff{
@@ -410,7 +410,7 @@ nav ul li:hover {
 }
 .googlestuff a{
 
-    color: white !important;
+    color: black !important;
     text-decoration: none !important;
 
 
