@@ -253,7 +253,7 @@ async function hailTheServerOnAllChannels(action,value) {
         return data;
       });
   
-      customPopUpFunc(popUp,"Signing In","fullsteamahead");
+      customPopUpFunc(counters.elements.popUp,"Signing In","fullsteamahead");
   
     }else if(action==="uploadFiles"){
       let data = await bundleMyData(action,value).then(()=>{
@@ -264,14 +264,14 @@ async function hailTheServerOnAllChannels(action,value) {
         });
       });
   
-      customPopUpFunc(popUp,"Uploading","fullsteamahead");
+      customPopUpFunc(counters.elements.popUp,"Uploading","fullsteamahead");
     }else if(action==="delete"){
       
       let data = await bundleMyData(action,value).then(()=>{
         let myObj = bundleTokenAfter(value);
         myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
        
-       customPopUpFunc(popUp,"Deleting","fullsteamahead");
+       customPopUpFunc(counters.elements.popUp,"Deleting","fullsteamahead");
         startHailing(myObj,action,function(){
           window.location.href = "./backend"
         });
@@ -284,7 +284,7 @@ async function hailTheServerOnAllChannels(action,value) {
         let myObj = bundleTokenAfter(value);
         myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.draft.stories[0];
        
-       customPopUpFunc(popUp,"Saving Story","fullsteamahead");
+       customPopUpFunc(counters.elements.popUp,"Saving Story","fullsteamahead");
         startHailing(myObj,action,function(){
           window.location.href = "./backend"
         });
@@ -295,7 +295,7 @@ async function hailTheServerOnAllChannels(action,value) {
         let myObj = bundleTokenAfter(value);
         myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
       
-       customPopUpFunc(popUp,"Deleting","fullsteamahead");
+       customPopUpFunc(counters.elements.popUp,"Deleting","fullsteamahead");
         startHailing(myObj,action,function(){
           window.location.href = "./backend"
         });
@@ -307,7 +307,7 @@ async function hailTheServerOnAllChannels(action,value) {
         let myObj = bundleTokenAfter(value);
         myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
        
-       customPopUpFunc(popUp,"Updating","fullsteamahead");
+       customPopUpFunc(counters.elements.popUp,"Updating","fullsteamahead");
         startHailing(myObj,action,function(){
           window.location.href = "./backend"
         });
@@ -323,7 +323,7 @@ async function hailTheServerOnAllChannels(action,value) {
         let myObj = bundleTokenAfter(value);
         myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
        
-       customPopUpFunc(popUp,"Updating","fullsteamahead");
+       customPopUpFunc(counters.elements.popUp,"Updating","fullsteamahead");
         startHailing(myObj,action,function(){
           window.location.href = "./backend"
         });
@@ -497,7 +497,7 @@ async function startHailing(data,para,functionToRunAfter){
     //tempdiv.innerHTML = localVar.cloudObj.backendHTML;
   
     document.querySelectorAll("title")[0].innerHTML= "Swim - You're In!";
-    customPopUpFunc(popUp,"phrase","stop");
+    customPopUpFunc(counters.elements.popUp,"phrase","stop");
     insertAndExecute("temporarydiv",localVar.cloudObj.backendHTML).then(function(){
       addBackendEventListeners();
       fillUpFiles(localVar.cloudObj);
