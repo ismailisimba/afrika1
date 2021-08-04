@@ -113,7 +113,7 @@ function dropDownClicks () {
 
 
 function rollOutGeneric(elementId){
-    document.querySelectorAll(".genericbox")[0].style.minHeight = "469px";
+    document.querySelectorAll(".genericbox")[0].style.minHeight = "769px";
     document.querySelectorAll(".genericbox")[0].style.height = "auto";
     document.querySelectorAll(".genericbox")[0].style.top = "0px";
     document.querySelectorAll(".genericbox")[0].style.visibility = "visible";
