@@ -10,6 +10,7 @@ counters.elements["postsMomCont"] = document.querySelectorAll(".postscontainer")
 counters["reqString"] = "https://script.google.com/macros/s/AKfycbwsionDZcaKZPxP9A6c6A-fjpKavYrdpxEhial1Jw_kE35XRYfc9Hxwfe7zd4Zfb0A/exec";
 counters["paraTemplate"] = {"params":[{"initVal":"initKey"}]};
 counters["localVar"] = {};
+counters.localVar["counters"]["currentAtCpan"] = 0; 
 counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
 
 
