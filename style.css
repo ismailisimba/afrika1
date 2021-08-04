@@ -381,8 +381,7 @@ nav ul li:hover {
     min-width: 69px;
     align-self: flex-start;
     top: 120px;
-    margin-top: 6px;
-    margin-right: 24px;
+    margin: 0 auto;
 }
 
 .mylogbutt{
