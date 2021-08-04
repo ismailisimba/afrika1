@@ -789,3 +789,9 @@ nav ul li:hover {
 #inputone, #inputtwo{
     display: none;
 }
+
+
+.testhref1selected {
+
+    opacity: 0.69 !important;
+}
