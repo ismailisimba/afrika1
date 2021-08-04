@@ -2139,6 +2139,9 @@ function getStoryTit(id){
     
 }
 
+
+
+
 function frontEndOnlyFuncs () {
   let frontEnd = document.querySelectorAll(".frontphotobox")[0];
 
@@ -2152,5 +2155,22 @@ function frontEndOnlyFuncs () {
     console.log("frontEndFuncErr");
   }
   
+
+}
+
+
+function formatFileSize(size){
+
+  if(size<=1024){
+    size = "1 kb"
+  }else if(size>1024&&size<=524288){
+      size = Math.floor(size/1024);
+      size = size+" kbs";
+  }else if(size>524288){
+    size = Math.floor(size/1048576);
+    size = size+" MBs";
+  }
+
+  return size;
 
 }
