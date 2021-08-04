@@ -921,8 +921,8 @@ async function startHailing(data,para,functionToRunAfter){
   }
   
   function writeFilesToCpan(filesArr,contentBox) {
-    let numOfFilesCont = cPanGenericCont.querySelectorAll("span")[0];
-    let fileDeetsCont = cPanGenericCont.querySelectorAll(".imageListItemCont");
+    let numOfFilesCont = counters.elements.cPanGenericCont.querySelectorAll("span")[0];
+    let fileDeetsCont = counters.elements.cPanGenericCont.querySelectorAll(".imageListItemCont");
     let cloneFD = fileDeetsCont[0].cloneNode(true);
     let sumOfHeight = 0;
     fileDeetsCont.forEach(element=>{
@@ -951,7 +951,7 @@ async function startHailing(data,para,functionToRunAfter){
       tempdiv.appendChild(fileSizeCont);
   
       
-      cPanGenericCont.appendChild(tempdiv);
+      counters.elements.cPanGenericCont.appendChild(tempdiv);
   
     }
     //contentBox.innerHTML = "";
@@ -960,8 +960,8 @@ async function startHailing(data,para,functionToRunAfter){
     let sumOfH = fillBoxes2(contentBox,42,2,["Cancel","Upload"]);
   
     sumOfH = sumOfH + sumOfHeight;
-    cPanGenericCont.style.visibility = "visible";
-    contentBox.appendChild(cPanGenericCont);
+    counters.elements.cPanGenericCont.style.visibility = "visible";
+    contentBox.appendChild(counters.elements.cPanGenericCont);
     return sumOfH;
   
   }
@@ -1319,7 +1319,7 @@ async function startHailing(data,para,functionToRunAfter){
   function setupForFileDeletion(){
   
     let butClone = counters.localVar.tempDivs.butt1.cloneNode(true);
-    let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
+    let fileContClone = counters.elements.cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
     let parent = document.querySelectorAll(".cpancontentcont")[0];
   
     parent.innerHTML = "";
@@ -1338,7 +1338,7 @@ async function startHailing(data,para,functionToRunAfter){
   function setupForStoryDeletion(){
   
     let butClone = counters.localVar.tempDivs.butt1.cloneNode(true);
-    let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
+    let fileContClone = counters.elements.cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
     let parent = document.querySelectorAll(".cpancontentcont")[0];
   
     parent.innerHTML = "";
@@ -1357,7 +1357,7 @@ async function startHailing(data,para,functionToRunAfter){
   function setupForStoryPublishment(string){
   counters.localVar.publishStat = string;
     let butClone = counters.localVar.tempDivs.butt1.cloneNode(true);
-    let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
+    let fileContClone = counters.elements.cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
     let parent = document.querySelectorAll(".cpancontentcont")[0];
   
     parent.innerHTML = "";
