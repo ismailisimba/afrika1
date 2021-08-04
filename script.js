@@ -6,6 +6,7 @@ counters["dropState"] = "hidden";
 counters["elements"]["cPan"] = document.querySelectorAll(".settcont")[0];
 counters["elements"]["cPanGenericCont"] = document.querySelectorAll(".genericCpanCont")[0];
 counters["elements"]["popUp"] = document.querySelectorAll(".custompopup")[0];
+counters.elements["postsMomCont"] = document.querySelectorAll(".postscontainer")[0];
 counters["reqString"] = "https://script.google.com/macros/s/AKfycbwsionDZcaKZPxP9A6c6A-fjpKavYrdpxEhial1Jw_kE35XRYfc9Hxwfe7zd4Zfb0A/exec";
 counters["paraTemplate"] = {"params":[{"initVal":"initKey"}]};
 counters["localVar"] = {};
