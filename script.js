@@ -1385,7 +1385,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   function addStoryClicks(){
   
-    let myClickableStoryHrefs = postsMomCont.querySelectorAll(".postpreview");
+    let myClickableStoryHrefs = counters.elements.postsMomCont.querySelectorAll(".postpreview");
   
     myClickableStoryHrefs.forEach(element => {
       element.addEventListener("click",toggleStorySelectStyle)
@@ -1460,7 +1460,7 @@ async function startHailing(data,para,functionToRunAfter){
   }
   
   function removeStorySelectClicks () {
-    let myClickableStoryHrefs = postsMomCont.querySelectorAll(".postpreview");
+    let myClickableStoryHrefs = counters.elements.postsMomCont.querySelectorAll(".postpreview");
   
     myClickableStoryHrefs.forEach(element => {
       element.removeEventListener("click",toggleStorySelectStyle,false)
@@ -1525,7 +1525,7 @@ async function startHailing(data,para,functionToRunAfter){
     }
     
     function removeAddToEditor (){
-      let myClickableStoryHrefs = postsMomCont.querySelectorAll(".postpreview");
+      let myClickableStoryHrefs = counters.elements.postsMomCont.querySelectorAll(".postpreview");
     
       myClickableStoryHrefs.forEach(element => {
         element.removeEventListener("click",addStoryToEditor,false);
@@ -1544,7 +1544,7 @@ async function startHailing(data,para,functionToRunAfter){
     }
     
     function toggleStorySelectStyleOff() {
-      let hrefs69 = postsMomCont.querySelectorAll(".postpreview");
+      let hrefs69 = counters.elements.postsMomCont.querySelectorAll(".postpreview");
       
       hrefs69.forEach(element=>{
         element.classList.remove("storyhref2selected");
@@ -1765,8 +1765,8 @@ async function startHailing(data,para,functionToRunAfter){
     
       let numOfStories = stories.length;
     
-      let storyCont = postsMomCont.querySelectorAll(".postpreview")[0];
-      let parent = postsMomCont;
+      let storyCont = counters.elements.postsMomCont.querySelectorAll(".postpreview")[0];
+      let parent = counters.elements.postsMomCont;
     
       parent.innerHTML = "";
     
@@ -1892,7 +1892,7 @@ async function startHailing(data,para,functionToRunAfter){
       parent.appendChild(butClone);
       
     
-      let stories = postsMomCont.querySelectorAll(".postpreview");
+      let stories = counters.elements.postsMomCont.querySelectorAll(".postpreview");
     
       stories.forEach(element => {
         element.addEventListener("click",showStoryReadPage);
@@ -2042,7 +2042,7 @@ async function startHailing(data,para,functionToRunAfter){
       parent.appendChild(butClone);
       
     
-      let stories = postsMomCont.querySelectorAll(".postpreview");
+      let stories = counters.elements.postsMomCont.querySelectorAll(".postpreview");
     
       stories.forEach(element => {
         element.addEventListener("click",addStoryToEditor);
