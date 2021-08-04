@@ -160,7 +160,7 @@ nav ul li:hover {
     transition: all 1.3s ease-out;
 
     background-color: transparent;
-    border: 0.69px solid white;
+    border: 0.69px solid black;
     border-radius: 3px;
 
     
@@ -194,8 +194,9 @@ nav ul li:hover {
 
     border-radius: 6px;
     width: 85%;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
+    border: 0.69 dotted white;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1.3px;
@@ -378,7 +379,7 @@ nav ul li:hover {
     position: relative;
     width: 65%;
     min-width: 69px;
-    align-self: flex-end;
+    align-self: flex-start;
     top: 120px;
     margin-top: 6px;
     margin-right: 24px;
