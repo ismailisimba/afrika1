@@ -784,3 +784,8 @@ nav ul li:hover {
     border: 0px;
 
 }
+
+
+#inputone, #inputtwo{
+    display: none;
+}
