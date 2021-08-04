@@ -2141,6 +2141,16 @@ function getStoryTit(id){
 
 function frontEndOnlyFuncs () {
   let frontEnd = document.querySelectorAll(".frontphotobox")[0];
-  console.log(frontEnd);
+
+  if(frontEnd===undefined){
+
+  }else if(frontEnd){
+
+    dropDownClicks();
+
+  }else{
+    console.log("frontEndFuncErr");
+  }
+  
 
 }
