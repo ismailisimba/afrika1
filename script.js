@@ -604,7 +604,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   function displayCpanOptions(eleIndex){
   
-    localVar.counters.currentAtCpan = eleIndex;
+    counters.localVar.counters.currentAtCpan = eleIndex;
   
     if(eleIndex==0){
   
@@ -775,8 +775,8 @@ async function startHailing(data,para,functionToRunAfter){
   function addCpanOptsClickFuncs(){
   
     let cPanItem = this;
-    localVar.tempDivs["butt1"] = this;
-    let menuBoxIndex = localVar.counters.currentAtCpan;
+    counters.localVar.tempDivs["butt1"] = this;
+    let menuBoxIndex = counters.localVar.counters.currentAtCpan;
     let menuBox = document.querySelectorAll(".backendchildcontainer")[menuBoxIndex]; 
     let tempDiv = document.querySelectorAll(".logocontainer")[0];
   
@@ -877,7 +877,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   
   function genericInputClick(){
-    let menuBoxIndex = localVar.counters.currentAtCpan;
+    let menuBoxIndex = counters.localVar.counters.currentAtCpan;
     let menuBox = document.querySelectorAll(".backendchildcontainer")[menuBoxIndex]; 
     let thisInput = menuBox.querySelectorAll("input")[0];
     thisInput.click();
@@ -927,7 +927,7 @@ async function startHailing(data,para,functionToRunAfter){
   
     numOfFilesCont.innerHTML = filesArr.length;
   
-    localVar.counters["filesForUploadArr"] = filesArr;
+    counters.localVar.counters["filesForUploadArr"] = filesArr;
     for(let i=0;i<filesArr.length;i++){
   
       sumOfHeight = sumOfHeight + 18;
@@ -1002,13 +1002,13 @@ async function startHailing(data,para,functionToRunAfter){
     let copy = {fileInfo:{"ogname":"","meme":""},fileData:""};
     
   
-    for(let i = 0 ; i < localVar.counters.filesForUploadArr.length ; i++){
+    for(let i = 0 ; i < counters.localVar.counters.filesForUploadArr.length ; i++){
   
       let tempObj = JSON.parse(JSON.stringify(copy));
   
   
   
-        let file = localVar.counters.filesForUploadArr[i];
+        let file = counters.localVar.counters.filesForUploadArr[i];
   
         tempObj.fileInfo.ogname = file.name;
         tempObj.fileInfo.meme = file.type;
@@ -1052,8 +1052,8 @@ async function startHailing(data,para,functionToRunAfter){
   
   if(context==="images"){
   
-    let copy =  localVar.cloudObj.contentObj.contentObj.draft.images[0];
-    localVar.cloudObj.contentObj.contentObj.draft.images = [];
+    let copy =  counters.localVar.cloudObj.contentObj.contentObj.draft.images[0];
+    counters.localVar.cloudObj.contentObj.contentObj.draft.images = [];
     let [myDate]    = new Date().toLocaleDateString("en-US").split("-");
     let [hour, minute, second] = new Date().toLocaleTimeString("en-US").split(/:| /);
   
@@ -1069,16 +1069,16 @@ async function startHailing(data,para,functionToRunAfter){
   
    
   
-   localVar.cloudObj.contentObj.contentObj.draft.images.push(tempObj);
+   counters.localVar.cloudObj.contentObj.contentObj.draft.images.push(tempObj);
   
     }
   
   
   }else if(context==="deleteFiles"){
-    let copy = localVar.cloudObj.contentObj.contentObj.delete[0];
+    let copy = counters.localVar.cloudObj.contentObj.contentObj.delete[0];
     let itemsToDel = document.querySelectorAll(".cpancontentcont")[0];
     itemsToDel = itemsToDel.querySelectorAll(".fileListItemCont");
-    localVar.cloudObj.contentObj.contentObj.delete = [];
+    counters.localVar.cloudObj.contentObj.contentObj.delete = [];
   
     for(let i = 0 ; i < itemsToDel.length ; i++){
   
@@ -1089,18 +1089,18 @@ async function startHailing(data,para,functionToRunAfter){
   
    
   
-   localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
+   counters.localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
   
     }
   
-    data = localVar.cloudObj.contentObj.contentObj.delete;
+    data = counters.localVar.cloudObj.contentObj.contentObj.delete;
     
     
   }else if(context==="deleteStories"){
-    let copy = localVar.cloudObj.contentObj.contentObj.delete[0];
+    let copy = counters.localVar.cloudObj.contentObj.contentObj.delete[0];
     let itemsToDel = document.querySelectorAll(".cpancontentcont")[0];
     itemsToDel = itemsToDel.querySelectorAll(".fileListItemCont");
-    localVar.cloudObj.contentObj.contentObj.delete = [];
+    counters.localVar.cloudObj.contentObj.contentObj.delete = [];
   
     for(let i = 0 ; i < itemsToDel.length ; i++){
   
@@ -1111,11 +1111,11 @@ async function startHailing(data,para,functionToRunAfter){
   
   
   
-   localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
+   counters.localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
   
     }
   
-    data = localVar.cloudObj.contentObj.contentObj.delete;
+    data = counters.localVar.cloudObj.contentObj.contentObj.delete;
     
   
     
@@ -1123,29 +1123,29 @@ async function startHailing(data,para,functionToRunAfter){
   
   }else if(context==="updatePublish"){
   
-    let copy = localVar.cloudObj.contentObj.contentObj.delete[0];
+    let copy = counters.localVar.cloudObj.contentObj.contentObj.delete[0];
     let itemsToDel = document.querySelectorAll(".cpancontentcont")[0];
     itemsToDel = itemsToDel.querySelectorAll(".fileListItemCont");
-    localVar.cloudObj.contentObj.contentObj.delete = [];
+    counters.localVar.cloudObj.contentObj.contentObj.delete = [];
   
     for(let i = 0 ; i < itemsToDel.length ; i++){
   
       let tempObj = JSON.parse(JSON.stringify(copy));
   
       tempObj.type =  "story";
-      tempObj["newUpdate"] = localVar.publishStat;
+      tempObj["newUpdate"] = counters.localVar.publishStat;
       tempObj.id =  itemsToDel[i].querySelectorAll(".idhref")[0].innerText;
   
   
   
-   localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
+   counters.localVar.cloudObj.contentObj.contentObj.delete.push(tempObj);
   }
   
   }else if(context==="updateSettings"){
   
     let newSettings = {};
-    let copy = localVar.cloudObj.contentObj.contentObj.delete[0];
-    localVar.cloudObj.contentObj.contentObj.delete = {};
+    let copy = counters.localVar.cloudObj.contentObj.contentObj.delete[0];
+    counters.localVar.cloudObj.contentObj.contentObj.delete = {};
   
     newSettings["title"] = document.getElementById("posttit");
     newSettings["catchphrase"] = document.getElementById("postcat");
@@ -1161,18 +1161,18 @@ async function startHailing(data,para,functionToRunAfter){
     newSettings["inst"] = document.getElementById("instcollector");
     
   
-    localVar.cloudObj.contentObj.contentObj.delete ["title"] = newSettings.title.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["catchphrase"] = newSettings.catchphrase.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["featureOne"] = newSettings.featureOne.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["featureTwo"] = newSettings.featureTwo.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["featureThree"] = newSettings.featureThree.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["email"] = newSettings.email.value ;
-    localVar.cloudObj.contentObj.contentObj.delete ["address"] = newSettings.address.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["fb"] = newSettings.fb.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["num"] = newSettings.num.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["twtt"] = newSettings.twtt.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["lnkd"] = newSettings.lnkd.value;
-    localVar.cloudObj.contentObj.contentObj.delete ["inst"] = newSettings.inst.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["title"] = newSettings.title.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["catchphrase"] = newSettings.catchphrase.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureOne"] = newSettings.featureOne.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureTwo"] = newSettings.featureTwo.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureThree"] = newSettings.featureThree.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["email"] = newSettings.email.value ;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["address"] = newSettings.address.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["fb"] = newSettings.fb.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["num"] = newSettings.num.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["twtt"] = newSettings.twtt.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["lnkd"] = newSettings.lnkd.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["inst"] = newSettings.inst.value;
     
   }
   return data;
@@ -1181,8 +1181,8 @@ async function startHailing(data,para,functionToRunAfter){
   
   
   function fillUpFiles(responseObj) {
-    localVar["cloudObj"] = responseObj;
-    let filesArr = localVar.cloudObj.contentObj.contentObj.published.images;
+    counters.localVar["cloudObj"] = responseObj;
+    let filesArr = counters.localVar.cloudObj.contentObj.contentObj.published.images;
     filesArr.splice(0,1);
   
     let pageLim = 5;
@@ -1314,7 +1314,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   function setupForFileDeletion(){
   
-    let butClone = localVar.tempDivs.butt1.cloneNode(true);
+    let butClone = counters.localVar.tempDivs.butt1.cloneNode(true);
     let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
     let parent = document.querySelectorAll(".cpancontentcont")[0];
   
@@ -1333,7 +1333,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   function setupForStoryDeletion(){
   
-    let butClone = localVar.tempDivs.butt1.cloneNode(true);
+    let butClone = counters.localVar.tempDivs.butt1.cloneNode(true);
     let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
     let parent = document.querySelectorAll(".cpancontentcont")[0];
   
@@ -1351,8 +1351,8 @@ async function startHailing(data,para,functionToRunAfter){
   }
   
   function setupForStoryPublishment(string){
-  localVar.publishStat = string;
-    let butClone = localVar.tempDivs.butt1.cloneNode(true);
+  counters.localVar.publishStat = string;
+    let butClone = counters.localVar.tempDivs.butt1.cloneNode(true);
     let fileContClone = cPanGenericCont.querySelectorAll(".imageListItemCont")[0].cloneNode(true);
     let parent = document.querySelectorAll(".cpancontentcont")[0];
   
@@ -1722,12 +1722,12 @@ async function startHailing(data,para,functionToRunAfter){
       newStoryObj.myHtml = tempDivObj.innerHTML;
       
     
-      if(localVar.thisEditToDel!=="none"){
-        localVar.cloudObj.contentObj.contentObj.delete[0].id = localVar.thisEditToDel;
-        localVar.cloudObj.contentObj.contentObj.delete[0].type = "story";
+      if(counters.localVar.thisEditToDel!=="none"){
+        counters.localVar.cloudObj.contentObj.contentObj.delete[0].id = counters.localVar.thisEditToDel;
+        counters.localVar.cloudObj.contentObj.contentObj.delete[0].type = "story";
         let token = getToken();
         let myObj = bundleTokenAfter(token);
-        myObj.params[0].dataObj = localVar.cloudObj.contentObj.contentObj.delete;
+        myObj.params[0].dataObj = counters.localVar.cloudObj.contentObj.contentObj.delete;
         startHailing(myObj,"delete",function(responseObj){
           
         });
@@ -1737,10 +1737,10 @@ async function startHailing(data,para,functionToRunAfter){
       
       
     
-       localVar.cloudObj.contentObj.contentObj.draft.stories[0].storyObj = newStoryObj;
-       localVar.cloudObj.contentObj.contentObj.draft.stories[0].title = document.getElementById("editposttit").value;
-       localVar.cloudObj.contentObj.contentObj.draft.stories[0].description = document.getElementById("descrtit").value;
-       localVar.cloudObj.contentObj.contentObj.draft.stories[0].type = "draft";
+       counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].storyObj = newStoryObj;
+       counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].title = document.getElementById("editposttit").value;
+       counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].description = document.getElementById("descrtit").value;
+       counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].type = "draft";
     
         let token = getToken();
       hailTheServerOnAllChannels("uploadStory",token);
@@ -1877,13 +1877,13 @@ async function startHailing(data,para,functionToRunAfter){
     function setupForStoryView() {
     
       
-      localVar.columnHtml = document.querySelectorAll(".mycolumns")[1];
+      counters.localVar.columnHtml = document.querySelectorAll(".bigcontainer")[0];
     
       let parent = document.querySelectorAll(".cpancontentcont")[0];
     
       parent.innerHTML = "";
     
-      let butClone = localVar.tempDivs.butt1.cloneNode(true);
+      let butClone = counters.localVar.tempDivs.butt1.cloneNode(true);
     
       butClone.innerHTML = `Please click the stories/posts you want to read.`;
       butClone.style.height = "auto";
@@ -1912,13 +1912,13 @@ async function startHailing(data,para,functionToRunAfter){
     
       deBut.addEventListener("click", backToBackend)
       
-      localVar.columnHtml.replaceWith(dePage);
+      counters.localVar.columnHtml.replaceWith(dePage);
       addNewHtmlFuncs(storyid);
     
     }
     
     function backToBackend (){
-      dePage.replaceWith(localVar.columnHtml);
+      dePage.replaceWith(counters.localVar.columnHtml);
       dePage.removeEventListener("click",backToBackend,false);
     }
     
@@ -1926,7 +1926,7 @@ async function startHailing(data,para,functionToRunAfter){
     function addNewHtmlFuncs(storyid) {
     
     
-      let stories = localVar.cloudObj.contentObj.contentObj.published.stories
+      let stories = counters.localVar.cloudObj.contentObj.contentObj.published.stories
       let searchResponse = searchStory(stories,storyid);
     
       if(searchResponse.status==="found"){
@@ -2027,13 +2027,13 @@ async function startHailing(data,para,functionToRunAfter){
     
     
     function appendStoryToEditor() {
-      localVar.columnHtml = document.querySelectorAll(".mycolumns")[1];
+      counters.localVar.columnHtml = document.querySelectorAll(".bigcontainer")[0];
     
       let parent = document.querySelectorAll(".cpancontentcont")[0];
     
       parent.innerHTML = "";
     
-      let butClone = localVar.tempDivs.butt1.cloneNode(true);
+      let butClone = counters.localVar.tempDivs.butt1.cloneNode(true);
     
       butClone.innerHTML = `Please click the story you want to edit then check the editor (under Add/Edit Posts).`;
       butClone.style.height = "auto";
@@ -2052,8 +2052,8 @@ async function startHailing(data,para,functionToRunAfter){
     function addStoryToEditor () {
     
       let storyid = this.querySelectorAll(".storyhref")[0].id;
-      localVar.thisEditToDel = storyid;
-      let stories = localVar.cloudObj.contentObj.contentObj.published.stories
+      counters.localVar.thisEditToDel = storyid;
+      let stories = counters.localVar.cloudObj.contentObj.contentObj.published.stories
       let searchResponse = searchStory(stories,storyid);
     
       if(searchResponse.status==="found"){
@@ -2082,7 +2082,7 @@ async function startHailing(data,para,functionToRunAfter){
     
     function  fillPublishedStoriesSelections(){
     
-      let stories = localVar.cloudObj.contentObj.contentObj.published.stories;
+      let stories = counters.localVar.cloudObj.contentObj.contentObj.published.stories;
       let publishedTitsArr = [];
       let obj = {id:"",title:""}
       let myParConts = document.querySelectorAll(".featuresgeneric");
@@ -2125,7 +2125,7 @@ async function startHailing(data,para,functionToRunAfter){
     };
     
 function getStoryTit(id){
-      let stories = localVar.cloudObj.contentObj.contentObj.published.stories;
+      let stories = counters.localVar.cloudObj.contentObj.contentObj.published.stories;
       let title = "Not Found";
     
       for(let i=0 ; i<stories.length ; i++){
