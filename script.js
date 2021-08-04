@@ -11,6 +11,7 @@ counters["reqString"] = "https://script.google.com/macros/s/AKfycbwsionDZcaKZPxP
 counters["paraTemplate"] = {"params":[{"initVal":"initKey"}]};
 counters["localVar"] = {};
 counters.localVar["counters"] = {};
+counters.localVar["tempDivs"] = {};
 counters.localVar.counters["currentAtCpan"] = 0; 
 counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
 
