@@ -20,8 +20,6 @@ counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
 window.onload = () => {
   frontEndOnlyFuncs();
   myGenericPageFormatting();
-  myScrollFunctions();
-  navClicks();
   checkTheURL();
 }
 
@@ -2005,7 +2003,7 @@ async function startHailing(data,para,functionToRunAfter){
     function fetchDisImage (element) {
     
       let deId = {id:element.id};
-      let contextObject = JSON.parse(JSON.stringify(paraTemplate));
+      let contextObject = JSON.parse(JSON.stringify(counters.paraTemplate));
     
       contextObject.params[0]["action"] = "later...";
       contextObject.params[0]["token"] = "wHaT tOkEn!";
@@ -2156,6 +2154,8 @@ function frontEndOnlyFuncs () {
   }else if(frontEnd){
 
     dropDownClicks();
+    myScrollFunctions();
+    navClicks();
 
   }else{
     console.log("frontEndFuncErr");
