@@ -122,8 +122,8 @@ nav ul li:hover {
 
 .settcont{
     display: block;
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: 179px;
     border-radius: 6px;
     left: 7%;
 
