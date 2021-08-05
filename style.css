@@ -809,14 +809,15 @@ nav ul li:hover {
 
     position: relative;
 
-    background-color: transparent;
-    color: white;
+    background-color: #696d6b;
+    opacity: .86;
+    color: black;
     width: 85%;
     padding: 12px 36px;
     box-sizing: border-box;
     margin: 12px 6px;
     
-    background-image: linear-gradient(to right, white 33%, rgba(0,0,0,0) 0%);
+    background-image: linear-gradient(to right, black 33%, rgba(0,0,0,0) 0%);
     background-position: bottom;
     background-size: 18px 0.69px;
     background-repeat: repeat-x;

@@ -1833,7 +1833,7 @@ async function startHailing(data,para,functionToRunAfter){
         
           .storyhref{
             position: absolute;
-            color: white;
+            color: black;
             top: 0px;
             right: 0px;
             display: block;
