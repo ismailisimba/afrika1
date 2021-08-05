@@ -152,6 +152,7 @@ function checkTheURL () {
       counters.elements.cPan.remove();
       counters.elements.cPanGenericCont.remove();
       counters.elements.popUp.remove();
+      document.querySelectorAll("nav")[0].querySelectorAll("li")[0].addEventListener("click",()=>{window.location.url="./"})
       
      initiateLogInSetup(backendMatch);
     }else{
