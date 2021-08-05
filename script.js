@@ -7,6 +7,7 @@ counters["elements"]["cPan"] = document.querySelectorAll(".settcont")[0];
 counters["elements"]["cPanGenericCont"] = document.querySelectorAll(".genericCpanCont")[0];
 counters["elements"]["popUp"] = document.querySelectorAll(".custompopup")[0];
 counters.elements["postsMomCont"] = document.querySelectorAll(".postscontainer")[0];
+counters.elements["dePage"] =  document.querySelectorAll(".mygenericpage")[0];
 counters["reqString"] = "https://script.google.com/macros/s/AKfycbydOa4ZbEq5w9pBaGB1gKsl6uyY2ecMQ6yX2f9oVigiui-n6TArwnWrgm-ZBzkb4YLx/exec";
 counters["paraTemplate"] = {"params":[{"initVal":"initKey"}]};
 counters["localVar"] = {};
@@ -1795,8 +1796,8 @@ async function startHailing(data,para,functionToRunAfter){
         document.querySelectorAll(".backendchildcontainer")[2].appendChild(parent);
     
       }else{
-         dePage.querySelectorAll("h1")[0].innerHTML = "Stories And News From TALISS";
-         let deCont = dePage.querySelectorAll(".mystorycontainer")[0];
+         counters.elements.dePage.querySelectorAll("h1")[0].innerHTML = "Stories And News From TALISS";
+         let deCont = counters.elements.dePage.querySelectorAll(".mystorycontainer")[0];
          deCont.innerHTML = "";
           deCont.appendChild(parent);
     
@@ -1907,23 +1908,23 @@ async function startHailing(data,para,functionToRunAfter){
     
       let storyid = this.querySelectorAll(".storyhref")[0].id;
       
-      dePage.style.visibility = "visible";
+      counters.elements.dePage.style.visibility = "visible";
     
     
       
     
-      let deBut = dePage.querySelectorAll("button")[0];
+      let deBut = counters.elements.dePage.querySelectorAll("button")[0];
     
       deBut.addEventListener("click", backToBackend)
       
-      counters.localVar.columnHtml.replaceWith(dePage);
+      counters.localVar.columnHtml.replaceWith(counters.elements.dePage);
       addNewHtmlFuncs(storyid);
     
     }
     
     function backToBackend (){
-      dePage.replaceWith(counters.localVar.columnHtml);
-      dePage.removeEventListener("click",backToBackend,false);
+      counters.elements.dePage.replaceWith(counters.localVar.columnHtml);
+      counters.elements.dePage.removeEventListener("click",backToBackend,false);
     }
     
     
@@ -1963,8 +1964,8 @@ async function startHailing(data,para,functionToRunAfter){
     
     
     function populateStory(storyObj){
-      let titleDiv = dePage.querySelectorAll("h1")[0];
-      let storyContainer = dePage.querySelectorAll("div")[0];
+      let titleDiv = counters.elements.dePage.querySelectorAll("h1")[0];
+      let storyContainer = counters.elements.dePage.querySelectorAll("div")[0];
     
       readStoryObj(storyContainer,storyObj);
     
@@ -2177,4 +2178,15 @@ function formatFileSize(size){
 
   return size;
 
+}
+
+
+function myGenericPageFormatting (){
+
+  counters.elements.dePage.remove()
+  postsMomCont.remove();
+  postsMomCont.style.visibility="visible";
+ 
+
+    
 }
