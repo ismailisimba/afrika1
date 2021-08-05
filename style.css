@@ -8,6 +8,7 @@ body{
     background-image: url("https://ismailisimba.github.io/afrika1/resources/bodyback1.png");
     background-repeat: repeat;
     background-size: auto;
+    overflow-x: hidden;
 }
 
 footer{
@@ -803,22 +804,7 @@ nav ul li:hover {
     opacity: 0.69 !important;
 }
 
-.mygenericpage button {
-    font-family: "Lexend";
-    background-color: #696d6b;
-    color: white;
-    border: none;
-    padding: 3px 9px;
-    margin-top: 24px;
-    border-radius: 3px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 145px;
-    height: 45px;
-    letter-spacing: 1.2px;
-    box-sizing: border-box;
-    box-shadow: 1px 1px 5px 0.2px black;
-}
+
 
 .postpreview{
 
@@ -872,10 +858,10 @@ overflow-y: scroll;
     display: block;
     visibility: collapse;
     position: absolute;
-    top: 0px;
-    left: 2%;
+    top: -100px;
+    left: -2%;
     width: 104%;
-    padding: 24px 24px;
+    padding: 124px 24px;
     background-color: black;
     color: white;
     box-sizing: border-box;
@@ -889,6 +875,23 @@ overflow-y: scroll;
     justify-content: flex-start;
     align-items: center;
 
+}
+
+.mygenericpage button {
+    font-family: "Lexend";
+    background-color: #696d6b;
+    color: white;
+    border: none;
+    padding: 3px 9px;
+    margin-top: 24px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 145px;
+    height: 45px;
+    letter-spacing: 1.2px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 5px 0.2px black;
 }
 
 .mygenericpage h1 {
