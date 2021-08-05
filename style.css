@@ -803,6 +803,23 @@ nav ul li:hover {
     opacity: 0.69 !important;
 }
 
+.mygenericpage button {
+    font-family: "Lexend";
+    background-color: #696d6b;
+    color: white;
+    border: none;
+    padding: 3px 9px;
+    margin-top: 24px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 145px;
+    height: 45px;
+    letter-spacing: 1.2px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 5px 0.2px black;
+}
+
 .postpreview{
 
     cursor: pointer;
