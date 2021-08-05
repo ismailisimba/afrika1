@@ -19,6 +19,7 @@ counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
 
 window.onload = () => {
   frontEndOnlyFuncs();
+  myGenericPageFormatting();
   myScrollFunctions();
   navClicks();
   checkTheURL();
