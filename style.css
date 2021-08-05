@@ -791,6 +791,13 @@ nav ul li:hover {
 }
 
 
+.inputcontainer{
+    visibility: hidden;
+    width: 100% !important;
+    height: 0px !important;
+}
+
+
 .testhref1selected {
 
     opacity: 0.69 !important;
