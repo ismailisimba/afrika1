@@ -2184,8 +2184,8 @@ function formatFileSize(size){
 function myGenericPageFormatting (){
 
   counters.elements.dePage.remove()
-  postsMomCont.remove();
-  postsMomCont.style.visibility="visible";
+  counters.elements.postsMomCont.remove();
+  counters.elements.postsMomCont.style.visibility="visible";
  
 
     
