@@ -2341,14 +2341,66 @@ async function fillDeFrontEnd(){
   contextObject.params[0]["dataObj"] = "letMeIn";
   let myObj = await fetchInfoWithFilter(contextObject,"strangerDanger").then(myObj=>{
     counters.localVar.cloudObj = myObj;
+
+    addDataFillFrontEndClicks();
+    fillInitialContacts();
     
     //fillFeatured(myObj);
     //fillTit(myObj);
     //fillAddress(myObj);
     //addStoryPageShowFrontEnd(myObj);
-    console.log(myObj);
+    
   });
 
 
   
 }
+
+
+function addDataFillFrontEndClicks() {
+  counters["contactBut"] = document.getElementById("contactbut");
+  counters["travelBut"] = document.getElementById("guidebut");
+  counters["destiBut"] = document.getElementById("destibut");
+  counters["storyBut"] = document.getElementById("storibut");
+
+  let thisTempAr = [];
+  thisTempAr.push(counters.contactBut);
+  thisTempAr.push(counters.travelBut);
+  thisTempAr.push(counters.destiBut);
+  thisTempAr.push(counters.storyBut);
+
+  thisTempAr.forEach(element => {
+    element.addEventListener("click",()=>{
+      //console.log(element.id);
+      doMyFrontEndThing(element.id);
+    })
+  })
+}
+
+
+function doMyFrontEndThing(id){
+  if(id==="contactbut"){
+
+
+  }else if(id==="destibut"){
+
+  }else if(id==="guidebut"){
+
+  }else if(id==="storibut"){
+
+  }else{
+
+  }
+};
+
+
+function fillInitialContacts(){
+  let ele = document.getElementById("contactbut");
+  let elePar = ele.parentNode;
+  let numHref = elePar.querySelectorAll("p")[0].querySelectorAll("a")[0];
+  numHref.href="tel:+"+counters.localVar.cloudObj.settingsObj.num;
+  let tempStr = counters.localVar.cloudObj.settingsObj.num.match(/.{1,3}/g);
+  tempStr = tempStr.toString();
+  tempStr = tempStr.replaceAll(","," ");
+  numHref.innerHTML = "+"+tempStr;
+};

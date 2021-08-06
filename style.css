@@ -446,7 +446,8 @@ nav ul li:hover {
     -ms-overflow-style: none;
 }
 
- .genericbox {
+
+.genericbox {
     min-width: 96%;
     visibility: collapse;
     height: 0px;
@@ -734,6 +735,13 @@ nav ul li:hover {
     background-color: transparent;
 }
 
+.internalboxtwo a{
+    color: inherit !important;
+    text-decoration: none !important;
+    font-style: italic !important;
+    font-weight: 600 !important;
+}
+
 
 .genericboxheader{
     display: flex;
@@ -746,6 +754,49 @@ nav ul li:hover {
     height: 48px;
     box-sizing: border-box;
     position: relative;
+}
+
+.genericboxcontent{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 210%;
+    height: 769px;
+    box-sizing: border-box;
+    position: relative;
+
+    
+    transition: all;
+
+    -webkit-transition-duration: 1.5s;
+    -moz-transition-duration: 1.5s;
+    -o-transition-duration: 1.5s;
+    transition-duration: 1.5s;
+
+
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.genericboxcontent .left {
+    width: 45%;
+    position: relative;
+    left: 1.25%;
+    height: 669px;
+    border: .69px dotted white;
+}
+
+.genericboxcontent .right {
+    width: 45%;
+    position: relative;
+    left: 2.75%;
+    height: 669px;
+    border: .69px dotted white;
 }
 
 
