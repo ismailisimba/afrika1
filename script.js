@@ -172,7 +172,7 @@ function checkTheURL () {
   
     contentBox.innerHTML = "";
     contentBox.appendChild(googleStuff);
-    contentBox.style.minHeight ="469px";
+    contentBox.style.minHeight ="669px";
   
   }
 
@@ -1802,6 +1802,7 @@ async function startHailing(data,para,functionToRunAfter){
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].title = document.getElementById("editposttit").value;
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].description = document.getElementById("descrtit").value;
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].type = "draft";
+       counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].stats.push({typetoo:document.getElementById("feature69").value});
     
         let token = getToken();
       hailTheServerOnAllChannels("uploadStory",token);
