@@ -1796,13 +1796,9 @@ async function startHailing(data,para,functionToRunAfter){
       }
     
       
-        let [myDate]  = new Date().toLocaleDateString("en-GB").split("/");
-        let [hour, minute, second] = new Date().toLocaleTimeString("en-US");
-        let tempid =  myDate[0]+hour+minute+second;
-        console.log(myDate);
-        console.log(hour);
-        console.log(minute);
-        console.log(second);
+        let [myDate]    = new Date().toLocaleDateString("en-GB").split("/");
+        let [hour, minute, second] = new Date().toLocaleTimeString("en-US").split(/:| /);
+        let tempid =  myDate[0]+"_"+myDate[1]+"_"+myDate[2]+hour+"_"+minute+"_"+second;
     
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].storyObj = newStoryObj;
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].title = document.getElementById("editposttit").value;
