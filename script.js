@@ -1640,39 +1640,39 @@ async function startHailing(data,para,functionToRunAfter){
     
       newSettings.featureOne.style.visibility = "collapse";
       newSettings.featureOne.value = cloudSettings.featureOne;
-      newSettings.featureOneDisp.innerHTML = getStoryTit(cloudSettings.featureOne);
+      newSettings.featureOneDisp.innerHTML = getImageName(cloudSettings.featureOne);
     
       newSettings.featureTwo.style.visibility = "collapse";
       newSettings.featureTwo.value = cloudSettings.featureTwo;
-      newSettings.featureTwoDisp.innerHTML = getStoryTit(cloudSettings.featureTwo);
+      newSettings.featureTwoDisp.innerHTML = getImageName(cloudSettings.featureTwo);
     
       newSettings.featureThree.style.visibility = "collapse";
       newSettings.featureThree.value = cloudSettings.featureThree;
-      newSettings.featureThreeDisp.innerHTML = getStoryTit(cloudSettings.featureThree);
+      newSettings.featureThreeDisp.innerHTML = getImageName(cloudSettings.featureThree);
 
       newSettings.featureFour.style.visibility = "collapse";
       newSettings.featureFour.value = cloudSettings.featureFour;
-      newSettings.featureFourDisp.innerHTML = getStoryTit(cloudSettings.featureFour);
+      newSettings.featureFourDisp.innerHTML = getImageName(cloudSettings.featureFour);
 
       newSettings.featureFive.style.visibility = "collapse";
       newSettings.featureFive.value = cloudSettings.featureFive;
-      newSettings.featureFiveDisp.innerHTML = getStoryTit(cloudSettings.featureFive);
+      newSettings.featureFiveDisp.innerHTML = getImageName(cloudSettings.featureFive);
 
       newSettings.featureSix.style.visibility = "collapse";
       newSettings.featureSix.value = cloudSettings.featureSix;
-      newSettings.featureSixDisp.innerHTML = getStoryTit(cloudSettings.featureSix);
+      newSettings.featureSixDisp.innerHTML = getImageName(cloudSettings.featureSix);
 
       newSettings.featureSeven.style.visibility = "collapse";
       newSettings.featureSeven.value = cloudSettings.featureSeven;
-      newSettings.featureSevenDisp.innerHTML = getStoryTit(cloudSettings.featureSeven);
+      newSettings.featureSevenDisp.innerHTML = getImageName(cloudSettings.featureSeven);
 
       newSettings.featureEight.style.visibility = "collapse";
       newSettings.featureEight.value = cloudSettings.featureEight;
-      newSettings.featureEightDisp.innerHTML = getStoryTit(cloudSettings.featureEight);
+      newSettings.featureEightDisp.innerHTML = getImageName(cloudSettings.featureEight);
 
       newSettings.featureNine.style.visibility = "collapse";
       newSettings.featureNine.value = cloudSettings.featureNine;
-      newSettings.featureNineDisp.innerHTML = getStoryTit(cloudSettings.featureNine);
+      newSettings.featureNineDisp.innerHTML = getImageName(cloudSettings.featureNine);
     
       newSettings.email.style.visibility = "collapse";
       newSettings.email.value = cloudSettings.buzEmail;
@@ -2185,6 +2185,22 @@ function getStoryTit(id){
     
       return title;
     
+}
+
+
+function getImageName(id){
+  let images = counters.localVar.cloudObj.contentObj.contentObj.specialOne.images;
+  let imageName = "Not Found";
+
+  for(let i=0 ; i<images.length ; i++){
+
+    if(id===images[i].ogname){
+      imageName = images[i].ogname;
+    }
+  }
+
+  return imageName;
+
 }
 
 
