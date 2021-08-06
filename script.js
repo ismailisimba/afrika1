@@ -1796,12 +1796,15 @@ async function startHailing(data,para,functionToRunAfter){
       }
     
       
-      
+        let [myDate]    = new Date().toLocaleDateString("en-US").split("-");
+        let [hour, minute, second] = new Date().toLocaleTimeString("en-US").split(/:| /);
+        let tempid =  myDate+hour+minute+second+i;
     
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].storyObj = newStoryObj;
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].title = document.getElementById("editposttit").value;
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].description = document.getElementById("descrtit").value;
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].type = "draft";
+       counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].stats.push({timeid:tempid});
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].stats.push({typetoo:document.getElementById("feature69").value});
     
         let token = getToken();
@@ -2310,8 +2313,8 @@ function highlightDestiAndGuides(tempDiv) {
   let searchResponse = searchStory(counters.localVar.cloudObj.contentObj.contentObj.published.stories,disId);
 
   if(typeof searchResponse === 'object' && searchResponse !== null && !Array.isArray(searchResponse) && searchResponse.status==="found"){
-    console.log(searchResponse);
-      let tempVar69 = "";/*searchResponse.obj.stats[0].typetoo*/
+   // console.log(searchResponse);
+      let tempVar69 = searchResponse.obj.stats[0].typetoo;
 
       if(tempVar69==="destinations"){
 
