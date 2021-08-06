@@ -1797,7 +1797,7 @@ async function startHailing(data,para,functionToRunAfter){
     
       
         let [myDate]    = new Date().toLocaleDateString("en-GB").split("-");
-        let [hour, minute, second] = new Date().toLocaleTimeString("en-US").split(/:| /);
+        let [hour, minute, second] = new Date().toLocaleTimeString("en-GB").split(/:| /);
         let tempid =  myDate+"_"+hour+"_"+minute+"_"+second;
     
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].storyObj = newStoryObj;
