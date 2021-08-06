@@ -2310,7 +2310,8 @@ function highlightDestiAndGuides(tempDiv) {
   let searchResponse = searchStory(counters.localVar.cloudObj.contentObj.contentObj.published.stories,disId);
 
   if(typeof searchResponse === 'object' && searchResponse !== null){
-      let tempVar69 = searchResponse.obj.stats[0].typetoo;
+    console.log(searchResponse);
+      let tempVar69 = "";/*searchResponse.obj.stats[0].typetoo*/
 
       if(tempVar69==="destinations"){
 
