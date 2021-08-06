@@ -1919,6 +1919,8 @@ async function startHailing(data,para,functionToRunAfter){
       
       tempDiv.appendChild(myHref2);
       tempDiv.appendChild(myStyle);
+
+      highlightDestiAndGuides(tempDiv);
     
       return tempDiv;
     
@@ -2301,3 +2303,22 @@ function myGenericPageFormatting (){
 
     
 }
+
+
+function highlightDestiAndGuides(tempDiv) {
+  let disId = tempDiv.querySelectorAll("a")[0].id;
+  let searchResponse = searchStory(counters.localVar.cloudObj.contentObj.contentObj.published.stories,disId);
+
+  if(typeof searchResponse === 'object' && searchResponse !== null){
+      let tempVar69 = searchResponse.stats[0].typetoo;
+
+      if(tempVar69==="destinations"){
+
+        tempDiv.querySelectorAll("h2")[0].style.color = "white";
+
+      }else if(tempVar69==="trip_guide"){
+
+        tempDiv.querySelectorAll("h2")[0].style.color = "wheat";
+      }
+  }
+};
