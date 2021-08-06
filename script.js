@@ -2136,6 +2136,7 @@ async function startHailing(data,para,functionToRunAfter){
     function addThisStoryToEditor(storyObj){
       let titleDiv = document.getElementById("editposttit") ;
       let descrDiv = document.getElementById("descrtit");
+      let specialType = document.getElementById("feature69")
       let storyContainer = document.querySelectorAll(".ql-editor")[0];
     
       document.getElementById("backendoxtitle2").click();
@@ -2145,6 +2146,7 @@ async function startHailing(data,para,functionToRunAfter){
     
       titleDiv.value = storyObj.title;
       descrDiv.value = storyObj.description;
+      specialType.value = storyObj.stats[1].typetoo;
     }
     
     function  fillPublishedStoriesSelections(){
