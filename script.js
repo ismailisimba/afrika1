@@ -2309,7 +2309,7 @@ function highlightDestiAndGuides(tempDiv) {
   let disId = tempDiv.querySelectorAll("a")[0].id;
   let searchResponse = searchStory(counters.localVar.cloudObj.contentObj.contentObj.published.stories,disId);
 
-  if(typeof searchResponse === 'object' && searchResponse !== null){
+  if(typeof searchResponse === 'object' && searchResponse !== null && !Array.isArray(searchResponse) && searchResponse.status==="found"){
     console.log(searchResponse);
       let tempVar69 = "";/*searchResponse.obj.stats[0].typetoo*/
 
