@@ -1576,6 +1576,25 @@ async function startHailing(data,para,functionToRunAfter){
     
       newSettings["featureThree"] = document.getElementById("feature3");
       newSettings["featureThreeDisp"] = document.querySelectorAll(".featureshow3")[0];
+
+      newSettings["featureFour"] = document.getElementById("feature4");
+      newSettings["featureFourDisp"] = document.querySelectorAll(".featureshow4")[0];
+
+      newSettings["featureFive"] = document.getElementById("feature5");
+      newSettings["featureFiveDisp"] = document.querySelectorAll(".featureshow5")[0];
+
+      newSettings["featureSix"] = document.getElementById("feature6");
+      newSettings["featureSixDisp"] = document.querySelectorAll(".featureshow6")[0];
+
+      newSettings["featureSeven"] = document.getElementById("feature7");
+      newSettings["featureSevenDisp"] = document.querySelectorAll(".featureshow7")[0];
+
+      newSettings["featureEight"] = document.getElementById("feature8");
+      newSettings["featureEightDisp"] = document.querySelectorAll(".featureshow8")[0];
+
+      newSettings["featureNine"] = document.getElementById("feature9");
+      newSettings["featureNineDisp"] = document.querySelectorAll(".featureshow9")[0];
+      
     
       newSettings["email"] = document.getElementById("emailcollector");
       newSettings["emailDisp"] = document.querySelectorAll(".addrshow1")[0];
@@ -1630,6 +1649,30 @@ async function startHailing(data,para,functionToRunAfter){
       newSettings.featureThree.style.visibility = "collapse";
       newSettings.featureThree.value = cloudSettings.featureThree;
       newSettings.featureThreeDisp.innerHTML = getStoryTit(cloudSettings.featureThree);
+
+      newSettings.featureFour.style.visibility = "collapse";
+      newSettings.featureFour.value = cloudSettings.featureFour;
+      newSettings.featureFourDisp.innerHTML = getStoryTit(cloudSettings.featureFour);
+
+      newSettings.featureFive.style.visibility = "collapse";
+      newSettings.featureFive.value = cloudSettings.featureFive;
+      newSettings.featureFiveDisp.innerHTML = getStoryTit(cloudSettings.featureFive);
+
+      newSettings.featureSix.style.visibility = "collapse";
+      newSettings.featureSix.value = cloudSettings.featureSix;
+      newSettings.featureSixDisp.innerHTML = getStoryTit(cloudSettings.featureSix);
+
+      newSettings.featureSeven.style.visibility = "collapse";
+      newSettings.featureSeven.value = cloudSettings.featureSeven;
+      newSettings.featureSevenDisp.innerHTML = getStoryTit(cloudSettings.featureSeven);
+
+      newSettings.featureEight.style.visibility = "collapse";
+      newSettings.featureEight.value = cloudSettings.featureEight;
+      newSettings.featureEightDisp.innerHTML = getStoryTit(cloudSettings.featureEight);
+
+      newSettings.featureNine.style.visibility = "collapse";
+      newSettings.featureNine.value = cloudSettings.featureNine;
+      newSettings.featureNineDisp.innerHTML = getStoryTit(cloudSettings.featureNine);
     
       newSettings.email.style.visibility = "collapse";
       newSettings.email.value = cloudSettings.buzEmail;
