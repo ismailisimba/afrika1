@@ -1157,6 +1157,12 @@ async function startHailing(data,para,functionToRunAfter){
     newSettings["featureOne"] = document.getElementById("feature1");
     newSettings["featureTwo"] = document.getElementById("feature2");
     newSettings["featureThree"] = document.getElementById("feature3");
+    newSettings["featureFour"] = document.getElementById("feature4");
+    newSettings["featureFive"] = document.getElementById("feature5");
+    newSettings["featureSix"] = document.getElementById("feature6");
+    newSettings["featureSeven"] = document.getElementById("feature7");
+    newSettings["featureEight"] = document.getElementById("feature8");
+    newSettings["featureNine"] = document.getElementById("feature9");
     newSettings["email"] = document.getElementById("emailcollector");
     newSettings["address"] = document.getElementById("wordaddresscollector");
     newSettings["fb"] = document.getElementById("fbcollector");
@@ -1171,6 +1177,12 @@ async function startHailing(data,para,functionToRunAfter){
     counters.localVar.cloudObj.contentObj.contentObj.delete ["featureOne"] = newSettings.featureOne.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["featureTwo"] = newSettings.featureTwo.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["featureThree"] = newSettings.featureThree.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureFour"] = newSettings.featureFour.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureFive"] = newSettings.featureFive.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureSix"] = newSettings.featureSix.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureSeven"] = newSettings.featureSeven.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureEight"] = newSettings.featureEight.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureNine"] = newSettings.featureNine.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["email"] = newSettings.email.value ;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["address"] = newSettings.address.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["fb"] = newSettings.fb.value;
@@ -2194,7 +2206,7 @@ function getImageName(id){
 
   for(let i=0 ; i<images.length ; i++){
 
-    if(id===images[i].ogname){
+    if(id===images[i].name){
       imageName = images[i].ogname;
     }
   }
