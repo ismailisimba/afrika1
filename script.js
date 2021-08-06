@@ -872,7 +872,8 @@ async function startHailing(data,para,functionToRunAfter){
       element.style.visibility = "visible";
     })
   
-    fillPublishedStoriesSelections();
+    //fillPublishedStoriesSelections();
+    fillAllAvailableImages();
   
     document.querySelectorAll(".sitemapbut")[0].addEventListener("click",addSiteMapSaveButClick)
   
@@ -2173,9 +2174,45 @@ async function startHailing(data,para,functionToRunAfter){
     
     
     
+    }
+
+
+    function  fillAllAvailableImages(){
+    
+      let images = counters.localVar.cloudObj.contentObj.contentObj.specialOne.images;
+      let imageNamesArr = [];
+      let obj = {id:"",imageName:""}
+      let myParConts = document.querySelectorAll(".featuresgeneric");
+    
+    
+      for(let i=0; i<images.length ; i++){
+        
+          let copy = JSON.parse(JSON.stringify(obj));
+          copy.id = images[i].name;
+          copy.imageName = images[i].ogname;
+          imageNamesArr.push(copy)
+        
+      }
+    
+      myParConts.forEach(element=>{
+        let miHref = element.querySelectorAll("option")[1];
+        let par = element.querySelectorAll(".featureshowdrop")[0];
+        miHref.remove();
+    
+          for(let i=0 ; i<imageNamesArr.length ; i++){
+            let cloneMiHref = miHref.cloneNode(true);
+            cloneMiHref.innerHTML = imageNamesArr[i].imageName;
+            cloneMiHref.value = imageNamesArr[i].id;
+            par.appendChild(cloneMiHref);
+    
+          }
+      })
+    
     
     
     }
+
+
     
     function addSiteMapSaveButClick(){
       
