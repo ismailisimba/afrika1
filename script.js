@@ -2347,7 +2347,6 @@ async function fillDeFrontEnd(){
     //fillAddress(myObj);
     //addStoryPageShowFrontEnd(myObj);
     console.log(myObj);
-    document.querySelectorAll(".ducttape")[0].remove();
   });
 
 
