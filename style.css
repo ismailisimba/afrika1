@@ -1136,6 +1136,10 @@ overflow-y: scroll;
     background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/linked.png");
 }
 
+.frontbutback{
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_back_white.svg");
+}
+
 
 .simplecaptchamom{
     display: flex;

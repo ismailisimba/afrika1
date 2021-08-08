@@ -1915,7 +1915,7 @@ async function startHailing(data,para,functionToRunAfter){
     
       let storyid = this.querySelectorAll(".storyhref")
       storyid = storyid[storyid.length-1].id;
-      addNewHtmlFuncs(storyid);
+      addNewHtmlFuncs2(storyid);
     }
     
     
@@ -2042,6 +2042,22 @@ async function startHailing(data,para,functionToRunAfter){
       
     
     };
+
+function addNewHtmlFuncs2(storyid) {
+
+
+  let stories = counters.localVar.cloudObj.contentObj.contentObj.published.stories
+  let searchResponse = searchStory(stories,storyid);
+
+  if(searchResponse.status==="found"){
+    populateStory2(searchResponse.obj);
+  }else{
+    alert("Ooops there's been an error reading your post. Please report to ismaili.a.simba@gmail.com");
+  }
+
+  
+
+};
     
     function searchStory(stories,storyid){
     
@@ -2063,6 +2079,19 @@ async function startHailing(data,para,functionToRunAfter){
     
     
     function populateStory(storyObj){
+      let titleDiv = counters.elements.dePage.querySelectorAll("h1")[0];
+      let storyContainer = counters.elements.dePage.querySelectorAll("div")[0];
+      
+    
+      readStoryObj(storyContainer,storyObj);
+    
+      titleDiv.innerHTML = storyObj.title;
+      
+    
+    };
+
+    function populateStory2(storyObj){
+      let backBut = counters.elements.dePage.querySelectorAll("button")[0]
       let titleDiv = counters.elements.dePage.querySelectorAll("h1")[0];
       let storyContainer = counters.elements.dePage.querySelectorAll("div")[0];
       
