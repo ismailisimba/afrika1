@@ -15,6 +15,9 @@ counters.localVar["counters"] = {};
 counters.localVar["tempDivs"] = {};
 counters.localVar.counters["currentAtCpan"] = 0; 
 counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
+const lelink = "https://script.google.com/macros/s/AKfycbyAl44CwyGcvrxb_YWYx0Fd2QKLjThO3WUNNo8Yg3W4P_YJDDEXSr9kOA/exec";
+let cloudObj = {};
+
 
 
 window.onload = () => {
@@ -1831,6 +1834,7 @@ async function startHailing(data,para,functionToRunAfter){
     
       let storyCont = counters.elements.postsMomCont.querySelectorAll(".postpreview")[0];
       let parent = counters.elements.postsMomCont;
+      let travelGuides = [];
     
       parent.innerHTML = "";
     
@@ -1849,17 +1853,50 @@ async function startHailing(data,para,functionToRunAfter){
         if(hreftempy!==null&&hreftempy!==undefined&&length>1){
           hreftempy.remove();
         }
+
+        if(stories[i].stats[1].typetoo==="trip_guide"){
+          travelGuides.push(stories[i]);
+        }
       }
     
       if(context==="back"){
     
         document.querySelectorAll(".backendchildcontainer")[2].appendChild(parent);
     
+      }else if(context==="travelGuides"){
+        
+        let temp = document.querySelectorAll(".left")[0];
+        for(let i=0 ; i <travelGuides.length ; i++){
+          let tempDiv = storyCont.cloneNode(true);
+          tempDiv = fillTempStoryDiv(tempDiv,travelGuides[i]);
+        
+          parent.appendChild(tempDiv);
+          let hreftempy = null;
+          let length = null; 
+          hreftempy = parent.querySelectorAll(".storyhref")[0];
+          length = parent.querySelectorAll(".storyhref");
+      
+          if(hreftempy!==null&&hreftempy!==undefined&&length>1){
+            hreftempy.remove();
+          }
+
+          temp.appendChild(tempDiv);
+        }
+        
+        temp.querySelectorAll(".postpreview").forEach(element => {
+          element.removeEventListener("click",anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation,false);
+        element.addEventListener("click",anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation);
+       });
+
+
       }else{
+        
          counters.elements.dePage.querySelectorAll("h1")[0].innerHTML = "Stories And News From TALISS";
          let deCont = counters.elements.dePage.querySelectorAll(".mystorycontainer")[0];
+         
          deCont.innerHTML = "";
           deCont.appendChild(parent);
+          temp.appendChild(deCont);
     
           let stories = parent.querySelectorAll(".postpreview");
           
@@ -2028,10 +2065,19 @@ async function startHailing(data,para,functionToRunAfter){
     function populateStory(storyObj){
       let titleDiv = counters.elements.dePage.querySelectorAll("h1")[0];
       let storyContainer = counters.elements.dePage.querySelectorAll("div")[0];
+      let backBut = counters.elements.dePage.querySelectorAll("button")[0];
+      let temp2 = document.querySelectorAll(".right")[0];
+      temp2.innerHTML="";
+      console.log("dd")
     
       readStoryObj(storyContainer,storyObj);
     
       titleDiv.innerHTML = storyObj.title;
+      temp2.appendChild(backBut);
+      temp2.appendChild(titleDiv);
+      temp2.appendChild(storyContainer);
+      document.querySelectorAll(".genericboxcontent")[0].style.left = "-97.5%"
+      
     
     };
     
@@ -2319,7 +2365,7 @@ function highlightDestiAndGuides(tempDiv) {
   if(typeof searchResponse === 'object' && searchResponse !== null && !Array.isArray(searchResponse) && searchResponse.status==="found"){
     
       let tempVar69 = searchResponse.obj.stats[1].typetoo;
-      console.log(tempVar69);
+      
 
       if(tempVar69==="destinations"){
 
@@ -2347,7 +2393,6 @@ async function fillDeFrontEnd(){
     
     //fillFeatured(myObj);
     //fillTit(myObj);
-    //fillAddress(myObj);
     //addStoryPageShowFrontEnd(myObj);
     
   });
@@ -2371,7 +2416,7 @@ function addDataFillFrontEndClicks() {
 
   thisTempAr.forEach(element => {
     element.addEventListener("click",()=>{
-      //console.log(element.id);
+
       doMyFrontEndThing(element.id);
     })
   })
@@ -2380,11 +2425,12 @@ function addDataFillFrontEndClicks() {
 
 function doMyFrontEndThing(id){
   if(id==="contactbut"){
-
+    fillContactBox();
 
   }else if(id==="destibut"){
 
   }else if(id==="guidebut"){
+    fillTravelGuides();
 
   }else if(id==="storibut"){
 
@@ -2398,9 +2444,291 @@ function fillInitialContacts(){
   let ele = document.getElementById("contactbut");
   let elePar = ele.parentNode;
   let numHref = elePar.querySelectorAll("p")[0].querySelectorAll("a")[0];
+  let emailHref = elePar.querySelectorAll("p")[0].querySelectorAll("a")[1];
   numHref.href="tel:+"+counters.localVar.cloudObj.settingsObj.num;
+  emailHref.href="mailto:"+counters.localVar.cloudObj.settingsObj.buzEmail;
+  emailHref.innerHTML = counters.localVar.cloudObj.settingsObj.buzEmail;
   let tempStr = counters.localVar.cloudObj.settingsObj.num.match(/.{1,3}/g);
   tempStr = tempStr.toString();
   tempStr = tempStr.replaceAll(","," ");
   numHref.innerHTML = "+"+tempStr;
 };
+
+
+function fillContactBox () {
+  let leftEle = document.querySelectorAll(".left")[0];
+  leftEle.innerHTML = "";
+  leftEle.classList.add("contactBoxTempStyle");
+  leftEle.innerHTML = `  <div class="contacttitdiv">
+  <h1>Contact Us</h1>
+  <p>We would love to hear from you, please use the form below or any of our details</p>
+</div>
+<div class="contactdescrdiv">
+  <div class="contactformdiv">
+    <div class="formitemdiv">
+      <p>Name</p>
+      <textarea maxlength="100" id="contactname"></textarea>
+    </div>
+    <div class="formitemdiv">
+      <p>Email</p>
+      <textarea maxlength="100" id="contactemail"></textarea>
+    </div>
+    <div class="formitemdiv">
+      <p>Message</p>
+      <textarea maxlength="2500" id="contactmessage"></textarea>
+    </div>
+    
+    <div class="simplecaptchamom">
+      <div class="captchaitems">
+        <img>
+      </div>
+      <div class="captchaitems">  </div>
+      <div class="captchaitems">
+        <img>
+      </div>
+      <div class="captchaitems">  </div>
+      <textarea class="captchaitems" maxlength="2"></textarea>
+    
+    </div>
+
+  </div>
+  <div class="contactlistdiv" id="mycontacts">
+
+    <div class="addresslistitem">
+      <h2>Address</h2>
+      <p>Dar es salaam, Tanzania</p>
+    </div>
+
+    <div class="addresslistitem">
+      <h2>Email</h2>
+      <p>ismizo@live.com</p>
+    </div>
+
+    <div class="addresslistitem">
+      <h2>Phone</h2>
+      <p>+255 000 000 000</p>
+    </div>
+
+    <div class="addresslistitem">
+      <h2>Social</h2>
+      <div class="mysocials">
+        <div class="socialitem">
+          <a target="blank"></a>
+        </div>
+        <div class="socialitem">
+          <a target="blank"></a>
+        </div>
+        <div class="socialitem">
+          <a target="blank"></a>
+        </div>
+        <div class="socialitem">
+          <a target="blank"></a>
+        </div>
+      </p>
+    </div>
+    
+  </div>
+
+</div>
+</div>`;
+
+fillAddress(counters.localVar.cloudObj);
+fetcher({},"first",firstDisp);
+
+}
+
+
+
+
+/*Captcha Functions*/
+
+
+ 
+
+
+
+async function fetcher(data,action,funcAft){
+
+  let temp = await getCaptchaObj(action,data).then(resObj=>{
+    funcAft(resObj);
+  })
+  
+  }
+  
+  
+  
+  function firstDisp(resObj){
+  
+  let captchaItemsCont = document.querySelectorAll(".captchaitems");
+  
+  let img1 = captchaItemsCont[0].querySelectorAll("img")[0];
+  img1.src = `data:image/jpeg;base64,${resObj.ghh.l11}`;
+  
+  let img2 = captchaItemsCont[2].querySelectorAll("img")[0];
+  img2.src = `data:image/jpeg;base64,${resObj.ghh.l12}`;
+  
+  captchaItemsCont[4].value = "?";
+  
+  captchaItemsCont[4].addEventListener("input",checkAnswer)
+  
+  if(resObj.symbol===0){
+    captchaItemsCont[1].innerHTML = "+";
+  }else{
+    captchaItemsCont[1].innerHTML = "+";
+  }
+  captchaItemsCont[3].innerHTML = "=";
+  
+    cloudObj = resObj;
+  }
+  
+  
+  function checkAnswer(){
+    let val = this;
+    val.removeEventListener("input",checkAnswer);
+  
+    let timeOutkk = window.setTimeout(function(){
+  
+      val = val.value;
+      let objee = {};
+          objee["one"] = val;
+          objee["two"] = cloudObj.ghh.eqid;
+  
+        if(val.length>=1){
+         
+          fetcher(objee,"second",funcToHook);
+        }
+  
+        window.clearTimeout(timeOutkk);
+  
+    },1000);
+   
+   
+  }
+  
+  function funcToHook(resObj){
+    let mom = document.querySelectorAll(".simplecaptchamom")[0];
+    let name = document.getElementById("contactname");
+    let email = document.getElementById("contactemail");
+    let message = document.getElementById("contactmessage");
+    if(resObj.status==="pass"&&name.value.length>3&&email.value.length>6&&message.value.length>9){
+  
+      mom.innerHTML = "";
+      mom.style.backgroundColor = "green";
+      mom.style.color = "black";
+      mom.innerHTML = "Success!"
+  
+      let tempyTimy = window.setTimeout(function(){
+        sendAStrangersHail();
+        window.clearTimeout(tempyTimy);
+      },690);
+    }else{
+     let ans = mom.querySelectorAll("textarea")[0];
+     ans.value = "X!";
+     fetcher({},"first",firstDisp);
+    }
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    async function getCaptchaObj(action,data){ 
+      var myRequest = new Request(lelink+"?paraOne="+action);
+  
+      data = JSON.stringify(data);
+       
+  const returnVal = await fetch(myRequest, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'omit', // include, *same-origin, omit
+    headers: {
+      //'Content-Type': 'text/txt'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body:data// body data type must match "Content-Type" header
+  })
+        .then(function(response) {
+          if (!response.ok) {
+            
+            throw new Error("HTTP error, status = " + response.status);
+            
+          }
+          
+          return response.text();
+        })
+        .then(function(myBlob) {
+          
+          var cloudObject = JSON.parse(myBlob);
+          
+        
+          return cloudObject;
+          
+        })
+        .catch(function(error) {
+          var p = document.createElement('p');
+          p.appendChild(
+            document.createTextNode('Error: ' + error.message)
+          );
+  
+          document.querySelectorAll(".simplecaptchamom")[0].innerHTML = p.innerHTML;
+         
+        });
+        return returnVal; 
+  };
+  /* Captcha Functions*/
+
+
+
+
+
+function  fillAddress(myObj){
+
+  let addressItems = document.querySelectorAll(".addresslistitem");
+  let mySocials = document.querySelectorAll(".mysocials")[0];
+  mySocials = mySocials.querySelectorAll(".socialitem");
+
+  let address = addressItems[0].querySelectorAll("p")[0];
+  address.innerHTML = myObj.settingsObj.address;
+
+  let email = addressItems[1].querySelectorAll("p")[0];
+  email.innerHTML = myObj.settingsObj.buzEmail;
+
+  let num = addressItems[2].querySelectorAll("p")[0];
+  num.innerHTML = myObj.settingsObj.num;
+
+  let fb = mySocials[0].querySelectorAll("a")[0];
+  fb.href = myObj.settingsObj.fb;
+
+  let twt = mySocials[1].querySelectorAll("a")[0];
+  twt.href = myObj.settingsObj.twt;
+
+  let inst = mySocials[2].querySelectorAll("a")[0];
+  inst.href = myObj.settingsObj.instg;
+
+  let lnkd = mySocials[3].querySelectorAll("a")[0];
+  lnkd.href = myObj.settingsObj.linkd;
+
+let hailTheCapt = document.querySelectorAll(".contactformdiv")[0];
+hailTheCapt = hailTheCapt.querySelectorAll(".simplecaptchamom")[0];
+
+//hailTheCapt.addEventListener("click",sendAStrangersHail)
+
+
+};
+
+function fillTravelGuides() {
+  let leftEle = document.querySelectorAll(".left")[0];
+  leftEle.innerHTML = "";
+  fillUpStories(counters.localVar.cloudObj,"travelGuides");
+}

@@ -461,6 +461,8 @@ nav ul li:hover {
     margin-bottom: 36px;
     margin-left: 24px;
     margin-right: 24px;
+
+    padding-bottom: 24px;
   
     box-sizing: border-box;
 
@@ -469,7 +471,7 @@ nav ul li:hover {
     border-top-left-radius: 18px;
     border-bottom-right-radius: 18px;
 
-    overflow-y: scroll;
+    overflow-y: hidden;
     scrollbar-width: none; 
     -ms-overflow-style: none;
 
@@ -764,7 +766,8 @@ nav ul li:hover {
     align-items: center;
 
     width: 210%;
-    height: 769px;
+    height: auto;
+    min-height: 769px;
     box-sizing: border-box;
     position: relative;
 
@@ -786,8 +789,10 @@ nav ul li:hover {
 .genericboxcontent .left {
     width: 45%;
     position: relative;
+    top: 12px;
     left: 1.25%;
-    height: 669px;
+    min-height: 669px;
+    height: auto;
     border: .69px dotted white;
 }
 
@@ -974,4 +979,256 @@ overflow-y: scroll;
 
 .mystorycontainer p a {
     color: #53f4ff !important;
+}
+
+
+.contactBoxTempStyle{
+
+    position: relative;
+
+    width: 100%;
+    min-height: 800px;
+    color: white;
+    text-align: left;
+
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.contactdescrdiv{
+    position: relative;
+
+    width: 88%;
+    background-color: transparent;
+
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contactformdiv{
+
+    width: 56%;
+    height: auto;
+    background-color: transparent;
+    box-sizing: border-box;
+    margin: 12px 36px 12px 3px;
+    
+    
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contactlistdiv{
+
+    width: 40%;
+    margin: 12px auto;
+    text-align: center;
+}
+
+.contactlistdiv a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.formitemdiv p{
+
+    margin-block-start: 6px;
+    margin-block-end: 6px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 1.3px;
+}
+
+.formitemdiv:nth-child(3){
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+#contactmessage{
+
+    width: 100%;
+    height: 269px;
+}
+
+.contactlistdiv h2{
+    
+    font-size: 24px;
+    margin-block-start: 0px;
+    margin-block-end: 3px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.contactlistdiv p{
+
+    width: 100%;
+    
+    font-size: 16px;
+    margin-block-start: 6px;
+    margin-block-end: 18px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: normal;
+}
+
+.mysocials{
+
+    width: 100%;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.socialitem{
+    position: relative;
+
+    width: 48px;
+    height: 24px;
+    margin: 6px 6px 0px 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 50;
+}
+
+.socialitem a{
+    display: block;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+
+}
+
+.socialitem:nth-child(1){
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/facebook-icon.png");
+}
+
+.socialitem:nth-child(2){
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/twitter-icon.png");
+}
+
+.socialitem:nth-child(3){
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/instagram.png");
+}
+
+.socialitem:nth-child(4){
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/linked.png");
+}
+
+
+.simplecaptchamom{
+    display: flex;
+    position: relative;
+    width: 169px;
+    height: 69px;
+    background-color: white;
+    color: white;
+
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .captchaitems {
+    position: relative;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    
+    width: 33px;
+    height: 33px;
+    margin: 3px 3px;
+    box-sizing: border-box;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .simplecaptchamom textarea{
+      width: 33px !important;
+      min-width: 33px !important;
+  }
+
+  .captchaitems img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+
+  }
+
+  .captchaitems:nth-child(5){
+    
+    
+    
+    overflow: hidden;
+    resize: none;
+    padding: 3px 3px 3px 3px;
+    
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: .69px;
+    font-size: 16px !important;
+    
+
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    overflow-y: scroll;
+
+        }
+
+  textarea::-webkit-scrollbar { display: none; }
+  textarea {
+    
+    min-width: 99px;
+    height: 36px;
+    overflow: hidden;
+    resize: none;
+    padding: 8px 6px 0px 6px;
+    
+    margin-bottom: 3px;
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    font-size: 14px;
+
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    overflow-y: scroll;
+}
+
+
+.abouttitdiv, .contacttitdiv{
+    width: 85%;
+    background-color: transparent;
 }
