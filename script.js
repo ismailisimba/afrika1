@@ -2065,18 +2065,11 @@ async function startHailing(data,para,functionToRunAfter){
     function populateStory(storyObj){
       let titleDiv = counters.elements.dePage.querySelectorAll("h1")[0];
       let storyContainer = counters.elements.dePage.querySelectorAll("div")[0];
-      let backBut = counters.elements.dePage.querySelectorAll("button")[0];
-      let temp2 = document.querySelectorAll(".right")[0];
-      temp2.innerHTML="";
-      console.log("dd")
+      
     
       readStoryObj(storyContainer,storyObj);
     
       titleDiv.innerHTML = storyObj.title;
-      temp2.appendChild(backBut);
-      temp2.appendChild(titleDiv);
-      temp2.appendChild(storyContainer);
-      document.querySelectorAll(".genericboxcontent")[0].style.left = "-97.5%"
       
     
     };
