@@ -537,7 +537,10 @@ async function startHailing(data,para,functionToRunAfter){
     }
   }
 
-
+  function reloadHomePage () {
+    window.location = "./";
+   // document.querySelectorAll(".mycolumns")[1].style.overflowY="hidden";
+  }
 
 
   function customPopUpFunc(popupEle,phrase,action) {
@@ -1835,6 +1838,8 @@ async function startHailing(data,para,functionToRunAfter){
       let storyCont = counters.elements.postsMomCont.querySelectorAll(".postpreview")[0];
       let parent = counters.elements.postsMomCont;
       let travelGuides = [];
+      let newStories = [];
+      let destiStories = [];
     
       parent.innerHTML = "";
     
@@ -1856,6 +1861,10 @@ async function startHailing(data,para,functionToRunAfter){
 
         if(stories[i].stats[1].typetoo==="trip_guide"){
           travelGuides.push(stories[i]);
+        }else if(stories[i].stats[1].typetoo==="none"){
+          newStories.push(stories[i]);
+        }else if(stories[i].stats[1].typetoo==="destinations"){
+          destiStories.push(stories[i]);
         }
       }
     
@@ -1889,6 +1898,53 @@ async function startHailing(data,para,functionToRunAfter){
        });
 
 
+      }else if(context==="travelStories"){
+              
+        let temp = document.querySelectorAll(".left")[0];
+        for(let i=0 ; i <newStories.length ; i++){
+          let tempDiv = storyCont.cloneNode(true);
+          tempDiv = fillTempStoryDiv(tempDiv,newStories[i]);
+        
+          parent.appendChild(tempDiv);
+          let hreftempy = null;
+          let length = null; 
+          hreftempy = parent.querySelectorAll(".storyhref")[0];
+          length = parent.querySelectorAll(".storyhref");
+      
+          if(hreftempy!==null&&hreftempy!==undefined&&length>1){
+            hreftempy.remove();
+          }
+
+          temp.appendChild(tempDiv);
+        }
+        
+        temp.querySelectorAll(".postpreview").forEach(element => {
+          element.removeEventListener("click",anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation,false);
+        element.addEventListener("click",anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation);
+       });
+      }else if(context==="destinationStories"){
+        let temp = document.querySelectorAll(".left")[0];
+        for(let i=0 ; i <destiStories.length ; i++){
+          let tempDiv = storyCont.cloneNode(true);
+          tempDiv = fillTempStoryDiv(tempDiv,destiStories[i]);
+        
+          parent.appendChild(tempDiv);
+          let hreftempy = null;
+          let length = null; 
+          hreftempy = parent.querySelectorAll(".storyhref")[0];
+          length = parent.querySelectorAll(".storyhref");
+      
+          if(hreftempy!==null&&hreftempy!==undefined&&length>1){
+            hreftempy.remove();
+          }
+
+          temp.appendChild(tempDiv);
+        }
+        
+        temp.querySelectorAll(".postpreview").forEach(element => {
+          element.removeEventListener("click",anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation,false);
+        element.addEventListener("click",anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation);
+       });
       }else{
         
          counters.elements.dePage.querySelectorAll("h1")[0].innerHTML = "Stories And News From TALISS";
@@ -2091,17 +2147,35 @@ function addNewHtmlFuncs2(storyid) {
     };
 
     function populateStory2(storyObj){
-      let backBut = counters.elements.dePage.querySelectorAll("button")[0]
-      let titleDiv = counters.elements.dePage.querySelectorAll("h1")[0];
-      let storyContainer = counters.elements.dePage.querySelectorAll("div")[0];
+      let backBut = document.createElement("button");
+      backBut.id="frontbutback";
+      let titleDiv = document.createElement("h1");
+      let storyContainer = document.createElement("div");
+      let tempDiv3 = document.querySelectorAll(".right")[0];
+      tempDiv3.innerHTML = "";
+    
+      
       
     
       readStoryObj(storyContainer,storyObj);
     
       titleDiv.innerHTML = storyObj.title;
+
+      backBut.removeEventListener("click",toTheRight,false);
+      backBut.addEventListener("click",toTheRight,false);
+      document.querySelectorAll(".genericboxcontent")[0].style.left ="-97.5%";
+
+      tempDiv3.appendChild(backBut);
+      tempDiv3.appendChild(titleDiv);
+      tempDiv3.appendChild(storyContainer);
       
     
     };
+
+
+    function toTheRight(){
+      document.querySelectorAll(".genericboxcontent")[0].style.left ="0px";
+    }
     
     
     function readStoryObj(storyContainer,storyObj){
@@ -2145,6 +2219,21 @@ function addNewHtmlFuncs2(storyid) {
     
     
     }
+
+    function fetchDisImage2 (element) {
+    
+      let deId = {id:element.id};
+      let contextObject = JSON.parse(JSON.stringify(counters.paraTemplate));
+    
+      contextObject.params[0]["action"] = "later...";
+      contextObject.params[0]["token"] = "wHaT tOkEn!";
+      contextObject.params[0]["dataObj"] = deId;
+    
+    
+      startHailing(contextObject,"quickfetch",setDisBlocToSrc2);
+    
+    
+    }
     
     async function setDisBlocToSrc(responseObj){
     
@@ -2156,6 +2245,20 @@ function addNewHtmlFuncs2(storyid) {
       
      
       element.src = `data:${meme};base64,${cloudBlob}`;
+    
+    
+    }
+
+    async function setDisBlocToSrc2(responseObj){
+    
+      let eleid = responseObj.deFileObj.id;
+      let meme = responseObj.deFileObj.mime;
+      let cloudBlob = responseObj.deFileObj.data;
+    
+      let element = document.getElementById(`${eleid}`);
+      
+     
+      element.style.backgroundImage = `url(data:${meme};base64,${cloudBlob})`;
     
     
     }
@@ -2412,6 +2515,7 @@ async function fillDeFrontEnd(){
 
     addDataFillFrontEndClicks();
     fillInitialContacts();
+    fillImagesFront();
     
     //fillFeatured(myObj);
     //fillTit(myObj);
@@ -2450,11 +2554,13 @@ function doMyFrontEndThing(id){
     fillContactBox();
 
   }else if(id==="destibut"){
+    fillDestinationsFront();
 
   }else if(id==="guidebut"){
     fillTravelGuides();
 
   }else if(id==="storibut"){
+    fillStoriesFront();
 
   }else{
 
@@ -2753,4 +2859,73 @@ function fillTravelGuides() {
   let leftEle = document.querySelectorAll(".left")[0];
   leftEle.innerHTML = "";
   fillUpStories(counters.localVar.cloudObj,"travelGuides");
+}
+
+
+
+function  fillStoriesFront(){
+  let leftEle = document.querySelectorAll(".left")[0];
+  leftEle.innerHTML = "";
+  fillUpStories(counters.localVar.cloudObj,"travelStories");
+
+};
+
+
+function fillDestinationsFront(){
+  let leftEle = document.querySelectorAll(".left")[0];
+  leftEle.innerHTML = "";
+  fillUpStories(counters.localVar.cloudObj,"destinationStories");
+};
+
+function fillImagesFront(){
+  let myImages = [];
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureOne);
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureTwo);
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureThree);
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureFour);
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureFive);
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureSix);
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureSeven);
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureEight);
+  myImages.push(counters.localVar.cloudObj.settingsObj.featureNine);
+
+  let myBoxes = document.querySelectorAll(".frontphotobox")[0].querySelectorAll("img");
+  let counter = 0;
+
+  myBoxes.forEach(element=>{
+    element.id = myImages[counter];
+    fetchDisImage2(element);
+    counter++;
+
+  })
+};
+
+
+function sendAStrangersHail(){
+
+
+  let deId = {};
+  deId["message"] = document.getElementById("contactmessage").value;
+  deId["email"] = document.getElementById("contactemail").value;
+  deId["name"] = document.getElementById("contactname").value;
+
+  let [myDate]    = new Date().toLocaleDateString("en-US").split("-");
+  let [hour, minute, second] = new Date().toLocaleTimeString("en-US").split(/:| /);
+
+  deId["timeid"] = myDate+"-"+hour+"-"+minute+"-"+second;
+
+  let contextObject = JSON.parse(JSON.stringify(counters.paraTemplate));
+
+  contextObject.params[0]["action"] = "later...";
+  contextObject.params[0]["token"] = "wHaT tOkEn!";
+  contextObject.params[0]["dataObj"] = deId;
+
+  customPopUpFunc(counters.elements.popUp,"Sending to TALISS","fullsteamahead");
+ startHailing(contextObject,"hollacomoestas",custFunkyTempySempaiUwu);
+  
+}
+
+function custFunkyTempySempaiUwu(){
+  customPopUpFunc(counters.elements.popUp,"phrase","stop");
+  reloadHomePage();
 }

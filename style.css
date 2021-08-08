@@ -430,7 +430,7 @@ nav ul li:hover {
     display: block;
     position: relative;
     margin-top: 12px;
-    margin-bottom: 36px;
+    margin-bottom: 0px;
     margin-left: 24px;
     margin-right: 24px;
   
@@ -494,9 +494,10 @@ nav ul li:hover {
 
 .scrollcontainer{
 
-    width: 469%;
+    width: 370%;
     height: 100%;
     margin: 0 auto;
+    padding-left: 18px;
 
     background-color: transparent;
     background: linear-gradient(.25turn, transparent, 60%, #696d6b);
@@ -670,7 +671,7 @@ nav ul li:hover {
     display: block;
     margin-top: 12px;
     margin-right: 12px;
-    width: 3169px;
+    width: fit-content;
     height: 95%;
     background-color: #696d6b;
     z-index: 100;
@@ -685,7 +686,9 @@ nav ul li:hover {
 }
 
 .blockone{
-    width: 25%;
+    min-width: 364px;
+    max-width: 369px;
+    box-sizing: border-box;
     height: 100%;
     background-color: transparent;
     position: relative;
@@ -701,7 +704,10 @@ nav ul li:hover {
 .blockone img {
     width: 50%;
     height: 50%;
-    background-color: white;
+    background-color: #696d6b;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .blockone:nth-child(1) img:nth-child(1){
@@ -800,6 +806,7 @@ nav ul li:hover {
     width: 45%;
     position: relative;
     left: 2.75%;
+    top: 12px;
     height: 669px;
     border: .69px dotted white;
 }
@@ -1136,7 +1143,7 @@ overflow-y: scroll;
     background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/linked.png");
 }
 
-.frontbutback{
+#frontbutback{
     background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_back_white.svg");
 }
 
