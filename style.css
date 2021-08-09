@@ -37,7 +37,7 @@ footer ul{
 
 footer ul li{
     margin-left: 24px;
-    font-size: normal;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     box-sizing: border-box;
@@ -102,14 +102,16 @@ nav{
 
     min-width: 300px;
     width: 86%;
-    height: 48px;
+    height: 38px;
     border-radius: 9px;
     background-color: wheat;
     opacity: 0.69;
 
     display: block;
     position: sticky;
-    margin: 24px auto;
+    margin: 0px auto;
+    margin-bottom: 18px;
+    margin-top: 12px;
     
     padding-top: 0px;
     box-sizing: border-box;
