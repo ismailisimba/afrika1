@@ -17,6 +17,7 @@ counters.localVar.counters["currentAtCpan"] = 0;
 counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
 const lelink = "https://script.google.com/macros/s/AKfycbyAl44CwyGcvrxb_YWYx0Fd2QKLjThO3WUNNo8Yg3W4P_YJDDEXSr9kOA/exec";
 let cloudObj = {};
+const mobNav = document.getElementById("mobile-nav");
 
 
 
@@ -2445,6 +2446,7 @@ function frontEndOnlyFuncs () {
     myScrollFunctions();
     navClicks();
     fillDeFrontEnd();
+    addMobMenu(window.screen.width);
 
   }else{
     console.log("frontEndFuncErr");
@@ -2929,3 +2931,25 @@ function custFunkyTempySempaiUwu(){
   customPopUpFunc(counters.elements.popUp,"phrase","stop");
   reloadHomePage();
 }
+
+
+function addMobMenu(width){
+
+  if(width<=1024){
+    document.querySelectorAll(".mycolumns")[1].appendChild(mobNav);
+    mobNav.addEventListener("click",function(){
+
+      let compStyles = window.getComputedStyle(mobNav);
+      let ryt = compStyles.getPropertyValue("right");
+
+      if(ryt==="-214px"){
+        mobNav.style.right = "0px";
+      }else{
+        mobNav.style.right = "-214px";
+      }
+     
+    })
+  
+  }
+  
+};

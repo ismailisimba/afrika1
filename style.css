@@ -11,6 +11,11 @@ body{
     overflow-x: hidden;
 }
 
+#mobile-nav {
+
+    display: none;
+}
+
 footer{
     position: absolute;
     bottom:-18px;
@@ -1359,7 +1364,257 @@ overflow-y: scroll;
 
 
 
+
+
+
 @media screen and (max-width: 1024px){
 
     nav {display: none;}
+
+
+
+    #mobile-nav {
+
+        display: block;
+        position: fixed;
+        top: 0px;
+        right: -214px;
+
+        
+
+        background-color: none;
+
+        z-index: 150;
+
+        transition: all;
+
+        -webkit-transition-duration: 0.69s;
+        -moz-transition-duration: 0.69s;
+        -o-transition-duration: 0.69s;
+        transition-duration: 0.69s;
+    
+    
+        -webkit-transition-timing-function: ease-out;
+        -moz-transition-timing-function: ease-out;
+        -o-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+
+    #mobile-nav:hover, #mobile-nav:active {
+
+        right: 0px;
+
+       
+    }
+
+    #mobile-nav-back{
+        
+ background-color: white;
+
+        opacity: 0.96;
+
+    }
+
+    #mobile-nav-container{
+        display: block;
+        width: 100%;
+        height: 320px;
+
+        display: flex;
+        flex-flow: column;
+        flex-wrap: nowrap;
+
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+ 
+
+    #mobile-nav-items{
+        display: flex;
+        flex-flow: column;
+        flex-wrap: nowrap;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-nav-items {
+
+        background-color: #320e3b;
+        color: #dbfcff;
+        border: none;
+        font-family: "Crimson Pro";
+    
+        padding: 5px 14px;
+        
+        width: 50%;
+        
+        font-size: small;
+        font-weight: 200;
+        letter-spacing: 3px;
+        box-sizing: border-box;
+        margin-bottom: 9px;
+    
+        box-shadow: 3px 2px 5px 0.2px black;
+
+    }
+
+    .mobile-nav-items:hover {
+        box-shadow: none;
+    }
+
+    #mobile-nav-close{
+
+        width: 200px;
+        height: 36px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        background-color: none;
+    }
+
+    #arrow-left-close{
+        width: 69px; 
+        height: 69px; 
+        background-color: white;
+        color: black;
+        font-weight:bold;
+        font-size: 16px;
+        padding: 24px 0px 0px 9px;
+        box-sizing: border-box;
+        letter-spacing: 1.69px;
+        position: absolute;
+        left: -68px;
+        top: 0px;
+      
+    }
+
+
+
+
+    .bigcontainer {
+        min-width: 106%;
+        min-height: 1069px;
+        height: auto;
+        left: -38px;
+        box-sizing: border-box;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+
+
+    .scrollcontainer {
+        width: 100%;
+        height: 376%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 48px;
+        padding-bottom: 48px;
+        background: #696d6b;
+    }
+
+    .internalboxone{
+        height: 469px;
+        width: 85%;
+    }
+
+    .internalboxone img {
+        max-width: 340px;
+        width: 33%;
+        min-width: 136px;
+    }
+
+    .internalboxone h1{
+        width: 100%;
+        padding-top: 24px;
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .internalboxone p {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 13px;
+        padding-top: 24px;
+    }
+
+    .internalboxone:first-child p {
+        max-height: 300px !important;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .internalboxtwo {
+        height: 469px;
+        width: 85%;
+    }
+
+    .internalboxtwo p {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 13px;
+        padding-top: 12px;
+        height: 42.69%;
+    }
+
+
+
+    .internalboxone hr, .internalboxtwo hr {
+  
+        margin-left: 24px;
+        min-width: 24px;
+        width: 69%;
+        max-width: 69px;
+        top: -24px;
+     
+    }
+
+    .containerbox, .internalboxtwo p {
+        border: 0.69px dotted white;
+    }
+
+    #aboutusback{
+        margin-top: 15px;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    #destiback {
+        margin-top: 2px;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    #storiback {
+        margin-top: 16px;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    #travelback {
+        margin-top: 17px;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    #contactback {
+        margin-top: 16px;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    .genericbox {
+        min-width: 106%;
+        left: -46px;
+    }
+
+    footer {
+        display: none;
+    }
 }
