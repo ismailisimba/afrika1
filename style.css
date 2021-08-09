@@ -58,10 +58,11 @@ title{
     font-weight: 700;
     display: block;
     width: 100%;
-    margin-top: 24px !important;
+    margin-top: 69px !important;
     box-sizing: border-box;
     letter-spacing: 3px;
     text-align: center;
+    position: relative;
 }
 
 
