@@ -13,10 +13,9 @@ body{
 
 footer{
     position: absolute;
-    bottom:-32px;
+    bottom:-18px;
     left: 7.5%;
     width: 85%;
-    font-size: 11px;
     color: black;
     font-weight: 600;
     letter-spacing: 1.69px;
@@ -38,8 +37,7 @@ footer ul{
 
 footer ul li{
     margin-left: 24px;
-    color: black;
-    font-size: large;
+    font-size: normal;
     font-weight: 700;
     cursor: pointer;
     box-sizing: border-box;
@@ -70,7 +68,7 @@ p{
 
 
 title{
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: 700;
     display: block;
     width: 100%;
