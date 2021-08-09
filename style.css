@@ -38,12 +38,28 @@ footer ul{
 
 footer ul li{
     margin-left: 24px;
+    color: black;
+    font-size: large;
+    font-weight: 700;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 3px 6px;
+}
+
+footer ul li:hover {
+    background-color: #696d6b;
+    color: white;
 }
 
 footer ul li:nth-child(1){
     position: absolute;
     left: 0px;
     top: 0px;
+}
+footer a{
+    text-decoration: none;
+    color: inherit;
+   
 }
 
 p{
@@ -65,14 +81,33 @@ title{
     position: relative;
 }
 
+#logo{
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/logo.png");
+    width: 100%;
+    height: 69px;
+    padding-right: 69px;
+    box-sizing: border-box;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    color: transparent;
+    border: 0px;
+
+    position: absolute;
+    top: -56px;
+    left: 0px;
+}
+
 
 nav{
 
     min-width: 300px;
-    width: 85%;
+    width: 86%;
     height: 48px;
     border-radius: 9px;
-    background-color: transparent;
+    background-color: wheat;
+    opacity: 0.69;
 
     display: block;
     position: sticky;
@@ -81,7 +116,7 @@ nav{
     padding-top: 0px;
     box-sizing: border-box;
 
-    box-shadow: 1.69px 1.69px 6px 1.69px;
+    box-shadow: 0.3px 0.3px 1.69px 0.3px;
 
     text-align: center;
 
@@ -104,8 +139,9 @@ nav ul {
 nav ul li {
 
     display: block;
+    font-size: small;
 
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 1.69px;
     padding-top: 12px;
     padding-left: 24px;
@@ -118,7 +154,7 @@ nav ul li {
 nav ul li:hover {
 
     background-color: black;
-    color: #696d6b;
+    color: white;
 }
 
 
@@ -437,7 +473,7 @@ nav ul li:hover {
   
     box-sizing: border-box;
 
-    box-shadow: 2.69px 2.69px 9px 3px;
+    box-shadow: 0.3px 0.3px 3px 0.3px;
 
     border-top-left-radius: 18px;
     border-bottom-right-radius: 18px;
@@ -467,7 +503,7 @@ nav ul li:hover {
   
     box-sizing: border-box;
 
-    box-shadow: 2.69px 2.69px 9px 3px;
+    box-shadow: 0.3px 0.3px 3px 0.3px;
 
     border-top-left-radius: 18px;
     border-bottom-right-radius: 18px;
@@ -539,6 +575,12 @@ nav ul li:hover {
     background-size: cover;
 
 }
+
+.internalboxone:nth-child(3) img {
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/photofront/image11.webp") !important;
+}
+
+
 .internalboxone h1 {
     display: block;
     font-size: large !important;
@@ -548,7 +590,7 @@ nav ul li:hover {
     position: relative;
     
     width: 66%;
-    height: 45%;
+    height: 40%;
     padding-top: 48px;
     padding-left: 48px;
     padding-right: 48px;
@@ -556,6 +598,12 @@ nav ul li:hover {
     letter-spacing: 1.69px;
     color: white;
 }
+
+.internalboxone:nth-child(3) h1{
+    height: 35%;
+}
+
+
 
 .internalboxone hr, .internalboxtwo hr {
     display: block;
@@ -586,6 +634,10 @@ nav ul li:hover {
     box-sizing: border-box;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.internalboxone:first-child p {
+    max-height: 269px !important;
 }
 
 .internalboxone button {
@@ -629,6 +681,24 @@ nav ul li:hover {
     align-items: flex-start;
 }
 
+#destiback {
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/photofront/image13.webp") !important;
+}
+
+#storiback {
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/photofront/image14.webp") !important;
+    background-position: -100px -69px !important;
+}
+
+#travelback {
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/photofront/image9.webp") !important;
+    background-position: -100px -69px !important;
+}
+
+#contactback {
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/photofront/image12.webp")!important;
+}
+
 
 .internalboxtwo h1 {
 
@@ -646,7 +716,7 @@ nav ul li:hover {
     padding-right: 48px;
     box-sizing: border-box;
     letter-spacing: 1.69px;
-    color: black;
+    color: white;
 }
 
 .internalboxtwo p {
@@ -1146,6 +1216,7 @@ overflow-y: scroll;
 
 #frontbutback{
     background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_back_white.svg");
+    margin-left: 36px;
 }
 
 
@@ -1243,4 +1314,50 @@ overflow-y: scroll;
 .abouttitdiv, .contacttitdiv{
     width: 85%;
     background-color: transparent;
+}
+
+.left p {
+    color: white !important;
+}
+
+.left h1{
+    color: white;
+}
+
+.left .postpreview {
+    background-image: linear-gradient(to right, white 33%, #696d6b 0%) !important;
+    width: 69% !important;
+    min-width: 369px !important;
+}
+
+.right div {
+    width: 85% !important;
+    margin: 0 auto !important;
+    color: white !important;
+    padding-bottom: 36px;
+}
+
+.right div img{
+    width: 50% !important;
+    max-width: 469px !important;
+}
+
+.right div span{
+    background-color:  transparent !important;
+}
+
+.right h1 {
+    width: 85% !important;
+    margin-block-start: 0px !important;
+    margin-block-end: 0px !important;
+    margin: 0 auto !important;
+    color: white !important;
+}
+
+
+
+
+@media screen and (max-width: 1024px){
+
+    nav {display: none;}
 }
