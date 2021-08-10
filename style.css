@@ -1524,6 +1524,17 @@ overflow-y: scroll;
         width: 85%;
     }
 
+    .frontphotobox{
+        flex-flow: column;
+        height: 2169px;
+        width: 85%;
+    }
+
+    .blockone {
+        max-width: 100%;
+        width: 100%;
+    }
+
     .internalboxone img {
         max-width: 340px;
         width: 33%;
@@ -1586,7 +1597,7 @@ overflow-y: scroll;
     }
 
     #destiback {
-        margin-top: 2px;
+        margin-top: 12px;
         background-position: center !important;
         background-size: cover !important;
     }
