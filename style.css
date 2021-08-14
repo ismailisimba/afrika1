@@ -4,10 +4,7 @@ html{
 
 body{
     position: relative;
-    background-color: orange;
-    background-image: url("https://ismailisimba.github.io/afrika1/resources/bodyback1.png");
-    background-repeat: repeat;
-    background-size: auto;
+    background-color: transparent;
     overflow-x: hidden;
 }
 
@@ -21,7 +18,7 @@ footer{
     bottom:-18px;
     left: 7.5%;
     width: 85%;
-    color: black;
+    color: #ff5404;
     font-weight: 600;
     letter-spacing: 1.69px;
 }
@@ -50,7 +47,7 @@ footer ul li{
 }
 
 footer ul li:hover {
-    background-color: #696d6b;
+    background-color: #ff5404;
     color: white;
 }
 
@@ -68,13 +65,14 @@ footer a{
 p{
     font-size: 14px;
     letter-spacing: 1.69px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 
 title{
     font-size: x-large;
     font-weight: 700;
+    color: #ff5404;
     display: block;
     width: 100%;
     margin-top: 69px !important;
@@ -109,8 +107,7 @@ nav{
     width: 86%;
     height: 38px;
     border-radius: 9px;
-    background-color: wheat;
-    opacity: 0.69;
+    background-color: #ff5404;
 
     display: block;
     position: sticky;
@@ -145,6 +142,7 @@ nav ul li {
 
     display: block;
     font-size: small;
+    color: white;
 
     font-weight: 700;
     letter-spacing: 1.69px;
@@ -158,8 +156,8 @@ nav ul li {
 
 nav ul li:hover {
 
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: #ff5404;
 }
 
 
@@ -494,7 +492,7 @@ nav ul li:hover {
     visibility: collapse;
     height: 0px;
     border: 6px;
-    background-color: #696d6b;
+    background-color: #ff5404;
     
     display: block;
     position: relative;
@@ -542,7 +540,7 @@ nav ul li:hover {
     padding-left: 18px;
 
     background-color: transparent;
-    background: linear-gradient(.25turn, transparent, 60%, #696d6b);
+    background: linear-gradient(.25turn, transparent, 60%, #ff5404);
     z-index: 10;
     box-sizing: border-box;
     overflow-y: hidden;
@@ -556,7 +554,7 @@ nav ul li:hover {
     margin-right: 12px;
     width: 669px;
     height: 95%;
-    background-color: #696d6b;
+    background-color: #ff5404;
     z-index: 100;
 
     position: relative;
@@ -671,7 +669,7 @@ nav ul li:hover {
     margin-right: 12px;
     width: 669px;
     height: 95%;
-    background-color: #696d6b;
+    background-color: #ff5404;
     z-index: 100;
 
     background-image: url("https://ismailisimba.github.io/afrika1/resources/zebra-wide-standard.jpg");
@@ -732,7 +730,7 @@ nav ul li:hover {
     top: 48px;
     font-size: 12px;
     color: white;
-    background-color: #696d6b;
+    background-color: #ff5404;
     padding-left: 48px;
     padding-top: 48px;
     padding-bottom: 48px;
@@ -751,7 +749,7 @@ nav ul li:hover {
     margin-right: 12px;
     width: fit-content;
     height: 95%;
-    background-color: #696d6b;
+    background-color: #ff5404;
     z-index: 100;
 
 
@@ -764,8 +762,7 @@ nav ul li:hover {
 }
 
 .blockone{
-    min-width: 364px;
-    max-width: 369px;
+    min-width: 1024px;
     box-sizing: border-box;
     height: 100%;
     background-color: transparent;
@@ -781,27 +778,11 @@ nav ul li:hover {
 
 .blockone img {
     width: 50%;
-    height: 50%;
-    background-color: #696d6b;
+    height: 100%;
+    background-color: #ff5404;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.blockone:nth-child(1) img:nth-child(1){
-    width: 100%;
-}
-
-.blockone:nth-child(2) img, .blockone:nth-child(4) img{
-    width: 100%;
-    height: 100%;
-}
-
-.blockone:nth-child(3) img:nth-child(1),.blockone:nth-child(3) img:nth-child(4){
-    width: 60%;
-}
-.blockone:nth-child(3) img:nth-child(2),.blockone:nth-child(3) img:nth-child(3){
-    width: 40%;
 }
 
 .internalboxtwo button {
@@ -953,7 +934,7 @@ nav ul li:hover {
 
     position: relative;
 
-    background-color: #696d6b;
+    background-color: #ff5404;
     opacity: .86;
     color: black;
     width: 85%;
@@ -1020,7 +1001,7 @@ overflow-y: scroll;
 
 .mygenericpage button {
     font-family: "Lexend";
-    background-color: #696d6b;
+    background-color: #ff5404;
     color: white;
     border: none;
     padding: 3px 9px;
@@ -1332,7 +1313,7 @@ overflow-y: scroll;
 }
 
 .left .postpreview {
-    background-image: linear-gradient(to right, white 33%, #696d6b 0%) !important;
+    background-image: linear-gradient(to right, white 33%, #ff5404 0%) !important;
     width: 69% !important;
     min-width: 369px !important;
 }
@@ -1441,7 +1422,7 @@ overflow-y: scroll;
 
     .mobile-nav-items {
 
-        background-color: #696d6b;
+        background-color: #ff5404;
         color: white;
         border: none;
         font-family: "Lexend";
@@ -1516,7 +1497,7 @@ overflow-y: scroll;
         align-items: center;
         padding-top: 48px;
         padding-bottom: 48px;
-        background: #696d6b;
+        background: #ff5404;
     }
 
     .internalboxone{
@@ -1531,8 +1512,7 @@ overflow-y: scroll;
     }
 
     .blockone {
-        max-width: 100%;
-        width: 100%;
+        min-width: 100%;
     }
 
     .internalboxone img {
