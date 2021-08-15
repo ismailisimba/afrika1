@@ -957,6 +957,7 @@ nav ul li:hover {
 
   .postscontainer{
       visibility: collapse;
+      display: none !important;
 
     background-color: transparent;
     display: flex;
@@ -1353,6 +1354,10 @@ overflow-y: scroll;
 
 @media screen and (max-width: 1024px){
 
+    body{
+        max-height: none !important;
+    }
+
     nav {display: none;}
 
 
@@ -1362,7 +1367,7 @@ overflow-y: scroll;
         display: block;
         position: fixed;
         top: 0px;
-        right: -214px;
+        right: -224px;
 
         
 
@@ -1480,6 +1485,7 @@ overflow-y: scroll;
     .bigcontainer {
         min-width: 106%;
         min-height: 1069px;
+        margin-bottom: 36px;
         height: auto;
         left: -38px;
         box-sizing: border-box;
@@ -1510,7 +1516,7 @@ overflow-y: scroll;
 
     .frontphotobox{
         flex-flow: column;
-        height: 2169px;
+        height: 769px;
         width: 85%;
     }
 

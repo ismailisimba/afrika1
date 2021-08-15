@@ -2480,6 +2480,7 @@ function myGenericPageFormatting (){
   counters.elements.dePage.remove()
   counters.elements.postsMomCont.remove();
   counters.elements.postsMomCont.style.visibility="visible";
+  counters.elements.postsMomCont.style.display="block";
  
 
     
@@ -2938,16 +2939,16 @@ function custFunkyTempySempaiUwu(){
 function addMobMenu(width){
 
   if(width<=1024){
-    document.querySelectorAll(".mycolumns")[1].appendChild(mobNav);
+    document.querySelectorAll(".bigcontainer")[0].appendChild(mobNav);
     mobNav.addEventListener("click",function(){
 
       let compStyles = window.getComputedStyle(mobNav);
       let ryt = compStyles.getPropertyValue("right");
 
-      if(ryt==="-214px"){
+      if(ryt==="-224px"){
         mobNav.style.right = "0px";
       }else{
-        mobNav.style.right = "-214px";
+        mobNav.style.right = "-224px";
       }
      
     })
