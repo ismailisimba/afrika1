@@ -528,6 +528,8 @@ nav ul li:hover {
     -moz-transition-timing-function: ease-out;
     -o-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
+
+    z-index: 100;
 }
 
 .bigcontainer::-webkit-scrollbar, .genericbox::-webkit-scrollbar { display: none; }
