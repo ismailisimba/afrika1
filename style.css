@@ -961,7 +961,7 @@ nav ul li:hover {
 
   .postscontainer{
       visibility: collapse;
-      display: none !important;
+      display: none;
 
     background-color: transparent;
     display: flex;
@@ -971,6 +971,8 @@ nav ul li:hover {
     align-items: center;
     box-sizing: border-box;
     padding: 12px 6px;
+
+    display: none;
    
     
     max-height: 1000px;

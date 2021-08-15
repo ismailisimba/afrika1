@@ -2480,7 +2480,7 @@ function myGenericPageFormatting (){
   counters.elements.dePage.remove()
   counters.elements.postsMomCont.remove();
   counters.elements.postsMomCont.style.visibility="visible";
-  counters.elements.postsMomCont.style.display="block !important";
+  counters.elements.postsMomCont.style.display="block";
  
 
     
