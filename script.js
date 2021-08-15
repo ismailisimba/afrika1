@@ -121,6 +121,7 @@ function rollOutGeneric(elementId){
     document.querySelectorAll(".genericbox")[0].style.height = "auto";
     document.querySelectorAll(".genericbox")[0].style.top = "0px";
     document.querySelectorAll(".genericbox")[0].style.visibility = "visible";
+    document.querySelectorAll(".genericbox")[0].style.display = "block";
    
     let tempTimer = window.setTimeout(()=>{
         document.querySelectorAll(".genericbox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
@@ -137,6 +138,7 @@ function rollInGeneric() {
     document.querySelectorAll(".genericbox")[0].style.height = "0px";
     document.querySelectorAll(".genericbox")[0].style.top = "-169px";
     document.querySelectorAll(".genericbox")[0].style.visibility = "collapse";
+    document.querySelectorAll(".genericbox")[0].style.display = "none";
    
     
     document.onwheel = customScroll;

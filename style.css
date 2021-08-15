@@ -494,7 +494,7 @@ nav ul li:hover {
     border: 6px;
     background-color: #ff5404;
     
-    display: block;
+    display: none;
     position: relative;
     top: -469px;
     margin-top: 12px;
@@ -1513,6 +1513,14 @@ overflow-y: scroll;
 
     .blockone {
         min-width: 100%;
+        flex-flow: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .blockone img {
+        width: 100%;
     }
 
     .internalboxone img {
@@ -1529,6 +1537,7 @@ overflow-y: scroll;
     }
 
     .internalboxone p {
+        max-height: 300px !important;
         padding-left: 24px;
         padding-right: 24px;
         padding-bottom: 13px;
@@ -1607,5 +1616,73 @@ overflow-y: scroll;
 
     footer {
         display: none;
+    }
+
+
+    .contactdescrdiv {
+        flex-flow: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .contactformdiv {
+        width: 100%;
+        margin: 0px 0px 48px 0px;
+    
+    }
+
+    .formitemdiv:nth-child(3){
+        margin-bottom: 24px;
+    }
+
+    .contactlistdiv{
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .addresslistitem{
+        width: 100%;
+        text-align: center;
+
+
+    }
+
+    .addresslistitem:nth-child(4){
+
+        background-color: transparent;
+
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+
+    .contactlistdiv h2{
+        width: 100%;
+    }
+
+    .mysocials{
+
+        width: 60%;
+        height: auto;
+        background-color: transparent;
+
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    
+    
+    }
+
+    .socialitem{
+
+        margin: 6px 0px 6px 18px;
     }
 }
