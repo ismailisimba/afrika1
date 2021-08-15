@@ -126,7 +126,7 @@ function rollOutGeneric(elementId){
     let tempTimer = window.setTimeout(()=>{
         document.querySelectorAll(".genericbox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
         window.clearTimeout(tempTimer);
-    },1696)
+    },30)
     
     document.onwheel = emptyDisengagedFunc;
     counters.dropState="shown";

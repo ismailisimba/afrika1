@@ -15,7 +15,7 @@ body{
 
 footer{
     position: absolute;
-    bottom:-18px;
+    bottom:-42px;
     left: 7.5%;
     width: 85%;
     color: #ff5404;
@@ -65,7 +65,7 @@ footer a{
 p{
     font-size: 14px;
     letter-spacing: 1.69px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 
@@ -1213,7 +1213,7 @@ overflow-y: scroll;
     position: relative;
     width: 169px;
     height: 69px;
-    background-color: white;
+    background-color: #ff5404;
     color: white;
 
     flex-flow: row;
@@ -1224,8 +1224,8 @@ overflow-y: scroll;
 
   .captchaitems {
     position: relative;
-    background-color: white;
-    color: black;
+    background-color: #ff5404;
+    color: white;
     text-align: center;
     font-weight: bold;
     font-size: 18px;
@@ -1432,7 +1432,7 @@ overflow-y: scroll;
         width: 50%;
         
         font-size: small;
-        font-weight: 200;
+        font-weight: 500;
         letter-spacing: 3px;
         box-sizing: border-box;
         margin-bottom: 9px;
