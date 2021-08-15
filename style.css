@@ -6,6 +6,7 @@ body{
     position: relative;
     background-color: transparent;
     overflow-x: hidden;
+    max-height: 96vh;
 }
 
 #mobile-nav {
