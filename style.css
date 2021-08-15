@@ -841,7 +841,7 @@ nav ul li:hover {
 
     overflow-x: hidden;
 
-    touch-action: none !important;
+    touch-action: pan-y !important;
 
     
     transition: all;
