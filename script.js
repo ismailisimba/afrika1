@@ -1177,6 +1177,7 @@ async function startHailing(data,para,functionToRunAfter){
   
     counters.localVar.cloudObj.contentObj.contentObj.delete ["title"] = newSettings.title.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["catchphrase"] = newSettings.catchphrase.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureArr"] = [];
     counters.localVar.cloudObj.contentObj.contentObj.delete ["featureArr"].push.apply(counters.localVar.cloudObj.contentObj.contentObj.delete ["featureArr"], updateCheckedImages())
     counters.localVar.cloudObj.contentObj.contentObj.delete ["email"] = newSettings.email.value ;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["address"] = newSettings.address.value;
