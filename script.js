@@ -2317,6 +2317,7 @@ function addNewHtmlFuncs2(storyid) {
             cloneMiHref.querySelectorAll("input")[0].id = imageNamesArr[i].id;
             for(j=0;j<settingsArr.length;j++){
               if(imageNamesArr[i].id===settingsArr[j]){
+                console.log(imageNamesArr[j]);
                 document.getElementById(imageNamesArr[j].id).checked = true;
                 console.log("i checked?")
               }
