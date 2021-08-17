@@ -2291,6 +2291,7 @@ function addNewHtmlFuncs2(storyid) {
     function  fillAllAvailableImages(){
     
       let images = counters.localVar.cloudObj.contentObj.contentObj.specialOne.images;
+      let settingsArr = counters.localVar.cloudObj.settingsObj.featureArr;
       let imageNamesArr = [];
       let obj = {id:"",imageName:""}
   
@@ -2314,6 +2315,12 @@ function addNewHtmlFuncs2(storyid) {
             let cloneMiHref = miHref.cloneNode(true);
             cloneMiHref.querySelectorAll("label")[0].innerText = imageNamesArr[i].imageName;
             cloneMiHref.querySelectorAll("input")[0].id = imageNamesArr[i].id;
+            for(j=0;j<settingsArr.length;j++){
+              let obj = JSON.parse(settingsArr[i]);
+              if(imageNamesArr[i].id===obj.id){
+                cloneMiHref.querySelectorAll("input")[0].checked = true;
+              }
+            }
             par.appendChild(cloneMiHref);
     
           }
