@@ -2293,7 +2293,7 @@ function addNewHtmlFuncs2(storyid) {
       let images = counters.localVar.cloudObj.contentObj.contentObj.specialOne.images;
       let imageNamesArr = [];
       let obj = {id:"",imageName:""}
-      let myParConts = document.querySelectorAll(".featuresgeneric");
+  
     
     
       for(let i=0; i<images.length ; i++){
@@ -2305,9 +2305,9 @@ function addNewHtmlFuncs2(storyid) {
         
       }
     
-      myParConts.forEach(element=>{
-        let miHref = element.querySelectorAll("featureshow")[0];
-        let par = element.querySelectorAll(".featuresgeneric")[0];
+      
+        let miHref = document.querySelectorAll("featureshow")[0];
+        let par = document.querySelectorAll(".featuresgeneric")[0];
         miHref.remove();
     
           for(let i=0 ; i<imageNamesArr.length ; i++){
@@ -2317,7 +2317,7 @@ function addNewHtmlFuncs2(storyid) {
             par.appendChild(cloneMiHref);
     
           }
-      })
+    
     
     
     
