@@ -1168,15 +1168,6 @@ async function startHailing(data,para,functionToRunAfter){
   
     newSettings["title"] = document.getElementById("posttit");
     newSettings["catchphrase"] = document.getElementById("postcat");
-    newSettings["featureOne"] = document.getElementById("feature1");
-    newSettings["featureTwo"] = document.getElementById("feature2");
-    newSettings["featureThree"] = document.getElementById("feature3");
-    newSettings["featureFour"] = document.getElementById("feature4");
-    newSettings["featureFive"] = document.getElementById("feature5");
-    newSettings["featureSix"] = document.getElementById("feature6");
-    newSettings["featureSeven"] = document.getElementById("feature7");
-    newSettings["featureEight"] = document.getElementById("feature8");
-    newSettings["featureNine"] = document.getElementById("feature9");
     newSettings["email"] = document.getElementById("emailcollector");
     newSettings["address"] = document.getElementById("wordaddresscollector");
     newSettings["fb"] = document.getElementById("fbcollector");
@@ -1188,15 +1179,6 @@ async function startHailing(data,para,functionToRunAfter){
   
     counters.localVar.cloudObj.contentObj.contentObj.delete ["title"] = newSettings.title.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["catchphrase"] = newSettings.catchphrase.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureOne"] = newSettings.featureOne.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureTwo"] = newSettings.featureTwo.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureThree"] = newSettings.featureThree.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureFour"] = newSettings.featureFour.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureFive"] = newSettings.featureFive.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureSix"] = newSettings.featureSix.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureSeven"] = newSettings.featureSeven.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureEight"] = newSettings.featureEight.value;
-    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureNine"] = newSettings.featureNine.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["email"] = newSettings.email.value ;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["address"] = newSettings.address.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["fb"] = newSettings.fb.value;
@@ -1593,33 +1575,7 @@ async function startHailing(data,para,functionToRunAfter){
     
       newSettings["catchphrase"] = document.getElementById("postcat");
       newSettings["catchphraseDisp"] = document.querySelectorAll(".contrpancatshow")[0];
-    
-      newSettings["featureOne"] = document.getElementById("feature1");
-      newSettings["featureOneDisp"] = document.querySelectorAll(".featureshow1")[0];
-    
-      newSettings["featureTwo"] = document.getElementById("feature2");
-      newSettings["featureTwoDisp"] = document.querySelectorAll(".featureshow2")[0];
-    
-      newSettings["featureThree"] = document.getElementById("feature3");
-      newSettings["featureThreeDisp"] = document.querySelectorAll(".featureshow3")[0];
-
-      newSettings["featureFour"] = document.getElementById("feature4");
-      newSettings["featureFourDisp"] = document.querySelectorAll(".featureshow4")[0];
-
-      newSettings["featureFive"] = document.getElementById("feature5");
-      newSettings["featureFiveDisp"] = document.querySelectorAll(".featureshow5")[0];
-
-      newSettings["featureSix"] = document.getElementById("feature6");
-      newSettings["featureSixDisp"] = document.querySelectorAll(".featureshow6")[0];
-
-      newSettings["featureSeven"] = document.getElementById("feature7");
-      newSettings["featureSevenDisp"] = document.querySelectorAll(".featureshow7")[0];
-
-      newSettings["featureEight"] = document.getElementById("feature8");
-      newSettings["featureEightDisp"] = document.querySelectorAll(".featureshow8")[0];
-
-      newSettings["featureNine"] = document.getElementById("feature9");
-      newSettings["featureNineDisp"] = document.querySelectorAll(".featureshow9")[0];
+   
       
     
       newSettings["email"] = document.getElementById("emailcollector");
@@ -1663,42 +1619,6 @@ async function startHailing(data,para,functionToRunAfter){
       newSettings.catchphrase.style.visibility = "collapse";
       newSettings.catchphrase.value = cloudSettings.catchphrase;
       newSettings.catchphraseDisp.innerHTML = cloudSettings.catchphrase;
-    
-      newSettings.featureOne.style.visibility = "collapse";
-      newSettings.featureOne.value = cloudSettings.featureOne;
-      newSettings.featureOneDisp.innerHTML = getImageName(cloudSettings.featureOne);
-    
-      newSettings.featureTwo.style.visibility = "collapse";
-      newSettings.featureTwo.value = cloudSettings.featureTwo;
-      newSettings.featureTwoDisp.innerHTML = getImageName(cloudSettings.featureTwo);
-    
-      newSettings.featureThree.style.visibility = "collapse";
-      newSettings.featureThree.value = cloudSettings.featureThree;
-      newSettings.featureThreeDisp.innerHTML = getImageName(cloudSettings.featureThree);
-
-      newSettings.featureFour.style.visibility = "collapse";
-      newSettings.featureFour.value = cloudSettings.featureFour;
-      newSettings.featureFourDisp.innerHTML = getImageName(cloudSettings.featureFour);
-
-      newSettings.featureFive.style.visibility = "collapse";
-      newSettings.featureFive.value = cloudSettings.featureFive;
-      newSettings.featureFiveDisp.innerHTML = getImageName(cloudSettings.featureFive);
-
-      newSettings.featureSix.style.visibility = "collapse";
-      newSettings.featureSix.value = cloudSettings.featureSix;
-      newSettings.featureSixDisp.innerHTML = getImageName(cloudSettings.featureSix);
-
-      newSettings.featureSeven.style.visibility = "collapse";
-      newSettings.featureSeven.value = cloudSettings.featureSeven;
-      newSettings.featureSevenDisp.innerHTML = getImageName(cloudSettings.featureSeven);
-
-      newSettings.featureEight.style.visibility = "collapse";
-      newSettings.featureEight.value = cloudSettings.featureEight;
-      newSettings.featureEightDisp.innerHTML = getImageName(cloudSettings.featureEight);
-
-      newSettings.featureNine.style.visibility = "collapse";
-      newSettings.featureNine.value = cloudSettings.featureNine;
-      newSettings.featureNineDisp.innerHTML = getImageName(cloudSettings.featureNine);
     
       newSettings.email.style.visibility = "collapse";
       newSettings.email.value = cloudSettings.buzEmail;
