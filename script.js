@@ -2312,8 +2312,8 @@ function addNewHtmlFuncs2(storyid) {
     
           for(let i=0 ; i<imageNamesArr.length ; i++){
             let cloneMiHref = miHref.cloneNode(true);
-            cloneMiHref.innerHTML = imageNamesArr[i].imageName;
-            cloneMiHref.value = imageNamesArr[i].id;
+            cloneMiHref.querySelectorAll("label")[0].innerText = imageNamesArr[i].imageName;
+            cloneMiHref.querySelectorAll("input")[0].id = imageNamesArr[i].id;
             par.appendChild(cloneMiHref);
     
           }
