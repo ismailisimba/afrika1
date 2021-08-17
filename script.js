@@ -2315,13 +2315,16 @@ function addNewHtmlFuncs2(storyid) {
             let cloneMiHref = miHref.cloneNode(true);
             cloneMiHref.querySelectorAll("label")[0].innerText = imageNamesArr[i].imageName;
             cloneMiHref.querySelectorAll("input")[0].id = imageNamesArr[i].id;
+            par.appendChild(cloneMiHref);
+
+            
             for(j=0;j<settingsArr.length;j++){
               if(imageNamesArr[i].id===settingsArr[j]){
                 document.getElementById(imageNamesArr[i].id).checked = true;
                 console.log("i checked?")
               }
             }
-            par.appendChild(cloneMiHref);
+           
     
           }
     
