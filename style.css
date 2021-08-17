@@ -1329,6 +1329,32 @@ overflow-y: scroll;
     background-color: transparent;
 }
 
+.galleryimages{
+    width: 369px;
+    margin: 6px 12px;
+    padding: 3px 6px;
+    box-sizing: border-box;
+    border: 3px dashed transparent;
+    cursor: pointer;
+    height: auto;
+    display: none;
+    min-height: 69px;
+    border-radius: 3.69px;
+}
+
+.galleryimages:hover{
+    border:  3px dashed white;
+    
+}
+.gallery{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .left p {
     color: white !important;
 }

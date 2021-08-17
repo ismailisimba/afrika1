@@ -88,7 +88,8 @@ function navToItem(eleText){
         document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
     }else if(tempVar==="Galleries"){
-        document.querySelectorAll(".internalboxtwo")[3].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        document.querySelectorAll(".frontphotobox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        showGallery();
 
     }else if("Bookings"){
       document.querySelectorAll(".internalboxtwo")[4].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
@@ -2178,21 +2179,20 @@ function addNewHtmlFuncs2(storyid) {
 
     async function setDisBlocToSrc2(responseObj){
     
-    /*  let eleid = responseObj.deFileObj.id;
+      let eleid = responseObj.deFileObj.id;
       let meme = responseObj.deFileObj.mime;
       let cloudBlob = responseObj.deFileObj.data;
     
       let element = document.getElementById(`${eleid}`);
       
      
-      element.style.backgroundImage = `url(data:${meme};base64,${cloudBlob})`;
+      element.src = `data:${meme};base64,${cloudBlob}`;
     
-    */
+  
       
-      let meme = responseObj.deFileObj.mime;
-      let cloudBlob = responseObj.deFileObj.data;
+  
     
-   counters.frontendimages.push({image:{mymeme:meme,myBlob:cloudBlob}});
+   counters.frontendimages.push({image:{mymeme:meme,myBlob:cloudBlob}}); /* */
     }
     
     
@@ -2321,7 +2321,7 @@ function addNewHtmlFuncs2(storyid) {
             for(j=0;j<settingsArr.length;j++){
               if(imageNamesArr[i].id===settingsArr[j]){
                 document.getElementById(imageNamesArr[i].id).checked = true;
-                console.log("i checked?")
+                
               }
             }
            
@@ -2461,8 +2461,10 @@ async function fillDeFrontEnd(){
 
     addDataFillFrontEndClicks();
     fillInitialContacts();
-    fillImagesFront();
-    shuffleImages();
+    fillImagesFront().then(()=>{
+      shuffleImages();
+    });
+    
     
     //fillFeatured(myObj);
     //fillTit(myObj);
@@ -2824,36 +2826,30 @@ function fillDestinationsFront(){
   fillUpStories(counters.localVar.cloudObj,"destinationStories");
 };
 
-function fillImagesFront(){
-  let myImages = [];
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureOne);
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureTwo);
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureThree);
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureFour);
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureFive);
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureSix);
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureSeven);
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureEight);
-  myImages.push(counters.localVar.cloudObj.settingsObj.featureNine);
+async function fillImagesFront(){
+  let myImages = counters.localVar.cloudObj.settingsObj.featureArr;
+  myImages.shift();
 
-  let myBoxes = document.querySelectorAll(".frontphotobox")[0].querySelectorAll("img");
+  let myBoxes = document.querySelectorAll(".frontphotobox")[0].querySelectorAll("img")[0];
   myBoxes = Array.prototype.slice.call(myBoxes);
-  myBoxes.push(document.createElement("img"));
-  myBoxes.push(document.createElement("img"));
-  myBoxes.push(document.createElement("img"));
-  myBoxes.push(document.createElement("img"));
-  myBoxes.push(document.createElement("img"));
-  myBoxes.push(document.createElement("img"));
-  myBoxes.push(document.createElement("img"));
+  
+  for(i=0;i<myImages.length;i++){
+    myBoxes.push(document.createElement("img"));
+  }
   
   let counter = 0;
 
   myBoxes.forEach(element=>{
     element.id = myImages[counter];
+    element.className = "galleryimages";
     fetchDisImage2(element);
+    document.querySelectorAll(".gallery")[0].appendChild(element);
     counter++;
 
   })
+
+  
+
 };
 
 
@@ -2918,21 +2914,24 @@ function shuffleImages(){
 
   window.setInterval(()=>{
     
-    console.log(disRand);
-    console.log(counters.frontendimages[disRand].image)
-    if(counter>0){
-      counter--;
-      imageBoxes[counter].style.backgroundImage =`url(data:${counters.frontendimages[disRand].image.myMeme};base64,${counters.frontendimages[disRand].image.myBlob})`;
-    }else{
-      counter++
-      imageBoxes[counter].style.backgroundImage =`url(data:${counters.frontendimages[disRand].image.myMeme};base64,${counters.frontendimages[disRand].image.myBlob})`;
-    }
-
-    if(disRand>=7){
+    
+    
+    if(disRand>=counters.frontendimages.length-1){
       disRand=0;
     }else{
       disRand++;
     }
+
+
+    if(counter>0&&counters.frontendimages.length>1){
+      counter=0;
+      imageBoxes[counter].style.backgroundImage =`url(data:${counters.frontendimages[disRand].image.myMeme};base64,${counters.frontendimages[disRand].image.myBlob})`;
+    }else if(counters.frontendimages.length>1){
+      counter++
+    
+      imageBoxes[counter].style.backgroundImage =`url(data:${counters.frontendimages[disRand].image.myMeme};base64,${counters.frontendimages[disRand].image.myBlob})`;
+    }
+
 
   }, 2969);
 }
@@ -2949,4 +2948,19 @@ function updateCheckedImages(){
     }
   })
   return arr;
+}
+
+
+function showGallery() {
+  //document.querySelectorAll(".frontphotobox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+  rollOutGeneric();
+  let left = document.querySelectorAll(".left")[0];
+  left.innerHTML = "";
+  left.appendChild(document.getElementById("gallery").cloneNode(true));
+  let imgs = left.querySelectorAll("img");
+
+  imgs.forEach(img=>{
+    img.style.display = "block";
+  })
+        
 }
