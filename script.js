@@ -2938,4 +2938,5 @@ function updateCheckedImages(){
       arr.push({"id":element.id});
     }
   })
+  return arr;
 }
