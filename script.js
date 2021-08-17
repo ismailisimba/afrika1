@@ -2306,8 +2306,8 @@ function addNewHtmlFuncs2(storyid) {
       }
     
       myParConts.forEach(element=>{
-        let miHref = element.querySelectorAll("option")[1];
-        let par = element.querySelectorAll(".featureshowdrop")[0];
+        let miHref = element.querySelectorAll("featureshow")[0];
+        let par = element.querySelectorAll(".featuresgeneric")[0];
         miHref.remove();
     
           for(let i=0 ; i<imageNamesArr.length ; i++){
