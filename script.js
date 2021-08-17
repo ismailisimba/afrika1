@@ -2932,7 +2932,7 @@ function shuffleImages(){
 
 function updateCheckedImages(){
   let arr = []
-  let elements = document.querySelectorAll(".featuregeneric")[0].querySelectorAll("input");
+  let elements = document.querySelectorAll(".featuresgeneric")[0].querySelectorAll("input");
   elements.forEach(element =>{
     if(element.checked){
       arr.push({"id":element.id});
