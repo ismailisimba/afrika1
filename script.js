@@ -1177,6 +1177,7 @@ async function startHailing(data,para,functionToRunAfter){
   
     counters.localVar.cloudObj.contentObj.contentObj.delete ["title"] = newSettings.title.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["catchphrase"] = newSettings.catchphrase.value;
+    counters.localVar.cloudObj.contentObj.contentObj.delete ["featureArr"].push.apply(counters.localVar.cloudObj.contentObj.contentObj.delete ["featureArr"], updateCheckedImages())
     counters.localVar.cloudObj.contentObj.contentObj.delete ["email"] = newSettings.email.value ;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["address"] = newSettings.address.value;
     counters.localVar.cloudObj.contentObj.contentObj.delete ["fb"] = newSettings.fb.value;
@@ -2923,4 +2924,17 @@ function shuffleImages(){
     }
 
   }, 2969);
+}
+
+
+
+
+function updateCheckedImages(){
+  let arr = []
+  let elements = document.querySelectorAll(".featuregeneric")[0].querySelectorAll("input");
+  elements.forEach(element =>{
+    if(element.checked){
+      arr.push({"id":element.id});
+    }
+  })
 }
