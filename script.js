@@ -1,4 +1,5 @@
 const counters = {};
+counters["frontendimages"] = [];
 counters["deltaY"] = 0;
 counters["deltaYSign"] = "null";
 counters["elements"] ={};
@@ -83,16 +84,19 @@ function navToItem(eleText){
     }else if(tempVar==="Destinations"){
         document.querySelectorAll(".internalboxtwo")[1].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
-    }else if(tempVar==="Stories & Updates"){
+    }else if(tempVar==="Program"){
         document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
-    }else if(tempVar==="Travel Guides"){
+    }else if(tempVar==="Galleries"){
         document.querySelectorAll(".internalboxtwo")[3].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
-    }else if("Contact Us"){
-        document.querySelectorAll(".internalboxtwo")[4].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+    }else if("Bookings"){
+      document.querySelectorAll(".internalboxtwo")[4].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
-    }else{
+  }else if("Contact Us"){
+    document.querySelectorAll(".internalboxtwo")[4].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+
+}else{
         document.querySelectorAll(".internalboxone")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
     }
 
@@ -2254,7 +2258,7 @@ function addNewHtmlFuncs2(storyid) {
 
     async function setDisBlocToSrc2(responseObj){
     
-      let eleid = responseObj.deFileObj.id;
+    /*  let eleid = responseObj.deFileObj.id;
       let meme = responseObj.deFileObj.mime;
       let cloudBlob = responseObj.deFileObj.data;
     
@@ -2263,7 +2267,12 @@ function addNewHtmlFuncs2(storyid) {
      
       element.style.backgroundImage = `url(data:${meme};base64,${cloudBlob})`;
     
+    */
+      
+      let meme = responseObj.deFileObj.mime;
+      let cloudBlob = responseObj.deFileObj.data;
     
+   counters.frontendimages.push({image:{mymeme:meme,myBlob:cloudBlob}});
     }
     
     
@@ -2449,6 +2458,8 @@ function frontEndOnlyFuncs () {
     navClicks();
     fillDeFrontEnd();
     addMobMenu(window.screen.width);
+    //imageClicks();
+    //imageTouchPrompt();
 
   }else{
     console.log("frontEndFuncErr");
@@ -2521,6 +2532,7 @@ async function fillDeFrontEnd(){
     addDataFillFrontEndClicks();
     fillInitialContacts();
     fillImagesFront();
+    shuffleImages();
     
     //fillFeatured(myObj);
     //fillTit(myObj);
@@ -2895,6 +2907,15 @@ function fillImagesFront(){
   myImages.push(counters.localVar.cloudObj.settingsObj.featureNine);
 
   let myBoxes = document.querySelectorAll(".frontphotobox")[0].querySelectorAll("img");
+  myBoxes = Array.prototype.slice.call(myBoxes);
+  myBoxes.push(document.createElement("img"));
+  myBoxes.push(document.createElement("img"));
+  myBoxes.push(document.createElement("img"));
+  myBoxes.push(document.createElement("img"));
+  myBoxes.push(document.createElement("img"));
+  myBoxes.push(document.createElement("img"));
+  myBoxes.push(document.createElement("img"));
+  
   let counter = 0;
 
   myBoxes.forEach(element=>{
@@ -2956,3 +2977,32 @@ function addMobMenu(width){
   }
   
 };
+
+
+function shuffleImages(){
+  let imageBoxes = document.querySelectorAll(".frontphotobox")[0].querySelectorAll("img");
+  let counter = 0;
+  let disRand = 0;
+ 
+
+
+  window.setInterval(()=>{
+    
+    console.log(disRand);
+    console.log(counters.frontendimages[disRand].image)
+    if(counter>0){
+      counter--;
+      imageBoxes[counter].style.backgroundImage =`url(data:${counters.frontendimages[disRand].image.myMeme};base64,${counters.frontendimages[disRand].image.myBlob})`;
+    }else{
+      counter++
+      imageBoxes[counter].style.backgroundImage =`url(data:${counters.frontendimages[disRand].image.myMeme};base64,${counters.frontendimages[disRand].image.myBlob})`;
+    }
+
+    if(disRand>=7){
+      disRand=0;
+    }else{
+      disRand++;
+    }
+
+  }, 2969);
+}
