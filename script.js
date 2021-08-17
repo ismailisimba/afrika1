@@ -2306,7 +2306,7 @@ function addNewHtmlFuncs2(storyid) {
       }
     
       
-        let miHref = document.querySelectorAll("featureshow")[0];
+        let miHref = document.querySelectorAll(".featureshow")[0];
         let par = document.querySelectorAll(".featuresgeneric")[0];
         miHref.remove();
     
