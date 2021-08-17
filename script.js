@@ -904,7 +904,7 @@ async function startHailing(data,para,functionToRunAfter){
   
   function addInputFileReading(){
   
-    let inputs = document.querySelectorAll("input");
+    let inputs = document.querySelectorAll(".inputcontainer")[0].querySelectorAll("input")[0];
   
     inputs.forEach(element=>{
       element.addEventListener("input",readDeFilesToCpan);
