@@ -906,10 +906,8 @@ async function startHailing(data,para,functionToRunAfter){
   
     let inputs = document.querySelectorAll(".inputcontainer")[0].querySelectorAll("input")[0];
   
-    inputs.forEach(element=>{
-      element.addEventListener("input",readDeFilesToCpan);
+      inputs.addEventListener("input",readDeFilesToCpan);
      
-    })
   
   
   }
