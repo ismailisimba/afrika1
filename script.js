@@ -2316,8 +2316,7 @@ function addNewHtmlFuncs2(storyid) {
             cloneMiHref.querySelectorAll("label")[0].innerText = imageNamesArr[i].imageName;
             cloneMiHref.querySelectorAll("input")[0].id = imageNamesArr[i].id;
             for(j=0;j<settingsArr.length;j++){
-              let obj = JSON.parse(settingsArr[i]);
-              if(imageNamesArr[i].id===obj.id){
+              if(imageNamesArr[i].id===settingsArr[i]){
                 cloneMiHref.querySelectorAll("input")[0].checked = true;
               }
             }
@@ -2942,7 +2941,7 @@ function updateCheckedImages(){
   let elements = document.querySelectorAll(".featuresgeneric")[0].querySelectorAll("input");
   elements.forEach(element =>{
     if(element.checked){
-      arr.push({"id":element.id});
+      arr.push(element.id.toString());
     }
   })
   return arr;
