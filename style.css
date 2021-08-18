@@ -846,7 +846,7 @@ nav ul li:hover {
     flex-flow: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 
     width: 210%;
     height: auto;
