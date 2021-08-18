@@ -889,7 +889,8 @@ nav ul li:hover {
     position: relative;
     left: 2.75%;
     top: 12px;
-    height: 669px;
+    min-height: 669px;
+    height: auto;
     border: .69px dotted white;
 }
 
@@ -1057,6 +1058,7 @@ overflow-y: scroll;
     padding: 12px 36px;
 }
 
+
 .mystorycontainer .ql-align-center{
     text-align: center !important;
 }
@@ -1071,6 +1073,10 @@ overflow-y: scroll;
 
 .mystorycontainer p a {
     color: #53f4ff !important;
+}
+
+.right strong,  .mystorycontainer strong {
+    background-color: transparent !important;
 }
 
 
