@@ -87,7 +87,7 @@ function navToItem(eleText){
     }else if(tempVar==="Program"){
         document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
-    }else if(tempVar==="Galleries"){
+    }else if(tempVar==="Gallery"){
         document.querySelectorAll(".frontphotobox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
         showGallery();
 
@@ -2183,7 +2183,7 @@ function addNewHtmlFuncs2(storyid) {
       let meme = responseObj.deFileObj.mime;
       let cloudBlob = responseObj.deFileObj.data;
     
-      let element = document.getElementById(`${eleid}`);
+      let element = getElementInsideContainer("gallery", eleid);
       
      
       element.src = `data:${meme};base64,${cloudBlob}`;
@@ -2506,13 +2506,13 @@ function doMyFrontEndThing(id){
     fillDestinationsFront();
 
   }else if(id==="guidebut"){
-    fillTravelGuides();
+    fillContactBox();
 
   }else if(id==="storibut"){
     fillStoriesFront();
 
   }else{
-
+    fillContactBox();
   }
 };
 
@@ -2955,12 +2955,31 @@ function showGallery() {
   //document.querySelectorAll(".frontphotobox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
   rollOutGeneric();
   let left = document.querySelectorAll(".left")[0];
+  let cloneC = document.getElementById("gallery").cloneNode(true);
+  cloneC.id = "gallerytoo";
   left.innerHTML = "";
-  left.appendChild(document.getElementById("gallery").cloneNode(true));
+  left.appendChild(cloneC);
   let imgs = left.querySelectorAll("img");
 
   imgs.forEach(img=>{
     img.style.display = "block";
   })
         
+}
+
+function toDeGalleryPageFrontEnd(){
+  document.querySelectorAll(".frontphotobox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        showGallery();
+}
+
+function toDeContactPageFrontEnd(){
+fillContactBox();
+}
+
+
+
+function getElementInsideContainer(containerID, childID) {
+  var elm = document.getElementById(childID);
+  var parent = elm ? elm.parentNode : {};
+  return (parent.id && parent.id === containerID) ? elm : {};
 }
