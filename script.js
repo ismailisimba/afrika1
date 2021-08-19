@@ -19,6 +19,7 @@ counters["myGoogleBox"] = document.querySelectorAll(".googlestuff")[0];
 const lelink = "https://script.google.com/macros/s/AKfycbyAl44CwyGcvrxb_YWYx0Fd2QKLjThO3WUNNo8Yg3W4P_YJDDEXSr9kOA/exec";
 let cloudObj = {};
 const mobNav = document.getElementById("mobile-nav");
+counters["imageLoadStatus"] = false;
 
 
 
@@ -145,7 +146,7 @@ function rollInGeneric() {
     document.querySelectorAll(".genericbox")[0].style.visibility = "collapse";
     document.querySelectorAll(".genericbox")[0].style.display = "none";
    
-    
+    toTheRight();
     document.onwheel = customScroll;
     counters.dropState="hidden";
 
@@ -2103,6 +2104,7 @@ function addNewHtmlFuncs2(storyid) {
 
     function toTheRight(){
       document.querySelectorAll(".genericboxcontent")[0].style.left ="0px";
+      document.querySelectorAll(".right")[0].innerHTML = "";
     }
     
     
@@ -2388,6 +2390,7 @@ function frontEndOnlyFuncs () {
     navClicks();
     fillDeFrontEnd();
     addMobMenu(window.screen.width);
+    frontEndStyles();
     //imageClicks();
     //imageTouchPrompt();
 
@@ -2843,7 +2846,7 @@ async function fillImagesFront(){
     element.id = myImages[counter];
     element.className = "galleryimages";
     fetchDisImage2(element);
-    document.querySelectorAll(".gallery")[0].appendChild(element);
+    document.getElementById("gallery").appendChild(element);
     counter++;
 
   })
@@ -2955,15 +2958,27 @@ function showGallery() {
   //document.querySelectorAll(".frontphotobox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
   rollOutGeneric();
   let left = document.querySelectorAll(".left")[0];
-  let cloneC = document.getElementById("gallery").cloneNode(true);
-  cloneC.id = "gallerytoo";
   left.innerHTML = "";
-  left.appendChild(cloneC);
-  let imgs = left.querySelectorAll("img");
 
-  imgs.forEach(img=>{
-    img.style.display = "block";
-  })
+  if(counters.imageLoadStatus){
+
+   
+    let cloneC = document.getElementById("gallery").cloneNode(true);
+    cloneC.id = "gallerytoo";
+    left.appendChild(cloneC);
+    let imgs = left.querySelectorAll("img");
+  
+    imgs.forEach(img=>{
+      img.style.display = "block";
+    })
+
+  }else{
+
+    galleryLoadedCheckLoop();
+    left.innerHTML = `<h3 style="width:100%; text-align:center; color: white"> Loading <br> Images</h3>`;
+
+  }  
+
         
 }
 
@@ -2982,4 +2997,49 @@ function getElementInsideContainer(containerID, childID) {
   var elm = document.getElementById(childID);
   var parent = elm ? elm.parentNode : {};
   return (parent.id && parent.id === containerID) ? elm : {};
+}
+
+
+
+function frontEndStyles(){
+  let styles = document.createElement("style");
+  styles.innerHTML = `
+  .left .storyhref{
+      display:none !important;
+  }`;
+
+  document.querySelectorAll("body")[0].appendChild(styles);
+}
+
+
+
+
+function galleryLoadedCheckLoop(){
+
+  let galleryInt = window.setInterval(()=>{
+
+    let arr = []
+    let img = document.querySelectorAll(".gallery")[0].querySelectorAll("img");
+  
+    img.forEach(ele => {
+      let length = 0;
+      length = ele.src.toString().length;
+      if(length<=0){
+        arr.push(length);
+      }
+    })
+  
+    if(arr.length<=0){
+
+      window.clearInterval(galleryInt);
+      counters.imageLoadStatus = true;
+      showGallery();
+  
+    }else{
+  
+    }
+
+
+  },1000)
+
 }

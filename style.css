@@ -1077,6 +1077,11 @@ overflow-y: scroll;
 
 .right strong,  .mystorycontainer strong {
     background-color: transparent !important;
+    color: white !important;
+}
+
+.right span,  .mystorycontainer span {
+    color: white !important;
 }
 
 
