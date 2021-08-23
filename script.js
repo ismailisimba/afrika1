@@ -2512,7 +2512,7 @@ function doMyFrontEndThing(id){
     fillContactBox();
 
   }else if(id==="storibut"){
-    fillStoriesFront();
+    fillTravelGuides();
 
   }else{
     fillContactBox();
