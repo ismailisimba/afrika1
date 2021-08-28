@@ -1557,11 +1557,15 @@ overflow-y: scroll;
 
     nav {display: none;}
 
+    .left {
+    border: none;
+    };
+
 
 
     #mobile-nav {
 
-        display: block;
+        display: block  !important;
         position: fixed;
         top: 0px;
         right: -224px;
@@ -1666,8 +1670,14 @@ overflow-y: scroll;
     #arrow-left-close{
         width: 69px; 
         height: 69px; 
-        background-color: white;
-        color: black;
+        background-color: red;
+
+        background-image: url("https://ismailisimba.github.io/afrika1/resources/menu_icon.svg");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+
         font-weight:bold;
         font-size: 16px;
         padding: 24px 0px 0px 9px;
