@@ -1558,8 +1558,8 @@ overflow-y: scroll;
     nav {display: none;}
 
     .left {
-    border: none;
-    };
+    border: none !important;
+    }
 
 
 
@@ -1599,7 +1599,7 @@ overflow-y: scroll;
 
     #mobile-nav-back{
         
- background-color: white;
+ background-color: transparent;
 
         opacity: 0.96;
 
@@ -1670,11 +1670,11 @@ overflow-y: scroll;
     #arrow-left-close{
         width: 69px; 
         height: 69px; 
-        background-color: red;
+        background-color: transparent;
 
-        background-image: url("https://ismailisimba.github.io/afrika1/resources/menu_icon.svg");
+        background-image: url("https://ismailisimba.github.io/afrika1/resources/menu_icon_open.svg");
         background-position: center;
-        background-size: contain;
+        background-size: 69%;
         background-repeat: no-repeat;
 
 
@@ -1684,7 +1684,7 @@ overflow-y: scroll;
         box-sizing: border-box;
         letter-spacing: 1.69px;
         position: absolute;
-        left: -68px;
+        left: -78px;
         top: 0px;
       
     }

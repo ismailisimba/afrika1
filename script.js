@@ -2897,8 +2897,10 @@ function addMobMenu(width){
 
       if(ryt==="-224px"){
         mobNav.style.right = "0px";
+        document.getElementById("arrow-left-close").style.transform = `rotate(.5turn)`
       }else{
         mobNav.style.right = "-224px";
+        document.getElementById("arrow-left-close").style.transform = `rotate(0turn)`
       }
      
     })
