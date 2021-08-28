@@ -2509,7 +2509,7 @@ function doMyFrontEndThing(id){
     fillDestinationsFront();
 
   }else if(id==="guidebut"){
-    fillContactBox();
+    fillBookingBox();
 
   }else if(id==="storibut"){
     fillTravelGuides();
@@ -3042,4 +3042,63 @@ function galleryLoadedCheckLoop(){
 
   },1000)
 
+}
+
+
+function fillBookingBox(){
+    let leftEle = document.querySelectorAll(".left")[0];
+    leftEle.innerHTML = "";
+   // leftEle.classList.add("contactBoxTempStyle");
+    leftEle.innerHTML = `  <div class="bookingmom">
+    <div class="bookingchild">
+       <h2>Book A Tour!</h2>
+       <p>We'll get back to you as soon as possible.</p>
+    </div>
+    <div class="bookingchild">
+     <h3>Your Full Name</h3>
+     <textarea maxlength="100" id="bookname"></textarea>
+    </div>
+    <div class="bookingchild">
+     <h3>Your Email Address</h3>
+       <input type="email" id="bookemail" size="50" required>
+    </div>
+    <div class="bookingchild">
+     <h3>Phone</h3>
+     <textarea maxlength="100" id="bookphone"></textarea>
+    </div>
+    <div class="bookingchild">
+     <h3>Tour Dates</h3>
+     <div class="div">
+     <div>
+         <label for="bookstart">Arrival:</label>
+         <input type="date" id="bookstart" name="bookstart"
+         value="2021-08-28">
+     </div>
+     <div>
+       <label for="bookend">Departure:</label>
+       <input type="date" id="bookend" name="bookend"
+       value="2021-08-28">
+     </div>
+   </div>
+    </div>
+    <div class="bookingchild">
+     <h3>Number of People</h3>
+     <input type="number" id="bookpeople" name="bookpeople"
+        min="1" max="100">
+    </div>
+    <div class="bookingchild">
+     <h3>Native Language</h3>
+     <textarea maxlength="100" id="booklanguage"></textarea>
+    </div>
+    <div class="bookingchild">
+     <h3>Comments</h3>
+     <textarea maxlength="500" id="bookcomments"></textarea>
+    </div>
+ 
+  </div>`;
+  
+ // fillAddress(counters.localVar.cloudObj);
+  //fetcher({},"first",firstDisp);
+  
+  
 }

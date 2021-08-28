@@ -9,6 +9,7 @@ body{
     max-height: 96vh;
 }
 
+
 #mobile-nav {
 
     display: none;
@@ -19,7 +20,7 @@ footer{
     bottom:-42px;
     left: 7.5%;
     width: 85%;
-    color: #ff5404;
+    color: #646635;
     font-weight: 600;
     letter-spacing: 1.69px;
 }
@@ -48,7 +49,7 @@ footer ul li{
 }
 
 footer ul li:hover {
-    background-color: #ff5404;
+    background-color: #646635;
     color: white;
 }
 
@@ -66,14 +67,14 @@ footer a{
 p{
     font-size: 14px;
     letter-spacing: 1.69px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 
 title{
     font-size: x-large;
     font-weight: 700;
-    color: #ff5404;
+    color: #646635;
     display: block;
     width: 100%;
     margin-top: 69px !important;
@@ -108,7 +109,7 @@ nav{
     width: 86%;
     height: 38px;
     border-radius: 9px;
-    background-color: #ff5404;
+    background-color: #646635;
 
     display: block;
     position: sticky;
@@ -158,7 +159,7 @@ nav ul li {
 nav ul li:hover {
 
     background-color: white;
-    color: #ff5404;
+    color: #646635;
 }
 
 
@@ -493,7 +494,7 @@ nav ul li:hover {
     visibility: collapse;
     height: 0px;
     border: 6px;
-    background-color: #ff5404;
+    background-color: #646635;
     
     display: none;
     position: relative;
@@ -543,7 +544,7 @@ nav ul li:hover {
     padding-left: 18px;
 
     background-color: transparent;
-    background: linear-gradient(.25turn, transparent, 60%, #ff5404);
+    background: linear-gradient(.25turn, transparent, 60%, #646635);
     z-index: 10;
     box-sizing: border-box;
     overflow-y: hidden;
@@ -557,7 +558,7 @@ nav ul li:hover {
     margin-right: 12px;
     width: 669px;
     height: 95%;
-    background-color: #ff5404;
+    background-color: #646635;
     z-index: 100;
 
     position: relative;
@@ -635,6 +636,7 @@ nav ul li:hover {
     top: -48px;
     color: white;
     font-size: 12px;
+    font-weight: 400;
     padding-left: 48px;
     padding-top: 0px;
     padding-right: 48px;
@@ -672,7 +674,7 @@ nav ul li:hover {
     margin-right: 12px;
     width: 669px;
     height: 95%;
-    background-color: #ff5404;
+    background-color: #646635;
     z-index: 100;
 
     background-image: url("https://ismailisimba.github.io/afrika1/resources/zebra-wide-standard.jpg");
@@ -733,7 +735,7 @@ nav ul li:hover {
 .internalboxtwo h1 .out {
     box-sizing: border-box;
     padding: 6px 12px;
-    background-color: #ff5404;
+    background-color: #646635;
     display: block;
     width: 96%;
    }
@@ -744,8 +746,9 @@ nav ul li:hover {
     position: relative;
     top: 48px;
     font-size: 12px;
+    font-weight: 400;
     color: white;
-    background-color: #ff5404;
+    background-color: #646635;
     padding-left: 48px;
     padding-top: 48px;
     padding-bottom: 48px;
@@ -764,7 +767,7 @@ nav ul li:hover {
     margin-right: 12px;
     width: fit-content;
     height: 95%;
-    background-color: #ff5404;
+    background-color: #646635;
     z-index: 100;
     cursor: pointer;
 
@@ -795,7 +798,7 @@ nav ul li:hover {
 .blockone img {
     width: 50%;
     height: 100%;
-    background-color: #ff5404;
+    background-color: #646635;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -958,7 +961,7 @@ nav ul li:hover {
 
     position: relative;
 
-    background-color: #ff5404;
+    background-color: #646635;
     opacity: .86;
     color: black;
     width: 85%;
@@ -1028,7 +1031,7 @@ overflow-y: scroll;
 
 .mygenericpage button {
     font-family: "Lexend";
-    background-color: #ff5404;
+    background-color: #646635;
     color: white;
     border: none;
     padding: 3px 9px;
@@ -1250,7 +1253,7 @@ overflow-y: scroll;
     position: relative;
     width: 169px;
     height: 69px;
-    background-color: #ff5404;
+    background-color: #646635;
     color: white;
 
     flex-flow: row;
@@ -1261,7 +1264,7 @@ overflow-y: scroll;
 
   .captchaitems {
     position: relative;
-    background-color: #ff5404;
+    background-color: #646635;
     color: white;
     text-align: center;
     font-weight: bold;
@@ -1376,7 +1379,7 @@ overflow-y: scroll;
 }
 
 .left .postpreview {
-    background-image: linear-gradient(to right, white 33%, #ff5404 0%) !important;
+    background-image: linear-gradient(to right, white 33%, #646635 0%) !important;
     width: 69% !important;
     min-width: 369px !important;
 }
@@ -1404,6 +1407,140 @@ overflow-y: scroll;
     margin: 0 auto !important;
     color: white !important;
 }
+
+
+
+
+
+.bookingmom{
+    margin: 48px auto;
+    position: relative;
+    min-width: 240px;
+    max-width: 669px;
+    width: 50%;
+    background-color:transparent;
+    border: .69px dotted white;
+    border-radius: 12px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bookingchild{
+
+    width: 85% !important;
+    margin-bottom: 12px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bookingchild:nth-child(5) .div{
+    width: 65%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .bookingchild:nth-child(5) .div div{
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    align-items: center;
+  }
+
+  .bookingchild textarea {
+    box-sizing: border-box;
+    resize: none;
+    width: 65%;
+    height: 28px;
+    font-family: Lexend !important;
+    font-size: 12px;
+    letter-spacing: 1.69px;
+    font-weight: normal;
+  }
+
+  .bookingchild input {
+    box-sizing: border-box;
+    resize: none;
+    width: 65%;
+    height: 28px;
+    font-family: Lexend !important;
+    font-size: 12px;
+    letter-spacing: 1.69px;
+    font-weight: normal; 
+  }
+
+  .bookingchild input[type="date" i] {
+    width: 136px !important;
+    font-size: 11px !important;
+  }
+
+  .bookingchild h2{
+    font-size: 16px;
+    letter-spacing: 1.69px;
+    color: white !important;
+    font-weight: 600;
+    margin: 6px auto;
+    width: 100% !important;
+  }
+
+  .bookingchild p{
+    font-size: 13px;
+    width: 100%;
+    margin: 6px auto;
+  }
+
+  .bookingchild h3 {
+    font-size: 14px;
+    letter-spacing: 1.69px;
+    color: white;
+    font-weight: 500;
+    min-width: 98px;
+    width: 25%;
+    max-width: 169px;
+    text-align: left !important;
+  }
+
+  .bookingchild label{
+    font-size: 12px;
+    color: white !important;
+    letter-spacing: 1.69px;
+    font-weight: normal;
+    width: 69px;
+  }
+
+  #bookcomments{
+    min-height: 169px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1491,10 +1628,12 @@ overflow-y: scroll;
 
     .mobile-nav-items {
 
-        background-color: #ff5404;
+        background-color: #646635;
         color: white;
         border: none;
         font-family: "Lexend";
+
+        letter-spacing: 1.69px !important;
     
         padding: 5px 14px;
         
@@ -1567,7 +1706,7 @@ overflow-y: scroll;
         align-items: center;
         padding-top: 48px;
         padding-bottom: 48px;
-        background: #ff5404;
+        background: #646635;
     }
 
     .internalboxone{
@@ -1772,5 +1911,19 @@ overflow-y: scroll;
     .socialitem{
 
         margin: 6px 0px 6px 18px;
+    }
+
+    .bookingmom {
+        width:100% !important;
+        border: none;
+    }
+
+    .bookingchild label {
+        font-size: 10px;
+    }
+
+    .bookingchild h3 {
+        font-size: 12px;
+        font-weight: 500;
     }
 }
