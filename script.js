@@ -2660,6 +2660,30 @@ async function fetcher(data,action,funcAft){
   
     cloudObj = resObj;
   }
+
+  function firstDisp2(resObj){
+  
+    let captchaItemsCont = document.querySelectorAll(".captchaitems");
+    
+    let img1 = captchaItemsCont[0].querySelectorAll("img")[0];
+    img1.src = `data:image/jpeg;base64,${resObj.ghh.l11}`;
+    
+    let img2 = captchaItemsCont[2].querySelectorAll("img")[0];
+    img2.src = `data:image/jpeg;base64,${resObj.ghh.l12}`;
+    
+    captchaItemsCont[4].value = "?";
+    
+    captchaItemsCont[4].addEventListener("input",checkAnswer2)
+    
+    if(resObj.symbol===0){
+      captchaItemsCont[1].innerHTML = "+";
+    }else{
+      captchaItemsCont[1].innerHTML = "+";
+    }
+    captchaItemsCont[3].innerHTML = "=";
+    
+      cloudObj = resObj;
+    }
   
   
   function checkAnswer(){
@@ -2676,6 +2700,29 @@ async function fetcher(data,action,funcAft){
         if(val.length>=1){
          
           fetcher(objee,"second",funcToHook);
+        }
+  
+        window.clearTimeout(timeOutkk);
+  
+    },1000);
+   
+   
+  }
+
+  function checkAnswer2(){
+    let val = this;
+    val.removeEventListener("input",checkAnswer);
+  
+    let timeOutkk = window.setTimeout(function(){
+  
+      val = val.value;
+      let objee = {};
+          objee["one"] = val;
+          objee["two"] = cloudObj.ghh.eqid;
+  
+        if(val.length>=1){
+         
+          fetcher(objee,"second",funcToHook2);
         }
   
         window.clearTimeout(timeOutkk);
@@ -2705,6 +2752,45 @@ async function fetcher(data,action,funcAft){
      let ans = mom.querySelectorAll("textarea")[0];
      ans.value = "X!";
      fetcher({},"first",firstDisp);
+    }
+    
+  }
+
+
+  function funcToHook2(resObj){
+    let mom = document.querySelectorAll(".simplecaptchamom")[0];
+    let name = document.getElementById("bookname");
+    let email = document.getElementById("bookemail");
+    let comments = document.getElementById("contactmessage");
+    let arrivalDate = document.getElementById("bookstart");
+    let departureDate = document.getElementById("bookend");
+    let numOfPeople = document.getElementById("bookpeople");
+    let nativeLang = document.getElementById("booklanguage");
+
+    let obj = {};
+    obj["name"] = name;
+    obj["email"] = email;
+    obj["comments"] = comments;
+    obj["arrivalDate"] = arrivalDate;
+    obj["departureDate"] = departureDate;
+    obj["numOfPeople"] = numOfPeople;
+    obj["nativeLang"] = nativeLang;
+
+    if(resObj.status==="pass"&&name.value.length>3&&email.value.length>6){
+  
+      mom.innerHTML = "";
+      mom.style.backgroundColor = "green";
+      mom.style.color = "black";
+      mom.innerHTML = "Success!"
+  
+      let tempyTimy = window.setTimeout(function(){
+        sendAStrangersHail2(obj);
+        window.clearTimeout(tempyTimy);
+      },690);
+    }else{
+     let ans = mom.querySelectorAll("textarea")[0];
+     ans.value = "X!";
+     fetcher({},"first",firstDisp2);
     }
     
   }
@@ -2875,10 +2961,33 @@ function sendAStrangersHail(){
   contextObject.params[0]["token"] = "wHaT tOkEn!";
   contextObject.params[0]["dataObj"] = deId;
 
-  customPopUpFunc(counters.elements.popUp,"Sending to TALISS","fullsteamahead");
+  customPopUpFunc(counters.elements.popUp,"Sending to Ladha Africa","fullsteamahead");
  startHailing(contextObject,"hollacomoestas",custFunkyTempySempaiUwu);
   
 }
+
+
+function sendAStrangersHail2(obj){
+
+
+  let [myDate]    = new Date().toLocaleDateString("en-US").split("-");
+  let [hour, minute, second] = new Date().toLocaleTimeString("en-US").split(/:| /);
+
+  let deId = {};
+  deId["timeid"] = myDate+"-"+hour+"-"+minute+"-"+second;
+  deId["bookingObj"] = obj;
+
+  let contextObject = JSON.parse(JSON.stringify(counters.paraTemplate));
+
+  contextObject.params[0]["action"] = "later...";
+  contextObject.params[0]["token"] = "wHaT tOkEn!";
+  contextObject.params[0]["dataObj"] = deId;
+
+  customPopUpFunc(counters.elements.popUp,"Sending to Ladha Africa","fullsteamahead");
+ startHailing(contextObject,"bookmebaby",custFunkyTempySempaiUwu);
+  
+}
+
 
 function custFunkyTempySempaiUwu(){
   customPopUpFunc(counters.elements.popUp,"phrase","stop");
@@ -3096,11 +3205,26 @@ function fillBookingBox(){
      <h3>Comments</h3>
      <textarea maxlength="500" id="bookcomments"></textarea>
     </div>
+
+    <div class="bookingchild">
+    <div class="simplecaptchamom">
+    <div class="captchaitems">
+      <img>
+    </div>
+    <div class="captchaitems">  </div>
+    <div class="captchaitems">
+      <img>
+    </div>
+    <div class="captchaitems">  </div>
+    <textarea class="captchaitems" maxlength="2"></textarea>
+  
+  </div>
+  </div>
  
   </div>`;
   
  // fillAddress(counters.localVar.cloudObj);
-  //fetcher({},"first",firstDisp);
+  fetcher({},"first",firstDisp2);
   
   
 }
