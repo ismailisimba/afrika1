@@ -2761,7 +2761,7 @@ async function fetcher(data,action,funcAft){
     let mom = document.querySelectorAll(".simplecaptchamom")[0];
     let name = document.getElementById("bookname");
     let email = document.getElementById("bookemail");
-    let comments = document.getElementById("contactmessage");
+    let comments = document.getElementById("bookcomments");
     let arrivalDate = document.getElementById("bookstart");
     let departureDate = document.getElementById("bookend");
     let numOfPeople = document.getElementById("bookpeople");
