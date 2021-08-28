@@ -2768,13 +2768,13 @@ async function fetcher(data,action,funcAft){
     let nativeLang = document.getElementById("booklanguage");
 
     let obj = {};
-    obj["name"] = name;
-    obj["email"] = email;
-    obj["comments"] = comments;
-    obj["arrivalDate"] = arrivalDate;
-    obj["departureDate"] = departureDate;
-    obj["numOfPeople"] = numOfPeople;
-    obj["nativeLang"] = nativeLang;
+    obj["name"] = name.value;
+    obj["email"] = email.value;
+    obj["comments"] = comments.value;
+    obj["arrivalDate"] = arrivalDate.value;
+    obj["departureDate"] = departureDate.value;
+    obj["numOfPeople"] = numOfPeople.value;
+    obj["nativeLang"] = nativeLang.value;
 
     if(resObj.status==="pass"&&name.value.length>3&&email.value.length>6){
   
