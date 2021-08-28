@@ -85,7 +85,7 @@ function navToItem(eleText){
     }else if(tempVar==="Destinations"){
         document.querySelectorAll(".internalboxtwo")[1].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
-    }else if(tempVar==="Program"){
+    }else if(tempVar==="Programs"){
         document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
     }else if(tempVar==="Gallery"){
