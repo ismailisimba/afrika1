@@ -1806,7 +1806,7 @@ async function startHailing(data,para,functionToRunAfter){
         let temp = document.querySelectorAll(".left")[0];
         for(let i=0 ; i <travelGuides.length ; i++){
           let tempDiv = storyCont.cloneNode(true);
-          tempDiv = fillTempStoryDiv(tempDiv,travelGuides[i]);
+          tempDiv = fillTempStoryDiv2(tempDiv,travelGuides[i]);
         
           parent.appendChild(tempDiv);
           let hreftempy = null;
@@ -1832,7 +1832,7 @@ async function startHailing(data,para,functionToRunAfter){
         let temp = document.querySelectorAll(".left")[0];
         for(let i=0 ; i <newStories.length ; i++){
           let tempDiv = storyCont.cloneNode(true);
-          tempDiv = fillTempStoryDiv(tempDiv,newStories[i]);
+          tempDiv = fillTempStoryDiv2(tempDiv,newStories[i]);
         
           parent.appendChild(tempDiv);
           let hreftempy = null;
@@ -1855,7 +1855,7 @@ async function startHailing(data,para,functionToRunAfter){
         let temp = document.querySelectorAll(".left")[0];
         for(let i=0 ; i <destiStories.length ; i++){
           let tempDiv = storyCont.cloneNode(true);
-          tempDiv = fillTempStoryDiv(tempDiv,destiStories[i]);
+          tempDiv = fillTempStoryDiv2(tempDiv,destiStories[i]);
         
           parent.appendChild(tempDiv);
           let hreftempy = null;
@@ -1946,6 +1946,52 @@ async function startHailing(data,para,functionToRunAfter){
       tempDiv.appendChild(myStyle);
 
       highlightDestiAndGuides(tempDiv);
+    
+      return tempDiv;
+    
+    }
+
+    function fillTempStoryDiv2(tempDiv,storyObj) {
+    
+    
+    
+      let myHref2 = document.createElement("a");
+      myHref2.className = "storyhref";
+      let myStyle = document.createElement("style");
+      myStyle.innerHTML = `
+        
+          .storyhref{
+            position: absolute;
+            color: black;
+            top: 0px;
+            right: 0px;
+            display: block;
+            font-size:11.69px;
+            width: 69px;
+            height: 18px;
+            padding: 1px 3px;
+            box-sizing: border-box;
+            background-color: transparent;
+            z-index: 50;
+            font-weight: normal;
+            letter-spacing: 1.69px;
+    
+          }
+      `;
+    
+      tempDiv.querySelectorAll("h2")[0].innerHTML = storyObj.title;
+      tempDiv.querySelectorAll("p")[0].innerHTML = "";
+      
+      myHref2.innerHTML = storyObj.type;
+     
+      myHref2.id = storyObj.stats[0].timeid;
+      
+      
+      
+      tempDiv.appendChild(myHref2);
+      tempDiv.appendChild(myStyle);
+
+      fillFrontThumb(tempDiv,storyObj);
     
       return tempDiv;
     
@@ -3227,4 +3273,11 @@ function fillBookingBox(){
   fetcher({},"first",firstDisp2);
   
   
+}
+
+
+function  fillFrontThumb(tempDiv,storyObj){
+  let backImageCont = tempDiv.querySelectorAll("h2")[0];
+ backImageCont.classList.add("thumbnailsfront");
+
 }

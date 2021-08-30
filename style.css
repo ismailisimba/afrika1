@@ -1384,6 +1384,14 @@ overflow-y: scroll;
     min-width: 369px !important;
 }
 
+.left .postpreview h2 {
+
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1.69px;
+}
+
 .right div {
     width: 85% !important;
     margin: 0 auto !important;
@@ -1523,6 +1531,20 @@ overflow-y: scroll;
 
   #bookcomments{
     min-height: 169px;
+  }
+
+
+  .thumbnailsfront {
+    background-image :url(https://ladhaafricaadventure.com/thumbs/thumb1.webp);
+    background-repeat : no-repeat;
+    background-position : 0px 0px;
+    background-size : cover;
+    height : 69px;
+    color: #646635 !important;
+    padding-top: 36px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 12px;
   }
 
 
