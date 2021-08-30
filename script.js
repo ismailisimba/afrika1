@@ -1,4 +1,5 @@
 const counters = {};
+const leftObj = {top:0,right:0,left:0}
 counters["frontendimages"] = [];
 counters["deltaY"] = 0;
 counters["deltaYSign"] = "null";
@@ -130,7 +131,11 @@ function rollOutGeneric(elementId){
     document.querySelectorAll(".genericbox")[0].style.display = "block";
    
     let tempTimer = window.setTimeout(()=>{
-        document.querySelectorAll(".genericbox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        window.scrollTo({
+          top: getEleTopOffset (document.querySelectorAll(".genericbox")[0])+48,
+          left: 0,
+          behavior: 'smooth'
+        });
         window.clearTimeout(tempTimer);
     },30)
     
@@ -145,6 +150,8 @@ function rollInGeneric() {
     document.querySelectorAll(".genericbox")[0].style.top = "-169px";
     document.querySelectorAll(".genericbox")[0].style.visibility = "collapse";
     document.querySelectorAll(".genericbox")[0].style.display = "none";
+
+    document.querySelectorAll(".genericbox")[0].querySelectorAll(".left")[0].innerHTML = "";
    
     toTheRight();
     document.onwheel = customScroll;
@@ -1897,7 +1904,7 @@ async function startHailing(data,para,functionToRunAfter){
     };
     
     function anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation (){
-    
+      keepTrackOfVertScrollSForLeft();
       let storyid = this.querySelectorAll(".storyhref")
       storyid = storyid[storyid.length-1].id;
       addNewHtmlFuncs2(storyid);
@@ -2139,10 +2146,19 @@ function addNewHtmlFuncs2(storyid) {
       backBut.removeEventListener("click",toTheRight,false);
       backBut.addEventListener("click",toTheRight,false);
       document.querySelectorAll(".genericboxcontent")[0].style.left ="-97.5%";
+      let tempCl6969 = window.setTimeout(()=>{
+        window.scrollTo({
+          top: getEleTopOffset (document.querySelectorAll(".genericbox")[0])+48,
+          left: 0,
+          behavior: 'smooth'
+        });
+        tempDiv3.appendChild(backBut);
+        tempDiv3.appendChild(titleDiv);
+        tempDiv3.appendChild(storyContainer);
+        window.clearTimeout(tempCl6969);
+      },369)
 
-      tempDiv3.appendChild(backBut);
-      tempDiv3.appendChild(titleDiv);
-      tempDiv3.appendChild(storyContainer);
+     
       
     
     };
@@ -2151,6 +2167,12 @@ function addNewHtmlFuncs2(storyid) {
     function toTheRight(){
       document.querySelectorAll(".genericboxcontent")[0].style.left ="0px";
       document.querySelectorAll(".right")[0].innerHTML = "";
+
+      window.scrollTo({
+        top: leftObj.top,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
     
     
@@ -3052,10 +3074,12 @@ function addMobMenu(width){
 
       if(ryt==="-224px"){
         mobNav.style.right = "0px";
-        document.getElementById("arrow-left-close").style.transform = `rotate(.5turn)`
+        document.getElementById("arrow-left-close").style.transform = `rotate(.5turn)`;
+        document.getElementById("arrow-left-close").style.left = `62px`;
       }else{
         mobNav.style.right = "-224px";
-        document.getElementById("arrow-left-close").style.transform = `rotate(0turn)`
+        document.getElementById("arrow-left-close").style.transform = `rotate(0turn)`;
+        document.getElementById("arrow-left-close").style.left = `-78px`;
       }
      
     })
@@ -3140,7 +3164,11 @@ function showGallery() {
 }
 
 function toDeGalleryPageFrontEnd(){
-  document.querySelectorAll(".frontphotobox")[0].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+  document.querySelectorAll(".frontphotobox")[0].scrollTo({
+    top: getEleTopOffset (document.querySelectorAll(".genericbox")[0])+48,
+    left: 0,
+    behavior: 'smooth'
+  });
         showGallery();
 }
 
@@ -3279,5 +3307,29 @@ function fillBookingBox(){
 function  fillFrontThumb(tempDiv,storyObj){
   let backImageCont = tempDiv.querySelectorAll("h2")[0];
  backImageCont.classList.add("thumbnailsfront");
+ let tempSpan = document.createElement("span");
+ tempSpan.innerHTML = backImageCont.innerHTML;
+ backImageCont.innerHTML = "";
+ backImageCont.appendChild(tempSpan);
+ let compStyles = window.getComputedStyle(document.querySelectorAll(".internalboxtwo")[0].querySelectorAll("p")[0]);
+ let height = compStyles.getPropertyValue('height');
+ backImageCont.style.minHeight = height;
+ 
 
 }
+
+function getEleTopOffset (element){
+  var bodyRect = document.body.getBoundingClientRect();
+  var elemRect = element.getBoundingClientRect();
+  var offset   = elemRect.top - bodyRect.top;
+
+ return offset;
+} 
+
+
+function keepTrackOfVertScrollSForLeft(){
+ 
+   leftObj.top = window.scrollY;
+
+
+};

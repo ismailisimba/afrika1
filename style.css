@@ -1379,7 +1379,8 @@ overflow-y: scroll;
 }
 
 .left .postpreview {
-    background-image: linear-gradient(to right, white 33%, #646635 0%) !important;
+    background-image: none !important;
+    margin: 0 auto !important;
     width: 69% !important;
     min-width: 369px !important;
 }
@@ -1539,12 +1540,26 @@ overflow-y: scroll;
     background-repeat : no-repeat;
     background-position : 0px 0px;
     background-size : cover;
-    height : 69px;
-    color: #646635 !important;
-    padding-top: 36px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 12px;
+    min-height : 100%;
+    color: white !important;
+    position: relative;
+
+    padding: 6px 12px !important;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .thumbnailsfront span {
+      background-color: #646635;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 3px 6px;
+      opacity: .96;
   }
 
 
@@ -1699,6 +1714,7 @@ overflow-y: scroll;
         background-size: 69%;
         background-repeat: no-repeat;
 
+        transition: all 1.3s ease-out;
 
         font-weight:bold;
         font-size: 16px;
@@ -1958,4 +1974,11 @@ overflow-y: scroll;
         font-size: 12px;
         font-weight: 500;
     }
+
+    .thumbnailsfront {
+     
+        background-position : -369px 0px;
+        background-size : cover;
+     
+      }
 }
