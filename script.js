@@ -1,5 +1,6 @@
 const counters = {};
-const leftObj = {top:0,right:0,left:0}
+const leftObj = {top:0,right:0,left:0};
+const thumbArr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
 counters["frontendimages"] = [];
 counters["deltaY"] = 0;
 counters["deltaYSign"] = "null";
@@ -1765,7 +1766,7 @@ async function startHailing(data,para,functionToRunAfter){
     
     
     
-    function  fillUpStories(responseObj,context) {
+    async function  fillUpStories(responseObj,context) {
     
       let stories = responseObj.contentObj.contentObj.published.stories;
     
@@ -1997,8 +1998,17 @@ async function startHailing(data,para,functionToRunAfter){
       
       tempDiv.appendChild(myHref2);
       tempDiv.appendChild(myStyle);
+      tempDiv.querySelectorAll("h2")[0].classList.add("thumbnailsfront");
+      let compStyles = window.getComputedStyle(document.querySelectorAll(".internalboxtwo")[0].querySelectorAll("p")[0]);
+      let height = compStyles.getPropertyValue('height');
+      tempDiv.querySelectorAll("h2")[0].style.minHeight = height;
 
-      fillFrontThumb(tempDiv,storyObj);
+     // fillFrontThumb(tempDiv,storyObj);
+
+     let tempSpan = document.createElement("span");
+     tempSpan.innerHTML = tempDiv.querySelectorAll("h2")[0].innerHTML;
+     tempDiv.querySelectorAll("h2")[0].innerHTML = "";
+     tempDiv.querySelectorAll("h2")[0].appendChild(tempSpan);
     
       return tempDiv;
     
@@ -2964,7 +2974,12 @@ hailTheCapt = hailTheCapt.querySelectorAll(".simplecaptchamom")[0];
 function fillTravelGuides() {
   let leftEle = document.querySelectorAll(".left")[0];
   leftEle.innerHTML = "";
-  fillUpStories(counters.localVar.cloudObj,"travelGuides");
+  fillUpStories(counters.localVar.cloudObj,"travelGuides").then(()=>{
+    let thumbtimeout = window.setTimeout(()=>{
+      thumbFuncOne();
+      window.clearTimeout(thumbtimeout);
+    },1696)
+  });
 }
 
 
@@ -2972,7 +2987,12 @@ function fillTravelGuides() {
 function  fillStoriesFront(){
   let leftEle = document.querySelectorAll(".left")[0];
   leftEle.innerHTML = "";
-  fillUpStories(counters.localVar.cloudObj,"travelStories");
+  fillUpStories(counters.localVar.cloudObj,"travelStories").then(()=>{
+    let thumbtimeout = window.setTimeout(()=>{
+      thumbFuncOne();
+      window.clearTimeout(thumbtimeout);
+    },1696)
+  });;
 
 };
 
@@ -2980,7 +3000,12 @@ function  fillStoriesFront(){
 function fillDestinationsFront(){
   let leftEle = document.querySelectorAll(".left")[0];
   leftEle.innerHTML = "";
-  fillUpStories(counters.localVar.cloudObj,"destinationStories");
+  fillUpStories(counters.localVar.cloudObj,"destinationStories").then(()=>{
+    let thumbtimeout = window.setTimeout(()=>{
+      thumbFuncOne();
+      window.clearTimeout(thumbtimeout);
+    },1696)
+  });;
 };
 
 async function fillImagesFront(){
@@ -3333,3 +3358,35 @@ function keepTrackOfVertScrollSForLeft(){
 
 
 };
+
+
+function thumbFuncOne(){
+
+  let thumbInterval = window.setInterval(()=>{
+    let thumbContainer = document.getElementById("left").querySelectorAll("h2");
+    let counter = 1;
+
+    shuffleArray(thumbArr);
+
+    thumbContainer.forEach(ele => {
+      if(counter==22){
+        counter = 1;
+      }
+      ele.style.backgroundImage = `url(https://ladhaafricaadventure.com/thumbs/thumb${thumbArr[counter]}.webp)`;
+      counter++;
+
+    })
+
+
+  },6690)
+ 
+  
+};
+
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+}

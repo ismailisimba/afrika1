@@ -2,6 +2,8 @@ html{
     font-family: "Lexend" !important;
 }
 
+
+
 body{
     position: relative;
     background-color: transparent;
@@ -665,6 +667,10 @@ nav ul li:hover {
     border: 0px;
 }
 
+.internalboxone button:hover {
+    box-shadow: 0.3px 0.3px 1px;
+}
+
 
 
 
@@ -821,6 +827,13 @@ nav ul li:hover {
     border-radius: 50%;
     border: 0px;
     background-color: transparent;
+
+    box-shadow: 1px 1px 3px;
+
+}
+
+.internalboxtwo button:hover {
+    box-shadow: 0.3px 0.3px 1px;
 }
 
 .internalboxtwo a{
@@ -884,7 +897,6 @@ nav ul li:hover {
     left: 1.25%;
     min-height: 669px;
     height: auto;
-    border: .69px dotted white;
 }
 
 .genericboxcontent .right {
@@ -894,7 +906,6 @@ nav ul li:hover {
     top: 12px;
     min-height: 669px;
     height: auto;
-    border: .69px dotted white;
 }
 
 
@@ -933,6 +944,10 @@ nav ul li:hover {
     border-radius: 50%;
     border: 0px;
 
+}
+
+.genericbox button:hover {
+    box-shadow: 0.3px 0.3px 1px;
 }
 
 
@@ -1044,6 +1059,10 @@ overflow-y: scroll;
     letter-spacing: 1.2px;
     box-sizing: border-box;
     box-shadow: 1px 1px 5px 0.2px black;
+}
+
+.mygenericpage button:hover {
+    box-shadow: 0.3px 0.3px 1px;
 }
 
 .mygenericpage h1 {
@@ -1381,13 +1400,14 @@ overflow-y: scroll;
 .left .postpreview {
     background-image: none !important;
     margin: 0 auto !important;
-    width: 69% !important;
+    width: 96% !important;
     min-width: 369px !important;
 }
 
 .left .postpreview h2 {
 
-    font-size: 16px;
+    font-size: 18px;
+    text-transform: capitalize;
     font-weight: 600;
     color: white;
     letter-spacing: 1.69px;
@@ -1411,9 +1431,12 @@ overflow-y: scroll;
 
 .right h1 {
     width: 85% !important;
+    text-transform: capitalize;
+    font-weight: 600;
     margin-block-start: 0px !important;
     margin-block-end: 0px !important;
     margin: 0 auto !important;
+    margin-top: 24px !important;
     color: white !important;
 }
 
@@ -1536,10 +1559,10 @@ overflow-y: scroll;
 
 
   .thumbnailsfront {
-    background-image :url(https://ladhaafricaadventure.com/thumbs/thumb1.webp);
+    background-image :none;
     background-repeat : no-repeat;
     background-position : 0px 0px;
-    background-size : cover;
+    background-size : 100%;
     min-height : 100%;
     color: white !important;
     position: relative;
@@ -1547,13 +1570,17 @@ overflow-y: scroll;
     padding: 6px 12px !important;
     box-sizing: border-box;
 
+    
+    transition: all 0.69s ease-out;
+
     display: flex;
     flex-flow: column;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-start;
   }
 
+ 
   .thumbnailsfront span {
       background-color: #646635;
       width: 100%;
@@ -1561,22 +1588,6 @@ overflow-y: scroll;
       padding: 3px 6px;
       opacity: .96;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1714,7 +1725,7 @@ overflow-y: scroll;
         background-size: 69%;
         background-repeat: no-repeat;
 
-        transition: all 1.3s ease-out;
+        transition: all 0.69s ease-out;
 
         font-weight:bold;
         font-size: 16px;
