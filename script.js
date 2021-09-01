@@ -154,6 +154,7 @@ function rollInGeneric() {
     document.querySelectorAll(".genericbox")[0].style.display = "none";
 
     document.querySelectorAll(".genericbox")[0].querySelectorAll(".left")[0].innerHTML = "";
+    document.querySelectorAll(".genericbox")[0].querySelectorAll(".left")[0].classList.remove("programs");
    
     toTheRight();
     document.onwheel = customScroll;
@@ -2172,6 +2173,11 @@ function addNewHtmlFuncs2(storyid) {
         window.clearTimeout(tempCl6969);
         if(document.getElementById("left").classList.contains("programs")){
           addBookingActions(storyObj.title);
+          document.getElementById("frontendstorycont").style.width = "83%";
+          console.log("dis")
+        }else{
+          document.getElementById("frontendstorycont").style.width = "100%";
+          console.log("dat")
         }
       },369)
 
@@ -3450,6 +3456,21 @@ function addBookingActions (title) {
   let container = document.getElementById("frontendstorycont");
   let content = document.createElement("section");
   content.innerHTML = `
+  <div> <p>Included</p>
+  <ul><li>All Park fees with VAT included.</li>
+  <li>A 4x4 safari vehicle with an observation roof.</li>
+  <li>Guides</li>
+  <li>Full board accomodation</li>
+  <li>Food and drinks during safari.</li>
+  </ul>
+  </div>
+
+  <div> <p>Not Included</p>
+  <ul><li>COVID tests and fees</li>
+  <li>Tips</li>
+  <li>Travel documents and arrangement into and out of country</li>
+  </ul>
+  </div>
   <a href="/?bookAction=true&progTit=${title}">Book Now</a>`;
   
   container.appendChild(content);
