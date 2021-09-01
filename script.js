@@ -2463,7 +2463,7 @@ function frontEndOnlyFuncs () {
   if(frontEnd===undefined){
 
   }else if(frontEnd){
-
+    checkParameters();
     dropDownClicks();
     myScrollFunctions();
     navClicks();
@@ -2607,10 +2607,9 @@ function fillInitialContacts(){
   numHref.href="tel:+"+counters.localVar.cloudObj.settingsObj.num;
   emailHref.href="mailto:"+counters.localVar.cloudObj.settingsObj.buzEmail;
   emailHref.innerHTML = counters.localVar.cloudObj.settingsObj.buzEmail;
-  let tempStr = counters.localVar.cloudObj.settingsObj.num.match(/.{1,3}/g);
+  let tempStr = counters.localVar.cloudObj.settingsObj.num;
   tempStr = tempStr.toString();
-  tempStr = tempStr.replaceAll(","," ");
-  numHref.innerHTML = "+"+tempStr;
+  numHref.innerHTML = tempStr;
 };
 
 
@@ -3402,4 +3401,27 @@ function shuffleArray(array) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
   }
+}
+
+
+function checkParameters () {
+var url = new URL(window.location.href);
+var paraObj = {};
+paraObj["bookAction"] = false;
+
+if(url.searchParams.has("bookAction")){
+  paraObj.bookAction = true;
+  var progTit = url.searchParams.get("progTit");
+  bookThisProgram(progTit);
+}
+}
+
+
+function bookThisProgram (progTit){
+  rollInGeneric();
+  document.querySelectorAll("nav")[0].querySelectorAll("li")[5].click();
+  document.getElementById("guidebut").click();
+  let tempTim = window.setTimeout(()=>{
+    document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
+  },696)
 }

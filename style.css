@@ -263,7 +263,7 @@ nav ul li:hover {
     font-family: "Lexend" !important;
 
     width: 50%;
-    left: 50%;
+    left: 25%;
     top: 25%;
     height: 50%;
 
@@ -295,7 +295,7 @@ nav ul li:hover {
   }
 
   .spanCont span {
-      color: black;
+      color: #646635;
   }
 
   .dots{
@@ -305,7 +305,7 @@ nav ul li:hover {
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background-color: black;
+    background-color: #646635;
 
     animation: wobbleMeDots 1.9s linear 0s infinite forwards ;
     transition: all linear 1s;
@@ -571,6 +571,11 @@ nav ul li:hover {
 
 .containerbox{
     position: relative;
+}
+
+.containerbox a {
+    color: inherit !important;
+    text-decoration: none !important;
 }
 
 .internalboxone img {
@@ -1606,7 +1611,7 @@ overflow-y: scroll;
     color: black;
     position: absolute;
     right: -12px;
-    top: 48px;
+    top: 42px;
 }
 
 
@@ -2033,4 +2038,18 @@ overflow-y: scroll;
       .left .postpreview h2 {
           width: 100% !important;
       }
+
+
+
+    .custompopup{
+      
+    
+        width: 100%;
+        left: 0px;
+        top: 25%;
+        height: 50%;
+    
+ 
+    }
+
 }
