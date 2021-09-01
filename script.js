@@ -3425,7 +3425,7 @@ async function bookThisProgram (progTit){
   }
   ).then(()=>{
     let tempTim = window.setTimeout(()=>{
-      document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
+      document.getElementById("bookcomments").value = `I would like to book the program ${progTit} for the selected dates.`
      },1696)
   });
 
