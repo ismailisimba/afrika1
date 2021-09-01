@@ -1907,9 +1907,11 @@ async function startHailing(data,para,functionToRunAfter){
     
     function anonyFunkyFukenFunck_idInsertionFrontendStoryPopulation (){
       keepTrackOfVertScrollSForLeft();
+    
       let storyid = this.querySelectorAll(".storyhref")
       storyid = storyid[storyid.length-1].id;
       addNewHtmlFuncs2(storyid);
+   
     }
     
     
@@ -2144,6 +2146,7 @@ function addNewHtmlFuncs2(storyid) {
       backBut.id="frontbutback";
       let titleDiv = document.createElement("h1");
       let storyContainer = document.createElement("div");
+      storyContainer.id = "frontendstorycont";
       let tempDiv3 = document.querySelectorAll(".right")[0];
       tempDiv3.innerHTML = "";
     
@@ -2167,6 +2170,9 @@ function addNewHtmlFuncs2(storyid) {
         tempDiv3.appendChild(titleDiv);
         tempDiv3.appendChild(storyContainer);
         window.clearTimeout(tempCl6969);
+        if(document.getElementById("left").classList.contains("programs")){
+          addBookingActions(storyObj.title);
+        }
       },369)
 
      
@@ -2189,7 +2195,10 @@ function addNewHtmlFuncs2(storyid) {
     
     function readStoryObj(storyContainer,storyObj){
     
-      storyContainer.innerHTML = storyObj.storyObj.myHtml;
+     // storyContainer.innerHTML = storyObj.storyObj.myHtml;
+      let tempDiv69 = document.createElement("div");
+      tempDiv69.innerHTML = storyObj.storyObj.myHtml;
+      storyContainer.appendChild(tempDiv69);
     
       let images = storyContainer.querySelectorAll("img");
       let paras = storyContainer.querySelectorAll("p");
@@ -2974,6 +2983,7 @@ hailTheCapt = hailTheCapt.querySelectorAll(".simplecaptchamom")[0];
 function fillTravelGuides() {
   let leftEle = document.querySelectorAll(".left")[0];
   leftEle.innerHTML = "";
+  
   fillUpStories(counters.localVar.cloudObj,"travelGuides").then(()=>{
     let thumbtimeout = window.setTimeout(()=>{
       thumbFuncOne();
@@ -3000,6 +3010,7 @@ function  fillStoriesFront(){
 function fillDestinationsFront(){
   let leftEle = document.querySelectorAll(".left")[0];
   leftEle.innerHTML = "";
+  leftEle.classList.add("programs");
   fillUpStories(counters.localVar.cloudObj,"destinationStories").then(()=>{
     let thumbtimeout = window.setTimeout(()=>{
       thumbFuncOne();
@@ -3430,4 +3441,16 @@ async function bookThisProgram (progTit){
   });
 
  
+}
+
+
+function addBookingActions (title) {
+
+
+  let container = document.getElementById("frontendstorycont");
+  let content = document.createElement("section");
+  content.innerHTML = `
+  <a href="/?bookAction=true&progTit=${title}">Book Now</a>`;
+  
+  container.appendChild(content);
 }

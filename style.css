@@ -1423,6 +1423,13 @@ overflow-y: scroll;
     margin: 0 auto !important;
     color: white !important;
     padding-bottom: 36px;
+    position:relative !important ;
+}
+
+.right div section {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
 }
 
 .right div img{
@@ -1613,6 +1620,40 @@ overflow-y: scroll;
     right: -12px;
     top: 42px;
 }
+
+
+#frontendstorycont {
+    width: 85% !important;
+
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#frontendstorycont section{
+    width: 172px;
+    min-height: 200px;
+    box-sizing: border-box;
+    border: .69px dotted white !important;
+    margin: 6px 12px;
+    padding: 6px 12px;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2050,6 +2091,20 @@ overflow-y: scroll;
         height: 50%;
     
  
+    }
+
+
+    #frontendstorycont {
+        width: 96% !important;
+        flex-flow: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    #frontendstorycont section{
+        width: 100%;
+        text-align: left;
     }
 
 }
