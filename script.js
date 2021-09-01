@@ -3419,9 +3419,9 @@ if(url.searchParams.has("bookAction")){
 
 function bookThisProgram (progTit){
   rollInGeneric();
-  document.querySelectorAll("nav")[0].querySelectorAll("li")[5].click();
-  document.getElementById("guidebut").click();
+  document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+  fillBookingBox();
   let tempTim = window.setTimeout(()=>{
-  //  document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
-  },696)
+   document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
+  },1696)
 }
