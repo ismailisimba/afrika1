@@ -125,7 +125,7 @@ function dropDownClicks () {
 }
 
 
-function rollOutGeneric(elementId){
+async function rollOutGeneric(elementId){
     document.querySelectorAll(".genericbox")[0].style.minHeight = "769px";
     document.querySelectorAll(".genericbox")[0].style.height = "auto";
     document.querySelectorAll(".genericbox")[0].style.top = "0px";
@@ -3417,12 +3417,17 @@ if(url.searchParams.has("bookAction")){
 }
 
 
-function bookThisProgram (progTit){
+async function bookThisProgram (progTit){
   rollInGeneric();
   document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-  rollOutGeneric();
-  fillBookingBox();
-  let tempTim = window.setTimeout(()=>{
-   document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
-  },1696)
+  rollOutGeneric().then(()=>{
+    fillBookingBox();
+  }
+  ).then(()=>{
+    let tempTim = window.setTimeout(()=>{
+      document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
+     },1696)
+  });
+
+ 
 }
