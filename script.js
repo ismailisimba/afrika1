@@ -3420,6 +3420,7 @@ if(url.searchParams.has("bookAction")){
 function bookThisProgram (progTit){
   rollInGeneric();
   document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+  rollOutGeneric();
   fillBookingBox();
   let tempTim = window.setTimeout(()=>{
    document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
