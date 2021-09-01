@@ -1429,6 +1429,14 @@ overflow-y: scroll;
     background-color:  transparent !important;
 }
 
+.right div sup {
+    color:  white !important;
+}
+
+.right div a {
+    color: wheat !important
+}
+
 .right h1 {
     width: 85% !important;
     text-transform: capitalize;
@@ -1586,10 +1594,20 @@ overflow-y: scroll;
       width: 100%;
       box-sizing: border-box;
       padding: 3px 6px;
-      opacity: .96;
+      font-size: 24px !important;
+      opacity: .86;
   }
 
-
+  #ismizo{
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    padding-right: 18px;
+    color: black;
+    position: absolute;
+    right: -12px;
+    top: 48px;
+}
 
 
 
@@ -1722,7 +1740,7 @@ overflow-y: scroll;
 
         background-image: url("https://ismailisimba.github.io/afrika1/resources/menu_icon_open.svg");
         background-position: center;
-        background-size: 69%;
+        background-size: 59%;
         background-repeat: no-repeat;
 
         transition: all 0.69s ease-out;
@@ -1885,16 +1903,20 @@ overflow-y: scroll;
 
     footer {
         bottom: -62px;
-        height: 48px;
+        height: 69px;
     }
 
     footer ul li {
         margin-left: 0px;
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 600;
         cursor: pointer;
         box-sizing: border-box;
         padding: 3px 6px;
+    }
+
+    footer ul li:first-child{
+        margin-bottom: 24px;
     }
 
     footer ul {
@@ -1991,5 +2013,24 @@ overflow-y: scroll;
         background-position : -369px 0px;
         background-size : cover;
      
+      }
+
+      .thumbnailsfront span {
+          font-size: 16px !important;
+      }
+
+      .left .postpreview {
+
+        padding: 0px 0px !important;
+        margin: 0px auto !important;
+      }
+
+      .left {
+          left: 1.5% !important;
+      }
+
+
+      .left .postpreview h2 {
+          width: 100% !important;
       }
 }

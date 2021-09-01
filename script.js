@@ -1,4 +1,5 @@
 const counters = {};
+const thumbObj = {};
 const leftObj = {top:0,right:0,left:0};
 const thumbArr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
 counters["frontendimages"] = [];
@@ -2978,7 +2979,7 @@ function fillTravelGuides() {
     let thumbtimeout = window.setTimeout(()=>{
       thumbFuncOne();
       window.clearTimeout(thumbtimeout);
-    },1696)
+    },696)
   });
 }
 
@@ -2991,7 +2992,7 @@ function  fillStoriesFront(){
     let thumbtimeout = window.setTimeout(()=>{
       thumbFuncOne();
       window.clearTimeout(thumbtimeout);
-    },1696)
+    },696)
   });;
 
 };
@@ -3004,7 +3005,7 @@ function fillDestinationsFront(){
     let thumbtimeout = window.setTimeout(()=>{
       thumbFuncOne();
       window.clearTimeout(thumbtimeout);
-    },1696)
+    },696)
   });;
 };
 
@@ -3361,10 +3362,22 @@ function keepTrackOfVertScrollSForLeft(){
 
 
 function thumbFuncOne(){
+  let thumbContainer = document.getElementById("left").querySelectorAll(".thumbnailsfront");
+  let counter = 1;
+  shuffleArray(thumbArr);
+  thumbContainer.forEach(ele => {
+    if(counter==22){
+      counter = 1;
+    }
+    ele.style.backgroundImage = `url(https://ladhaafricaadventure.com/thumbs/thumb${thumbArr[counter]}.webp)`;
+    counter++;
 
-  let thumbInterval = window.setInterval(()=>{
-    let thumbContainer = document.getElementById("left").querySelectorAll("h2");
-    let counter = 1;
+  })
+ 
+ 
+  thumbObj["interval"] = window.setInterval(()=>{
+    
+
 
     shuffleArray(thumbArr);
 
