@@ -3422,6 +3422,6 @@ function bookThisProgram (progTit){
   document.querySelectorAll("nav")[0].querySelectorAll("li")[5].click();
   document.getElementById("guidebut").click();
   let tempTim = window.setTimeout(()=>{
-    document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
+  //  document.getElementById("bookcomment").value = `I would like to book the program ${progTit} for the selected dates.`
   },696)
 }
