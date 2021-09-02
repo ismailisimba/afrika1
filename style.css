@@ -8,6 +8,7 @@ body{
     position: relative;
     background-color: transparent;
     overflow-x: hidden;
+    overflow-y: hidden;
     max-height: 96vh;
 }
 
@@ -18,7 +19,7 @@ body{
 }
 
 footer{
-    position: absolute;
+    position: relative;
     bottom:-42px;
     left: 7.5%;
     width: 85%;
@@ -496,7 +497,7 @@ nav ul li:hover {
     visibility: collapse;
     height: 0px;
     border: 6px;
-    background-color: #646635;
+    background-color: transparent;
     
     display: none;
     position: relative;
@@ -510,7 +511,7 @@ nav ul li:hover {
   
     box-sizing: border-box;
 
-    box-shadow: 0.3px 0.3px 3px 0.3px;
+    box-shadow: none;
 
     border-top-left-radius: 18px;
     border-bottom-right-radius: 18px;
@@ -546,7 +547,7 @@ nav ul li:hover {
     padding-left: 18px;
 
     background-color: transparent;
-    background: linear-gradient(.25turn, transparent, 60%, #646635);
+    background: transparent;
     z-index: 10;
     box-sizing: border-box;
     overflow-y: hidden;
@@ -622,7 +623,7 @@ nav ul li:hover {
 .internalboxone hr, .internalboxtwo hr {
     display: block;
     position: relative;
-    top: -48px;
+    top: -36px;
     width: 33%;
     height: 3px;
     margin-block-start: 0px !important;
@@ -821,11 +822,11 @@ nav ul li:hover {
     width: 36px;
     height: 36px;
     position: absolute;
-    bottom:36px;
+    bottom:24px;
     right: 48px;
     margin-left: 48px;
     box-sizing: border-box;
-    background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow-circle-down.png");
+    background-image: url("https://ladhaafricaadventure.com/icons/expand_circle_down_white_48dp.svg");
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -928,7 +929,7 @@ nav ul li:hover {
     top: 32px;
     
     border-width: 0.69px;
-    background-color:  white;
+    background-color:  black;
     box-sizing: border-box;
 }
 
@@ -941,7 +942,7 @@ nav ul li:hover {
     margin-right: 48px;
     background-color: transparent;
     box-sizing: border-box;
-    background-image: url("https://ismailisimba.github.io/afrika1/resources/cancel_white.svg");
+    background-image: url("https://ladhaafricaadventure.com/icons/cancel_black_48dp.svg");
     background-position: center;
     background-size: 69%;
     box-shadow: 1px 1px 3px;
@@ -1099,16 +1100,17 @@ overflow-y: scroll;
 }
 
 .mystorycontainer p a {
-    color: #53f4ff !important;
+    color: #646635 !important;
+    font-weight: 600 !important;
 }
 
 .right strong,  .mystorycontainer strong {
     background-color: transparent !important;
-    color: white !important;
+    color: black !important;
 }
 
 .right span,  .mystorycontainer span {
-    color: white !important;
+    color: black !important;
 }
 
 
@@ -1118,7 +1120,7 @@ overflow-y: scroll;
 
     width: 100%;
     min-height: 800px;
-    color: white;
+    color: black;
     text-align: left;
 
     display: flex;
@@ -1251,23 +1253,23 @@ overflow-y: scroll;
 }
 
 .socialitem:nth-child(1){
-    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/facebook-icon.png");
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/facebook-icon.png");
 }
 
 .socialitem:nth-child(2){
-    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/twitter-icon.png");
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/twitter-icon.png");
 }
 
 .socialitem:nth-child(3){
-    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/instagram.png");
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/instagram.png");
 }
 
 .socialitem:nth-child(4){
-    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/mobile/linked.png");
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/linked.png");
 }
 
 #frontbutback{
-    background-image: url("https://ismailisimba.github.io/afrika1/resources/arrow_back_white.svg");
+    background-image: url("https://ladhaafricaadventure.com/icons/arrow_back_black_48dp.svg");
     margin-left: 36px;
 }
 
@@ -1277,7 +1279,7 @@ overflow-y: scroll;
     position: relative;
     width: 169px;
     height: 69px;
-    background-color: #646635;
+    background-color: transparent;
     color: white;
 
     flex-flow: row;
@@ -1288,8 +1290,8 @@ overflow-y: scroll;
 
   .captchaitems {
     position: relative;
-    background-color: #646635;
-    color: white;
+    background-color: transparent;
+    color: black;
     text-align: center;
     font-weight: bold;
     font-size: 18px;
@@ -1395,15 +1397,16 @@ overflow-y: scroll;
 }
 
 .left p {
-    color: white !important;
+    color: black !important;
 }
 
 .left h1{
-    color: white;
+    color: black;
 }
 
 .left .postpreview {
     background-image: none !important;
+    background-color: transparent !important;
     margin: 0 auto !important;
     width: 96% !important;
     min-width: 369px !important;
@@ -1421,7 +1424,7 @@ overflow-y: scroll;
 .right div {
     width: 85%;
     margin: 0 auto !important;
-    color: white !important;
+    color: black !important;
     padding-bottom: 36px;
     position:relative !important ;
 }
@@ -1430,6 +1433,10 @@ overflow-y: scroll;
     position: -webkit-sticky;
     position: sticky;
     top: 20px;
+}
+
+.right a {
+    background-color:  transparent !important;
 }
 
 .right div img{
@@ -1442,11 +1449,11 @@ overflow-y: scroll;
 }
 
 .right div sup {
-    color:  white !important;
+    color:  #646635 !important;
 }
 
 .right div a {
-    color: wheat !important
+    color: #646635 !important
 }
 
 .right h1 {
@@ -1457,7 +1464,7 @@ overflow-y: scroll;
     margin-block-end: 0px !important;
     margin: 0 auto !important;
     margin-top: 24px !important;
-    color: white !important;
+    color: #646635 !important;
 }
 
 
@@ -1471,7 +1478,7 @@ overflow-y: scroll;
     max-width: 669px;
     width: 50%;
     background-color:transparent;
-    border: .69px dotted white;
+    border: .69px dotted #646635;
     border-radius: 12px;
     display: flex;
     flex-flow: column;
@@ -1542,7 +1549,7 @@ overflow-y: scroll;
   .bookingchild h2{
     font-size: 16px;
     letter-spacing: 1.69px;
-    color: white !important;
+    color: black !important;
     font-weight: 600;
     margin: 6px auto;
     width: 100% !important;
@@ -1557,7 +1564,7 @@ overflow-y: scroll;
   .bookingchild h3 {
     font-size: 14px;
     letter-spacing: 1.69px;
-    color: white;
+    color: black;
     font-weight: 500;
     min-width: 98px;
     width: 25%;
@@ -1567,7 +1574,7 @@ overflow-y: scroll;
 
   .bookingchild label{
     font-size: 12px;
-    color: white !important;
+    color: black !important;
     letter-spacing: 1.69px;
     font-weight: normal;
     width: 69px;
@@ -1602,12 +1609,12 @@ overflow-y: scroll;
 
  
   .thumbnailsfront span {
-      background-color: #646635;
+      background-color: black;
       width: 100%;
       box-sizing: border-box;
       padding: 3px 6px;
       font-size: 24px !important;
-      opacity: .86;
+      opacity: .78;
   }
 
   #ismizo{
@@ -1618,7 +1625,7 @@ overflow-y: scroll;
     color: black;
     position: absolute;
     right: -12px;
-    top: 48px;
+    top: 24px;
 }
 
 
@@ -1636,7 +1643,8 @@ overflow-y: scroll;
     width: 172px;
     min-height: 200px;
     box-sizing: border-box;
-    border: .69px dotted white !important;
+    border: .69px dotted #646635 !important;
+    border-radius: 6px;
     margin: 6px 12px;
     padding: 6px 12px;
     text-align: right;
@@ -1661,7 +1669,8 @@ overflow-y: scroll;
 }
 
 #frontendstorycont section p {
-    margin-block-start: 0px;
+    margin-block-start: 16px;
+    font-weight: 600;
     margin-block-end: 0px;
 }
 
@@ -1669,6 +1678,10 @@ overflow-y: scroll;
    display: block;
    width:100%;
    text-align: center;
+   text-decoration: none;
+   font-size: 18px;
+   font-weight: 700;
+   margin-bottom: 12px;
 }
 
 
@@ -1694,6 +1707,7 @@ overflow-y: scroll;
     body{
         max-height: none !important;
         overflow-x: hidden !important;
+        overflow-y: scroll !important;
     }
 
     nav {display: none;}
@@ -1813,7 +1827,7 @@ overflow-y: scroll;
         height: 69px; 
         background-color: transparent;
 
-        background-image: url("https://ismailisimba.github.io/afrika1/resources/menu_icon_open.svg");
+        background-image: url("https://ladhaafricaadventure.com/icons/menu_open_black_48dp.svg");
         background-position: center;
         background-size: 59%;
         background-repeat: no-repeat;
@@ -1840,6 +1854,7 @@ overflow-y: scroll;
         margin-bottom: 36px;
         height: auto;
         left: -38px;
+        box-shadow: none;
         box-sizing: border-box;
         overflow-y: hidden;
         overflow-x: hidden;
@@ -1856,9 +1871,10 @@ overflow-y: scroll;
         flex-flow: column;
         justify-content: flex-start;
         align-items: center;
-        padding-top: 48px;
+     
+        padding-top: 0px;
         padding-bottom: 48px;
-        background: #646635;
+        background: transparent;
     }
 
     .internalboxone{
@@ -1868,7 +1884,7 @@ overflow-y: scroll;
 
     .frontphotobox{
         flex-flow: column;
-        height: 769px;
+        height: 700px;
         width: 85%;
     }
 
@@ -1894,6 +1910,7 @@ overflow-y: scroll;
     .internalboxone h1{
         width: 100%;
         padding-top: 24px;
+        line-height: 24px;
         padding-right: 24px;
         padding-left: 24px;
     }
@@ -1933,12 +1950,16 @@ overflow-y: scroll;
         min-width: 24px;
         width: 69%;
         max-width: 69px;
-        top: -24px;
+        top: -18px;
      
     }
 
     .containerbox, .internalboxtwo p {
         border: 0.69px dotted white;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 1.69px;
+        line-height: 14px;
     }
 
     #aboutusback{
@@ -2134,6 +2155,10 @@ overflow-y: scroll;
     #frontendstorycont section{
         width: 100%;
         text-align: left;
+    }
+
+    #ismizo{
+        top: 48px;
     }
 
 }

@@ -35,6 +35,7 @@ window.onload = () => {
 
 function  myScrollFunctions() {
     document.onwheel = customScroll;
+    document.body.style.overflowY = "hidden";
 };
 
 function navClicks(){
@@ -49,6 +50,8 @@ function navClicks(){
 
 
 function customScroll(event){
+
+   
     
     counters.deltaY = event.deltaY;
     counters.deltaYSign = Math.sign(counters.deltaY);
@@ -72,6 +75,7 @@ function customScroll(event){
 
 function emptyDisengagedFunc(){
      //emptyfunction
+     document.body.style.overflowY = "scroll";
      return null;
 }
 
@@ -158,6 +162,7 @@ function rollInGeneric() {
    
     toTheRight();
     document.onwheel = customScroll;
+    document.body.style.overflowY = "hidden";
     counters.dropState="hidden";
 
 }
@@ -2174,10 +2179,10 @@ function addNewHtmlFuncs2(storyid) {
         if(document.getElementById("left").classList.contains("programs")){
           addBookingActions(storyObj.title);
           document.getElementById("frontendstorycont").style.width = "83%";
-          console.log("dis")
+          
         }else{
           document.getElementById("frontendstorycont").style.width = "100%";
-          console.log("dat")
+          
         }
       },369)
 
@@ -2341,7 +2346,25 @@ function addNewHtmlFuncs2(storyid) {
       document.getElementById("backendoxtitle2").click();
       document.getElementById("backendoxtitle3").click();
     
-      readStoryObj(storyContainer,storyObj);
+      storyContainer.innerHTML = storyObj.storyObj.myHtml;
+    
+      let images = storyContainer.querySelectorAll("img");
+      let paras = storyContainer.querySelectorAll("p");
+    
+      images.forEach(element => {
+        if(element.src==="https://ismizo.com/resources/icons/loading.png"){
+          
+          fetchDisImage(element);
+        }
+      })
+    
+      paras.forEach( paragraph => {
+        let imagesInside = []
+        imagesInside = paragraph.querySelectorAll("img");
+        if(imagesInside.length>=1){
+          paragraph.style.textAlign = "center";
+        }
+      })
     
       titleDiv.value = storyObj.title;
       descrDiv.value = storyObj.description;
@@ -3456,19 +3479,23 @@ function addBookingActions (title) {
   let container = document.getElementById("frontendstorycont");
   let content = document.createElement("section");
   content.innerHTML = `
-  <div> <p>Included</p>
-  <ul><li>All Park fees with VAT included.</li>
-  <li>A 4x4 safari vehicle with an observation roof.</li>
-  <li>Guides</li>
-  <li>Full board accomodation</li>
-  <li>Food and drinks during safari.</li>
+  <div> <p>Price Includes</p>
+  <ul><li>All Park and transit fees.</li>
+  <li>A 4WD Toyota Land Cruiser specially made for Safari.</li>
+  <li>Transfers to and from the airport.</li>
+  <li>Accomodation.</li>
+  <li>Meals and drinking water during safari.</li>
+  <li>All government taxes and 18% VAT.</li>
   </ul>
   </div>
 
-  <div> <p>Not Included</p>
-  <ul><li>COVID tests and fees</li>
-  <li>Tips</li>
-  <li>Travel documents and arrangement into and out of country</li>
+  <div> <p>Price Excludes</p>
+  <ul><li>International flights.</li>
+  <li>Domestic flights.</li>
+  <li>Health insurance.</li>
+  <li>Alcohol, sodas, and other beverages.</li>
+  <li>Laundry services.</li>
+  <li>Tips and anything else not stated above.</li>
   </ul>
   </div>
   <a href="/?bookAction=true&progTit=${title}">Book Now</a>`;
