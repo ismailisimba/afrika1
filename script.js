@@ -259,13 +259,7 @@ function onSignIn(googleUser) {
             
           })
           .catch(function(error) {
-            var p = document.createElement('p');
-            p.appendChild(
-              document.createTextNode('Error: ' + error.message)
-            );
-            tempDiv = document.querySelectorAll(".bigcontainer")[0];
-            tempDiv2 = document.querySelectorAll(".googlestuff")[0];
-            tempDiv.insertBefore(p, tempDiv2);
+              console.log(error.message);
           });
   
         
@@ -1756,6 +1750,14 @@ async function startHailing(data,para,functionToRunAfter){
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].type = "draft";
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].stats.push({timeid:tempid});
        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].stats.push({typetoo:document.getElementById("feature69").value});
+       let arr = document.getElementById("feature70").value;
+       arr = arr.toString();
+       arr = arr.split(",");
+       
+       arr.forEach(ele=>{
+        counters.localVar.cloudObj.contentObj.contentObj.draft.stories[0].tags.push(ele);
+       })
+    
     
         let token = getToken();
       hailTheServerOnAllChannels("uploadStory",token);
@@ -2340,7 +2342,8 @@ function addNewHtmlFuncs2(storyid) {
     function addThisStoryToEditor(storyObj){
       let titleDiv = document.getElementById("editposttit") ;
       let descrDiv = document.getElementById("descrtit");
-      let specialType = document.getElementById("feature69")
+      let specialType = document.getElementById("feature69");
+      let tags = document.getElementById("feature70");
       let storyContainer = document.querySelectorAll(".ql-editor")[0];
     
       document.getElementById("backendoxtitle2").click();
@@ -2369,6 +2372,7 @@ function addNewHtmlFuncs2(storyid) {
       titleDiv.value = storyObj.title;
       descrDiv.value = storyObj.description;
       specialType.value = storyObj.stats[1].typetoo;
+      tags.value = storyObj.tags.toString();
     }
     
     function  fillPublishedStoriesSelections(){
@@ -2958,12 +2962,7 @@ async function fetcher(data,action,funcAft){
           
         })
         .catch(function(error) {
-          var p = document.createElement('p');
-          p.appendChild(
-            document.createTextNode('Error: ' + error.message)
-          );
-  
-          document.querySelectorAll(".simplecaptchamom")[0].innerHTML = p.innerHTML;
+         console.log(error.message)
          
         });
         return returnVal; 
@@ -3462,6 +3461,8 @@ async function bookThisProgram (progTit){
   document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
   rollOutGeneric().then(()=>{
     fillBookingBox();
+    document.body.style.overflowY = "scroll";
+    document.onwheel = emptyDisengagedFunc;
   }
   ).then(()=>{
     let tempTim = window.setTimeout(()=>{
