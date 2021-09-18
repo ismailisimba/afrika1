@@ -8,7 +8,7 @@ body{
     position: relative;
     background-color: transparent;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
     max-height: 96vh;
 }
 
@@ -88,7 +88,7 @@ title{
 }
 
 #logo{
-    background-image: url("https://ismailisimba.github.io/afrika1/resources/logo.png");
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/logo.webp");
     width: 100%;
     height: 69px;
     padding-right: 69px;
@@ -149,7 +149,7 @@ nav ul li {
     font-size: small;
     color: white;
 
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.69px;
     padding-top: 12px;
     padding-left: 24px;
@@ -355,7 +355,7 @@ nav ul li:hover {
 
 
   .sitemappiccontainer{
-      background-image: url("https://www.talissclub.com/img_ly/taliss-sitemap-wide.png");
+      background-image: url("https://www.ladhaafricaadventure.com/img_ly/ladha-sitemap-wide.webp");
       background-position: center;
       background-size: 100%;
       background-repeat: no-repeat;
@@ -522,10 +522,10 @@ nav ul li:hover {
 
     transition: all;
 
-    -webkit-transition-duration: 1.5s;
-    -moz-transition-duration: 1.5s;
-    -o-transition-duration: 1.5s;
-    transition-duration: 1.5s;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
 
 
     -webkit-transition-timing-function: ease-out;
@@ -584,7 +584,7 @@ nav ul li:hover {
     width: 269px;
     height: 100%;
 
-    background-image: url("https://ismailisimba.github.io/afrika1/resources/elephant-tall-standard.jpg");
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/elephant-tall-standard.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -689,7 +689,7 @@ nav ul li:hover {
     background-color: #646635;
     z-index: 100;
 
-    background-image: url("https://ismailisimba.github.io/afrika1/resources/zebra-wide-standard.jpg");
+    background-image: url("https://ismailisimba.github.io/afrika1/resources/zebra-wide-standard.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -884,10 +884,10 @@ nav ul li:hover {
     
     transition: all;
 
-    -webkit-transition-duration: 1.5s;
-    -moz-transition-duration: 1.5s;
-    -o-transition-duration: 1.5s;
-    transition-duration: 1.5s;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
 
 
     -webkit-transition-timing-function: ease-out;
@@ -1253,19 +1253,19 @@ overflow-y: scroll;
 }
 
 .socialitem:nth-child(1){
-    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/facebook-icon.png");
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/facebook-icon.webp");
 }
 
 .socialitem:nth-child(2){
-    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/twitter-icon.png");
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/twitter-icon.webp");
 }
 
 .socialitem:nth-child(3){
-    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/instagram.png");
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/instagram.webp");
 }
 
 .socialitem:nth-child(4){
-    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/linked.png");
+    background-image: url("https://ismailisimba.github.io/swimone/resources/icons/linked.webp");
 }
 
 #frontbutback{
@@ -1466,7 +1466,8 @@ overflow-y: scroll;
     margin-block-start: 0px !important;
     margin-block-end: 0px !important;
     margin: 0 auto !important;
-    margin-top: 24px !important;
+    margin-top: 36px !important;
+    margin-bottom: 48px !important;
     color: #646635 !important;
 }
 
@@ -1649,6 +1650,7 @@ overflow-y: scroll;
     border: .69px dotted #646635 !important;
     border-radius: 6px;
     margin: 6px 12px;
+    margin-left: 36px;
     padding: 6px 12px;
     text-align: right;
 }
@@ -1709,6 +1711,14 @@ overflow-y: scroll;
     position: absolute;
     background-color: white;
     color: #646635;
+
+    cursor: pointer;
+
+    padding: 12px 18px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .69px;
 
     transition: all;
 

@@ -1,6 +1,6 @@
 const counters = {};
 const thumbObj = {};
-const leftObj = {top:0,right:0,left:0};
+const leftObj = {top:0,right:0,left:0,height:"0px"};
 const thumbArr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
 counters["frontendimages"] = [];
 counters["deltaY"] = 0;
@@ -35,7 +35,7 @@ window.onload = () => {
 
 function  myScrollFunctions() {
     document.onwheel = customScroll;
-    document.body.style.overflowY = "hidden";
+   // document.body.style.overflowY = "hidden";
 };
 
 function navClicks(){
@@ -75,7 +75,7 @@ function customScroll(event){
 
 function emptyDisengagedFunc(){
      //emptyfunction
-     document.body.style.overflowY = "scroll";
+    // document.body.style.overflowY = "scroll";
      return null;
 }
 
@@ -162,7 +162,7 @@ function rollInGeneric() {
    
     toTheRight();
     document.onwheel = customScroll;
-    document.body.style.overflowY = "hidden";
+    //document.body.style.overflowY = "hidden";
     counters.dropState="hidden";
 
 }
@@ -2178,12 +2178,14 @@ function addNewHtmlFuncs2(storyid) {
       backBut.removeEventListener("click",toTheRight,false);
       backBut.addEventListener("click",toTheRight,false);
       document.querySelectorAll(".genericboxcontent")[0].style.left ="-97.5%";
+      window.scrollTo({
+        top: getEleTopOffset (document.querySelectorAll(".genericbox")[0])+48,
+        left: 0,
+        behavior: 'smooth'
+      });
       let tempCl6969 = window.setTimeout(()=>{
-        window.scrollTo({
-          top: getEleTopOffset (document.querySelectorAll(".genericbox")[0])+48,
-          left: 0,
-          behavior: 'smooth'
-        });
+    
+        document.querySelectorAll(".left")[0].style.height = leftObj.height;
         tempDiv3.appendChild(backBut);
         tempDiv3.appendChild(titleDiv);
         tempDiv3.appendChild(storyContainer);
@@ -2212,7 +2214,7 @@ function addNewHtmlFuncs2(storyid) {
             })
           }
         })
-      },369)
+      },696)
 
      
       
@@ -2224,11 +2226,16 @@ function addNewHtmlFuncs2(storyid) {
       document.querySelectorAll(".genericboxcontent")[0].style.left ="0px";
       document.querySelectorAll(".right")[0].innerHTML = "";
 
-      window.scrollTo({
-        top: leftObj.top,
-        left: 0,
-        behavior: 'smooth'
-      });
+     
+
+      document.querySelectorAll(".left")[0].style.height = "auto";
+      let newtimy69 = window.setTimeout(()=>{
+        window.scrollTo({
+          top: leftObj.top,
+          left: 0,
+          behavior: 'smooth'
+        });
+      },699);
     }
     
     
@@ -3444,6 +3451,13 @@ function keepTrackOfVertScrollSForLeft(){
 
 };
 
+function keepTrackOfRightContHeight(){
+ 
+  leftObj.height = window.getComputedStyle(document.querySelectorAll(".right")[0]).getPropertyValue("height");
+
+
+};
+
 
 function thumbFuncOne(){
   let thumbContainer = document.getElementById("left").querySelectorAll(".thumbnailsfront");
@@ -3507,7 +3521,7 @@ async function bookThisProgram (progTit){
   document.querySelectorAll(".internalboxtwo")[2].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
   rollOutGeneric().then(()=>{
     fillBookingBox();
-    document.body.style.overflowY = "scroll";
+    //document.body.style.overflowY = "scroll";
     document.onwheel = emptyDisengagedFunc;
   }
   ).then(()=>{
@@ -3561,30 +3575,162 @@ function thumbFuncTwo (ele){
 
 function addNavPopUps(){
   document.querySelectorAll("nav")[0].querySelectorAll("li")[2].addEventListener("mouseover",destinationPopUp);
-  document.querySelectorAll("nav")[0].querySelectorAll("li")[2].addEventListener("mouseleave",destinationPopUpDel);
+  document.querySelectorAll("nav")[0].querySelectorAll("li")[3].addEventListener("mouseover",programsPopUp);
 }
 
 function destinationPopUp (){
   let popup = document.createElement("div");
   popup.className = "popupnuu";
   popup.id = "destipop";
-  popup.innerHTML = `Nature Safaris Destinations - Big 5, Birds and Flora<br>
-                     Cultural Safaris - Maasai, Hadzabe, Zanzibar<br>
+  popup.innerHTML = `Nature Safaris Destinations - Big 5, Birds and Flora<br><br>
+                     Cultural Safaris - Maasai, Hadzabe, Zanzibar<br><br>
                      Archeological Safaris - Olduvai Gorge, Bagamoyo, Ancient Cave-Paintings<br>`
 
   
   let topOf = getEleTopOffset(this);
   let leftOf = getEleLeftOffset(this);
+  let compWidth = window.getComputedStyle(this).getPropertyValue("width");
+
 
   topOf = topOf + 48;
-  leftOf = leftOf + 12;
 
   popup.style.top = topOf+"px";
   popup.style.left = leftOf+"px";
+  popup.style.width = compWidth;
 
   document.body.appendChild(popup);
+
+  document.querySelectorAll("nav")[0].querySelectorAll("li")[2].addEventListener("mouseleave",destinationPopUpDel);
+  popup.addEventListener("mouseover",destinationPopUp2);
+  popup.addEventListener("click",()=>{
+    //dropDownClicks();
+    
+    if(counters.dropState==="hidden"){
+      rollOutGeneric();
+      fillTravelGuides();
+  }else{
+      rollInGeneric();
+  }
+   
+  });
   
 }
+
+
+function programsPopUp (){
+  let popup = document.createElement("div");
+  popup.className = "popupnuu";
+  popup.id = "progspop";
+  popup.innerHTML = `<span>Luxury and Standard Safaris</span><br><br>
+  <span>Budget Safaris</span><br><br>
+                     One Day Safaris<br>`
+
+  
+  let topOf = getEleTopOffset(this);
+  let leftOf = getEleLeftOffset(this);
+  let compWidth = window.getComputedStyle(this).getPropertyValue("width");
+
+
+  topOf = topOf + 48;
+
+  popup.style.top = topOf+"px";
+  popup.style.left = leftOf+"px";
+  popup.style.width = compWidth;
+
+  document.body.appendChild(popup);
+
+  document.querySelectorAll("nav")[0].querySelectorAll("li")[3].addEventListener("mouseleave",destinationPopUpDel);
+  popup.addEventListener("mouseover",programsPopUp2);
+  popup.addEventListener("click",()=>{
+    //dropDownClicks();
+    
+    if(counters.dropState==="hidden"){
+      rollOutGeneric();
+      fillDestinationsFront()
+  }else{
+      rollInGeneric();
+  }
+    
+  });
+  
+}
+
+function destinationPopUp2 (){
+  let popup = document.createElement("div");
+  popup.className = "popupnuu";
+  popup.id = "destipop";
+  popup.innerHTML = `Nature Safaris Destinations - Big 5, Birds and Flora<br><br>
+                     Cultural Safaris - Maasai, Hadzabe, Zanzibar<br><br>
+                     Archeological Safaris - Olduvai Gorge, Bagamoyo, Ancient Cave-Paintings<br>`
+
+  
+  let topOf = getEleTopOffset(document.querySelectorAll("nav")[0].querySelectorAll("li")[2]);
+  let leftOf = getEleLeftOffset(document.querySelectorAll("nav")[0].querySelectorAll("li")[2]);
+  let compWidth = window.getComputedStyle(document.querySelectorAll("nav")[0].querySelectorAll("li")[2]).getPropertyValue("width");
+
+  topOf = topOf + 48;
+
+  popup.style.top = topOf+"px";
+  popup.style.left = leftOf+"px";
+  popup.style.width = compWidth;
+
+  document.body.appendChild(popup);
+  popup.addEventListener("mouseleave",destinationPopUpDel);
+  popup.addEventListener("click",()=>{
+   // dropDownClicks();
+    //fillTravelGuides();
+    if(counters.dropState==="hidden"){
+      rollOutGeneric();
+      fillTravelGuides();
+  }else{
+      rollInGeneric();
+  }
+    
+  });
+
+  document.querySelectorAll("nav")[0].querySelectorAll("li")[2].removeEventListener("mouseleave",destinationPopUpDel);
+  
+}
+
+
+function programsPopUp2 (){
+  let popup = document.createElement("div");
+  popup.className = "popupnuu";
+  popup.id = "progspop";
+  popup.innerHTML = `<span>Luxury and Standard Safaris</span><br><br>
+  <span>Budget Safaris</span><br><br>
+                     One Day Safaris<br>`
+
+
+  
+  let topOf = getEleTopOffset(document.querySelectorAll("nav")[0].querySelectorAll("li")[3]);
+  let leftOf = getEleLeftOffset(document.querySelectorAll("nav")[0].querySelectorAll("li")[3]);
+  let compWidth = window.getComputedStyle(document.querySelectorAll("nav")[0].querySelectorAll("li")[3]).getPropertyValue("width");
+
+  topOf = topOf + 48;
+
+  popup.style.top = topOf+"px";
+  popup.style.left = leftOf+"px";
+  popup.style.width = compWidth;
+
+  document.body.appendChild(popup);
+  popup.addEventListener("mouseleave",destinationPopUpDel);
+  popup.addEventListener("click",()=>{
+   // dropDownClicks();
+    //fillTravelGuides();
+    if(counters.dropState==="hidden"){
+      rollOutGeneric();
+      fillDestinationsFront();
+  }else{
+      rollInGeneric();
+  }
+    
+  });
+
+  document.querySelectorAll("nav")[0].querySelectorAll("li")[3].removeEventListener("mouseleave",destinationPopUpDel);
+  
+}
+
 
 function destinationPopUpDel(){
  
@@ -3594,7 +3740,7 @@ function destinationPopUpDel(){
       p.remove();
     })
     window.clearTimeout(timytimy);
-  },1269);
+  },696);
 
 
 
