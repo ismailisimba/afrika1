@@ -3588,9 +3588,11 @@ function destinationPopUp (){
 
 function destinationPopUpDel(){
  
-  let popup2 = document.getElementById("destipop");
+  let popup2 = document.querySelectorAll(".popupnuu");
   let timytimy = window.setTimeout(()=>{
-    popup2.remove();
+    popup2.forEach(p=>{
+      p.remove();
+    })
     window.clearTimeout(timytimy);
   },1269);
 
