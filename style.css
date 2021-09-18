@@ -1408,7 +1408,9 @@ overflow-y: scroll;
     background-image: none !important;
     background-color: transparent !important;
     margin: 0 auto !important;
-    width: 96% !important;
+    padding: 0px 0px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
     min-width: 369px !important;
 }
 
@@ -1416,6 +1418,7 @@ overflow-y: scroll;
 
     font-size: 18px;
     text-transform: capitalize;
+    padding: 0px 0px !important;
     font-weight: 600;
     color: white;
     letter-spacing: 1.69px;
@@ -1440,7 +1443,7 @@ overflow-y: scroll;
 }
 
 .right div img{
-    width: 50% !important;
+    width: 50%;
     max-width: 469px !important;
 }
 
@@ -1614,7 +1617,7 @@ overflow-y: scroll;
       box-sizing: border-box;
       padding: 3px 6px;
       font-size: 24px !important;
-      opacity: .78;
+      opacity: .96;
   }
 
   #ismizo{
@@ -1640,7 +1643,7 @@ overflow-y: scroll;
 }
 
 #frontendstorycont section{
-    width: 172px;
+    width: 320px;
     min-height: 200px;
     box-sizing: border-box;
     border: .69px dotted #646635 !important;
@@ -1653,7 +1656,8 @@ overflow-y: scroll;
 #frontendstorycont section li{
    width: 96%;
    font-size: 12px;
-   font-weight: 500;
+   font-weight: 400;
+   letter-spacing: .69px;
    box-sizing: border-box;
    list-style-type: none;
    margin-top: 6px;
@@ -1683,6 +1687,69 @@ overflow-y: scroll;
    font-weight: 700;
    margin-bottom: 12px;
 }
+
+
+.tripsections {
+    padding: 6px 12px;
+    margin: 12px auto;
+    box-sizing: border-box;
+    border: .69px dashed #646635;
+}
+
+.tripsections h1 {
+    color: #646635;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1.69px;
+    text-align: center;
+}
+
+.popupnuu{
+    z-index: 1000;
+    position: absolute;
+    background-color: white;
+    color: #646635;
+
+    transition: all;
+
+        -webkit-transition-duration: 0.69s;
+        -moz-transition-duration: 0.69s;
+        -o-transition-duration: 0.69s;
+        transition-duration: 0.69s;
+    
+    
+        -webkit-transition-timing-function: ease-out;
+        -moz-transition-timing-function: ease-out;
+        -o-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

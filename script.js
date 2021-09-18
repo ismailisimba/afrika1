@@ -1824,6 +1824,7 @@ async function startHailing(data,para,functionToRunAfter){
         for(let i=0 ; i <travelGuides.length ; i++){
           let tempDiv = storyCont.cloneNode(true);
           tempDiv = fillTempStoryDiv2(tempDiv,travelGuides[i]);
+          thumbFuncTwo(tempDiv);
         
           parent.appendChild(tempDiv);
           let hreftempy = null;
@@ -1884,7 +1885,16 @@ async function startHailing(data,para,functionToRunAfter){
             hreftempy.remove();
           }
 
-          temp.appendChild(tempDiv);
+         // temp.appendChild(tempDiv);
+
+         if(destiStories[i].tags[0]==="luxury"||destiStories[i].tags[0]==="standard"){
+            temp.querySelectorAll(".luxurytrips")[0].appendChild(tempDiv);
+         }else if(destiStories[i].tags[0]==="budget"){
+            temp.querySelectorAll(".budgettrips")[0].appendChild(tempDiv);
+         }else if(destiStories[i].tags[0]==="daytrip"){
+            temp.querySelectorAll(".daytrips")[0].appendChild(tempDiv);
+         }
+
         }
         
         temp.querySelectorAll(".postpreview").forEach(element => {
@@ -2149,7 +2159,7 @@ function addNewHtmlFuncs2(storyid) {
     
     };
 
-    function populateStory2(storyObj){
+  async function populateStory2(storyObj){
       let backBut = document.createElement("button");
       backBut.id="frontbutback";
       let titleDiv = document.createElement("h1");
@@ -2186,6 +2196,22 @@ function addNewHtmlFuncs2(storyid) {
           document.getElementById("frontendstorycont").style.width = "100%";
           
         }
+        let allImages = document.querySelectorAll(".right")[0].querySelectorAll("img");
+        allImages.forEach(image=>{
+          if(image.parentElement.childElementCount>=2){
+            let par = image.parentElement;
+            let images = par.querySelectorAll("img");
+            par.style.display = "flex";
+            par.style.flexFlow = "row";
+            par.style.flexWrap = "wrap";
+            par.style.justifyContent = "space-evenly";
+            par.style.alignItems = "center"
+
+            images.forEach(img=>{
+              img.style.width = "169px";
+            })
+          }
+        })
       },369)
 
      
@@ -2584,6 +2610,7 @@ async function fillDeFrontEnd(){
     counters.localVar.cloudObj = myObj;
 
     addDataFillFrontEndClicks();
+    addNavPopUps();
     fillInitialContacts();
     fillImagesFront().then(()=>{
       shuffleImages();
@@ -3014,7 +3041,7 @@ function fillTravelGuides() {
   
   fillUpStories(counters.localVar.cloudObj,"travelGuides").then(()=>{
     let thumbtimeout = window.setTimeout(()=>{
-      thumbFuncOne();
+     // thumbFuncTwo();
       window.clearTimeout(thumbtimeout);
     },696)
   });
@@ -3038,6 +3065,16 @@ function  fillStoriesFront(){
 function fillDestinationsFront(){
   let leftEle = document.querySelectorAll(".left")[0];
   leftEle.innerHTML = "";
+  leftEle.innerHTML = `
+  <section class="tripsections luxurytrips">
+    <h1 id="luxurytrips">Luxury and Standard Trips</h1>
+  </section>
+  <section class="tripsections budgettrips">
+    <h1 id="budgettrips">Budget Trips</h1>
+  </section>
+  <section class="tripsections daytrips">
+    <h1 id="daytrips">Day Trips</h1>
+  </section>`;
   leftEle.classList.add("programs");
   fillUpStories(counters.localVar.cloudObj,"destinationStories").then(()=>{
     let thumbtimeout = window.setTimeout(()=>{
@@ -3390,6 +3427,15 @@ function getEleTopOffset (element){
  return offset;
 } 
 
+function getEleLeftOffset (element){
+  var bodyRect = document.body.getBoundingClientRect();
+  var elemRect = element.getBoundingClientRect();
+  var offset   = elemRect.left - bodyRect.left;
+
+ return offset;
+} 
+
+
 
 function keepTrackOfVertScrollSForLeft(){
  
@@ -3502,4 +3548,52 @@ function addBookingActions (title) {
   <a href="/?bookAction=true&progTit=${title}">Book Now</a>`;
   
   container.appendChild(content);
+}
+
+
+function thumbFuncTwo (ele){
+  let id = ele.querySelectorAll(".storyhref")[0].id;
+  let background = ele.querySelectorAll("h2")[0];
+  id = id.replaceAll("/","_");
+  background.style.backgroundImage = `url(https://ladhaafricaadventure.com/thumbs/${id}.webp)`;
+}
+
+
+function addNavPopUps(){
+  document.querySelectorAll("nav")[0].querySelectorAll("li")[2].addEventListener("mouseover",destinationPopUp);
+  document.querySelectorAll("nav")[0].querySelectorAll("li")[2].addEventListener("mouseleave",destinationPopUpDel);
+}
+
+function destinationPopUp (){
+  let popup = document.createElement("div");
+  popup.className = "popupnuu";
+  popup.id = "destipop";
+  popup.innerHTML = `Nature Safaris Destinations - Big 5, Birds and Flora<br>
+                     Cultural Safaris - Maasai, Hadzabe, Zanzibar<br>
+                     Archeological Safaris - Olduvai Gorge, Bagamoyo, Ancient Cave-Paintings<br>`
+
+  
+  let topOf = getEleTopOffset(this);
+  let leftOf = getEleLeftOffset(this);
+
+  topOf = topOf + 48;
+  leftOf = leftOf + 12;
+
+  popup.style.top = topOf+"px";
+  popup.style.left = leftOf+"px";
+
+  document.body.appendChild(popup);
+  
+}
+
+function destinationPopUpDel(){
+ 
+  let popup2 = document.getElementById("destipop");
+  let timytimy = window.setTimeout(()=>{
+    popup2.remove();
+    window.clearTimeout(timytimy);
+  },1269);
+
+
+
 }
