@@ -1736,6 +1736,43 @@ overflow-y: scroll;
 
 
 
+.ducttape{
+
+    display: block;
+    position: absolute;
+    z-index: 2500;
+    background-color: black;
+    color: white;
+    width: 99%;
+    height: 1000%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+   
+
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+  }
+
+
+  .ducttape p{
+    margin-top: 22%;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1.69px;
+  }
+
+  .ducttape img{
+      width: 69px;
+      height: 69px;
+  }
+
+
+
 
 
 

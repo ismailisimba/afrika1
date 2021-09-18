@@ -2609,12 +2609,14 @@ function highlightDestiAndGuides(tempDiv) {
 
 
 async function fillDeFrontEnd(){
+  
   let contextObject = JSON.parse(JSON.stringify(counters.paraTemplate));
   contextObject.params[0]["action"] = "login";
   contextObject.params[0]["token"] = "letMeIn";
   contextObject.params[0]["dataObj"] = "letMeIn";
   let myObj = await fetchInfoWithFilter(contextObject,"strangerDanger").then(myObj=>{
     counters.localVar.cloudObj = myObj;
+    document.querySelectorAll(".ducttape")[0].remove();
 
     addDataFillFrontEndClicks();
     addNavPopUps();
