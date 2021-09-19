@@ -2538,7 +2538,7 @@ function frontEndOnlyFuncs () {
   if(frontEnd===undefined){
 
   }else if(frontEnd){
-    checkParameters();
+    //checkParameters();
     dropDownClicks();
     myScrollFunctions();
     navClicks();
@@ -2616,8 +2616,9 @@ async function fillDeFrontEnd(){
   contextObject.params[0]["dataObj"] = "letMeIn";
   let myObj = await fetchInfoWithFilter(contextObject,"strangerDanger").then(myObj=>{
     counters.localVar.cloudObj = myObj;
+   
     document.querySelectorAll(".ducttape")[0].remove();
-
+    checkParameters();
     addDataFillFrontEndClicks();
     addNavPopUps();
     fillInitialContacts();
