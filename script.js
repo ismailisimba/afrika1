@@ -2544,7 +2544,7 @@ function frontEndOnlyFuncs () {
     navClicks();
     fillDeFrontEnd();
     addMobMenu(window.screen.width);
-    frontEndStyles();
+    //frontEndStyles();
     //imageClicks();
     //imageTouchPrompt();
 
@@ -2618,7 +2618,7 @@ async function fillDeFrontEnd(){
     counters.localVar.cloudObj = myObj;
    
     document.querySelectorAll(".ducttape")[0].remove();
-    checkParameters();
+    frontEndStyles()
     addDataFillFrontEndClicks();
     addNavPopUps();
     fillInitialContacts();
@@ -2630,7 +2630,7 @@ async function fillDeFrontEnd(){
     //fillFeatured(myObj);
     //fillTit(myObj);
     //addStoryPageShowFrontEnd(myObj);
-    
+    checkParameters();
   });
 
 
