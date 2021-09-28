@@ -3415,6 +3415,7 @@ function fillBookingBox(){
 }
 
 
+
 function  fillFrontThumb(tempDiv,storyObj){
   let backImageCont = tempDiv.querySelectorAll("h2")[0];
  backImageCont.classList.add("thumbnailsfront");
